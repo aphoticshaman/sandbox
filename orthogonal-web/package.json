@@ -1,0 +1,47 @@
+{
+  "name": "orthogonal",
+  "version": "0.1.0",
+  "description": "Reality-bending puzzle game training meta-awareness",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "electron:build": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "three": "^0.160.0",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@types/three": "^0.160.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1"
+  },
+  "main": "electron/main.js",
+  "build": {
+    "appId": "com.orthogonal.game",
+    "productName": "Orthogonal",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.games",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "zip"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Game"
+    }
+  }
+}
