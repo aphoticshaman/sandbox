@@ -1,0 +1,1099 @@
+{
+  "journal_prompts": {
+    "meta": {
+      "total_prompts": 625,
+      "categories": ["card_specific", "cbt_focused", "dbt_focused", "mindfulness", "emotional_states", "daily_reflection", "crisis_support", "growth_milestones"],
+      "evidence_base": "Prompts based on therapeutic journaling research (Pennebaker expressive writing, CBT thought records, DBT diary cards)",
+      "tarot_integration": "All prompts can be used with or without tarot cards - cards provide archetypal entry point"
+    },
+
+    "card_specific_prompts": {
+      "major_arcana": {
+        "00_the_fool": {
+          "card_meaning": "New beginnings, innocence, leap of faith, potential, adventure",
+          "prompts": [
+            "What new beginning am I standing at the edge of? What would it look like to take that leap?",
+            "Where in my life am I being called to embrace beginner's mind?",
+            "What would I do if I trusted that the net will appear?",
+            "What am I carrying that I need to set down before this new journey?",
+            "If I had the Fool's innocence, what would I try without fear of failure?",
+            "What adventure is my heart calling me toward, even if my mind says it's impractical?"
+          ],
+          "cbt_connection": "Challenge catastrophizing - what if the risk is worth it?",
+          "dbt_connection": "Wise Mind - balancing excitement with wisdom",
+          "therapeutic_focus": "Embracing uncertainty, calculated risk-taking, beginner's mind"
+        },
+        "01_the_magician": {
+          "card_meaning": "Manifestation, skill, tools, willpower, resourcefulness",
+          "prompts": [
+            "What tools and skills do I already possess that I've been underutilizing?",
+            "What do I want to manifest in my life? What's the first small step?",
+            "Where am I waiting for permission when I already have the power?",
+            "What would I create if I fully believed in my abilities?",
+            "How can I use what's 'on my table' (my existing resources) more intentionally?",
+            "What skill am I developing? How does practice feel different from when I started?"
+          ],
+          "cbt_connection": "Disqualifying the positive - acknowledging your existing competence",
+          "dbt_connection": "Accumulating Positive Experiences - using skills intentionally",
+          "therapeutic_focus": "Self-efficacy, resource recognition, intentional action"
+        },
+        "02_the_high_priestess": {
+          "card_meaning": "Intuition, inner wisdom, unconscious, mystery, receptivity",
+          "prompts": [
+            "What does my intuition know that my logical mind is ignoring?",
+            "What truth am I not ready to consciously acknowledge yet?",
+            "When I sit in stillness, what voice emerges?",
+            "What pattern keeps repeating? What is it trying to teach me?",
+            "Where do I need to stop seeking external answers and trust my inner knowing?",
+            "What mystery in my life am I trying to solve that might be better honored?",
+            "What does my body know that my mind hasn't caught up to yet?"
+          ],
+          "cbt_connection": "Emotional reasoning - but also validating gut feelings vs. automatic thoughts",
+          "dbt_connection": "Wise Mind - accessing intuitive knowing",
+          "therapeutic_focus": "Trusting intuition, honoring the unconscious, receptivity"
+        },
+        "03_the_empress": {
+          "card_meaning": "Nurturing, abundance, creativity, growth, mother energy",
+          "prompts": [
+            "How am I nurturing myself? How would I like to nurture myself better?",
+            "What am I growing/creating in my life right now?",
+            "Where do I need to be more generous with myself?",
+            "What would unconditional self-love look like today?",
+            "How can I tend to my own needs the way I tend to others?",
+            "What is fertile and ready to bloom in my life?",
+            "If I treated myself with the care I give to those I love, what would change?"
+          ],
+          "cbt_connection": "All-or-nothing thinking about self-care",
+          "dbt_connection": "ABC PLEASE - accumulating positive experiences, building mastery",
+          "therapeutic_focus": "Self-compassion, nurturance, creative expression"
+        },
+        "04_the_emperor": {
+          "card_meaning": "Structure, authority, boundaries, discipline, leadership",
+          "prompts": [
+            "What boundaries do I need to set or reinforce?",
+            "Where in my life do I need more structure?",
+            "What am I avoiding taking authority over?",
+            "How do I relate to discipline - as punishment or as self-care?",
+            "Where do I need to lead instead of waiting for someone else?",
+            "What would healthy, compassionate self-discipline look like?",
+            "What structure would support my goals without feeling like prison?"
+          ],
+          "cbt_connection": "Should statements - reframing discipline as choice",
+          "dbt_connection": "FAST - maintaining self-respect through boundaries",
+          "therapeutic_focus": "Boundaries, healthy structure, self-leadership"
+        },
+        "05_the_hierophant": {
+          "card_meaning": "Tradition, learning, meaning-making, spiritual practice, conformity vs. rebellion",
+          "prompts": [
+            "What tradition or practice gives my life meaning?",
+            "What am I learning about myself through this experience?",
+            "Where do I conform when I should question? Where do I rebel when I should listen?",
+            "What spiritual or philosophical framework helps me make sense of life?",
+            "Who are my teachers (formal or informal)? What are they teaching me?",
+            "What values guide my life? Are they truly mine or inherited?",
+            "How do I find meaning in suffering?"
+          ],
+          "cbt_connection": "Core beliefs - examining inherited vs. chosen beliefs",
+          "dbt_connection": "Wise Mind - integrating tradition and personal truth",
+          "therapeutic_focus": "Meaning-making, values clarification, spiritual practice"
+        },
+        "06_the_lovers": {
+          "card_meaning": "Choice, values, integration, relationships, alignment",
+          "prompts": [
+            "What choice am I facing? What do my values say?",
+            "Where am I out of alignment with my values?",
+            "What parts of myself need integration (shadow and light, logical and emotional)?",
+            "What relationship (with self or other) needs attention?",
+            "What am I choosing between? What would each choice cost? What would each offer?",
+            "How do I show love to myself? How would I like to?",
+            "Where do I need to choose myself?"
+          ],
+          "cbt_connection": "Decision-making - examining evidence for each option",
+          "dbt_connection": "Wise Mind - integrating emotion and reason in choices",
+          "therapeutic_focus": "Values-based decision-making, integration, self-love"
+        },
+        "07_the_chariot": {
+          "card_meaning": "Willpower, determination, direction, discipline, victory through effort",
+          "prompts": [
+            "What am I moving toward? Is it where I truly want to go?",
+            "What opposing forces within me do I need to harness together?",
+            "Where do I need to exert willpower without becoming rigid?",
+            "What victory have I been working toward? Am I acknowledging progress?",
+            "How do I maintain direction when obstacles appear?",
+            "What momentum am I building? How can I sustain it?",
+            "Where do I confuse control with direction?"
+          ],
+          "cbt_connection": "All-or-nothing thinking about progress",
+          "dbt_connection": "Accumulating positive experiences toward goals",
+          "therapeutic_focus": "Goal-directed behavior, perseverance, balanced willpower"
+        },
+        "08_strength": {
+          "card_meaning": "Courage, compassion, inner strength, gentle power, taming the beast",
+          "prompts": [
+            "What fear am I being called to face with courage?",
+            "Where do I need to be gentle with my own 'inner beast'?",
+            "What does strength-through-compassion look like vs. strength-through-force?",
+            "What part of myself am I trying to dominate that I should befriend?",
+            "Where have I been stronger than I knew?",
+            "How can I approach this challenge with both courage AND kindness?",
+            "What would it mean to be soft and strong at the same time?"
+          ],
+          "cbt_connection": "Labeling - 'weak' vs. recognizing courage",
+          "dbt_connection": "Opposite Action - facing fear with courage",
+          "therapeutic_focus": "Courage, self-compassion, facing fear"
+        },
+        "09_the_hermit": {
+          "card_meaning": "Solitude, inner wisdom, reflection, seeking truth, withdrawal",
+          "prompts": [
+            "What do I need solitude to discover?",
+            "What truth am I seeking?",
+            "How do I feel about being alone with myself?",
+            "What would I learn if I withdrew from noise for a while?",
+            "What light am I carrying that could guide others?",
+            "Where do I need to seek answers within instead of outside?",
+            "What wisdom have I gained from my journey so far?"
+          ],
+          "cbt_connection": "Mind reading - trusting your own experience",
+          "dbt_connection": "Observe and Describe - witnessing without judgment",
+          "therapeutic_focus": "Solitude, self-knowledge, inner guidance"
+        },
+        "10_wheel_of_fortune": {
+          "card_meaning": "Change, cycles, fate vs. free will, ups and downs, turning points",
+          "prompts": [
+            "What is changing in my life right now? How do I feel about it?",
+            "What cycle am I in (beginning, middle, end)? What does this phase require?",
+            "Where do I have control? Where do I need to surrender?",
+            "What pattern keeps repeating? What is my role in the cycle?",
+            "How do I respond when the wheel turns down? When it turns up?",
+            "What would acceptance of life's inherent changeability feel like?",
+            "What is this turning point teaching me?"
+          ],
+          "cbt_connection": "Catastrophizing when things change",
+          "dbt_connection": "Radical Acceptance of impermanence",
+          "therapeutic_focus": "Acceptance of change, understanding cycles, agency vs. surrender"
+        },
+        "11_justice": {
+          "card_meaning": "Fairness, truth, accountability, cause and effect, balance",
+          "prompts": [
+            "Where do I need to take accountability?",
+            "What truth am I avoiding?",
+            "How do I balance self-compassion with self-accountability?",
+            "What consequences am I facing? What choices led here?",
+            "Where have I been unjust to myself or others?",
+            "What needs to be brought into balance?",
+            "How do I respond when life feels unfair?"
+          ],
+          "cbt_connection": "Personalization - appropriate vs. inappropriate responsibility",
+          "dbt_connection": "Nonjudgmental Stance while still acknowledging consequences",
+          "therapeutic_focus": "Accountability, fairness, balanced responsibility"
+        },
+        "12_the_hanged_man": {
+          "card_meaning": "Surrender, new perspective, sacrifice, pause, seeing differently",
+          "prompts": [
+            "What would I see if I looked at this situation upside-down?",
+            "What do I need to surrender?",
+            "What 'sacrifice' is actually freeing me?",
+            "How does this pause/waiting serve me?",
+            "What if this delay is protection, not punishment?",
+            "Where am I struggling against what I can't control?",
+            "What perspective shift am I resisting?"
+          ],
+          "cbt_connection": "Mental filter - seeing ONLY the negative in waiting",
+          "dbt_connection": "Radical Acceptance, Willingness",
+          "therapeutic_focus": "Surrender, reframing, accepting pause"
+        },
+        "13_death": {
+          "card_meaning": "Transformation, endings, release, rebirth, letting go",
+          "prompts": [
+            "What is ending in my life? How do I feel about it?",
+            "What do I need to let die so something new can be born?",
+            "How do I grieve endings?",
+            "What transformation am I resisting?",
+            "What would I be if I let go of this old identity?",
+            "What needs to be released? What makes that hard?",
+            "How am I different than I was a year ago? Five years ago?"
+          ],
+          "cbt_connection": "All-or-nothing thinking about change",
+          "dbt_connection": "Radical Acceptance of endings",
+          "therapeutic_focus": "Grieving, letting go, transformation"
+        },
+        "14_temperance": {
+          "card_meaning": "Balance, moderation, integration, patience, alchemy",
+          "prompts": [
+            "What extremes in my life need balancing?",
+            "How can I practice moderation without deprivation?",
+            "What opposing parts of myself need integration?",
+            "Where do I need patience?",
+            "What is being alchemized in me right now?",
+            "How do I find the middle way between extremes?",
+            "What would 'just right' look like (not too much, not too little)?"
+          ],
+          "cbt_connection": "All-or-nothing thinking - finding the middle",
+          "dbt_connection": "Wise Mind - the ultimate balance",
+          "therapeutic_focus": "Balance, moderation, integration"
+        },
+        "15_the_devil": {
+          "card_meaning": "Shadow, addiction, materialism, bondage, unhealthy attachment",
+          "prompts": [
+            "What am I chained to? How are the chains self-imposed?",
+            "What shadow part of myself am I denying?",
+            "Where am I seeking pleasure in ways that harm me?",
+            "What addiction (substance, behavior, thought pattern) has power over me?",
+            "What would freedom from this attachment look like?",
+            "How do I use _____ to avoid feeling _____?",
+            "What part of myself am I afraid to look at?"
+          ],
+          "cbt_connection": "Identifying automatic thoughts that enable unhealthy patterns",
+          "dbt_connection": "Mindfulness of current emotion - what am I avoiding?",
+          "therapeutic_focus": "Shadow work, addiction awareness, healthy boundaries"
+        },
+        "16_the_tower": {
+          "card_meaning": "Sudden change, crisis, breakdown/breakthrough, revelation, upheaval",
+          "prompts": [
+            "What illusion is crumbling? What truth is being revealed?",
+            "How do I respond to sudden change?",
+            "What was I building on shaky foundation?",
+            "In what way is this crisis also an opportunity?",
+            "What needs to fall apart so something better can be built?",
+            "How have past crises changed me? What did I learn?",
+            "What can I control right now, in this moment?"
+          ],
+          "cbt_connection": "Catastrophizing - crisis is painful AND survivable",
+          "dbt_connection": "TIPP for crisis, Radical Acceptance",
+          "therapeutic_focus": "Crisis response, resilience, finding meaning in chaos"
+        },
+        "17_the_star": {
+          "card_meaning": "Hope, healing, renewal, inspiration, faith",
+          "prompts": [
+            "What am I hoping for?",
+            "How am I healing? What supports my healing?",
+            "What inspires me?",
+            "Where is renewal happening in my life?",
+            "What would it feel like to have faith that things will work out?",
+            "How do I reconnect with hope when I've lost it?",
+            "What light is guiding me through darkness?"
+          ],
+          "cbt_connection": "Mental filter - seeing possibility, not just problems",
+          "dbt_connection": "Build Positive Experiences",
+          "therapeutic_focus": "Hope, healing, inspiration"
+        },
+        "18_the_moon": {
+          "card_meaning": "Unconscious, fear, illusion, intuition, mystery",
+          "prompts": [
+            "What am I afraid of? Is the fear based in reality or projection?",
+            "What is my unconscious trying to tell me through dreams, slips, patterns?",
+            "Where am I confusing illusion with reality?",
+            "What do I need to illuminate?",
+            "How do I navigate when I can't see the path clearly?",
+            "What shadow am I walking through?",
+            "What does my anxiety want me to know?"
+          ],
+          "cbt_connection": "Catastrophizing, fortune-telling",
+          "dbt_connection": "Mindfulness of thoughts vs. facts",
+          "therapeutic_focus": "Anxiety, unconscious material, discernment"
+        },
+        "19_the_sun": {
+          "card_meaning": "Joy, vitality, success, clarity, inner child",
+          "prompts": [
+            "What brings me pure joy?",
+            "Where in my life is there vitality and aliveness?",
+            "What success (big or small) can I celebrate?",
+            "What has become clear recently?",
+            "How does my inner child want to play?",
+            "Where am I taking life too seriously?",
+            "What would I do if I allowed myself to be radiantly happy?"
+          ],
+          "cbt_connection": "Disqualifying the positive - allowing joy",
+          "dbt_connection": "Accumulating Positive Experiences",
+          "therapeutic_focus": "Joy, vitality, inner child work"
+        },
+        "20_judgement": {
+          "card_meaning": "Awakening, calling, rebirth, evaluation, reckoning",
+          "prompts": [
+            "What am I being called to?",
+            "How am I being reborn/transformed?",
+            "What needs my honest evaluation?",
+            "What past version of myself am I releasing?",
+            "What is my 'higher calling'?",
+            "How do I answer when life calls me to grow?",
+            "What have I learned from my journey so far?"
+          ],
+          "cbt_connection": "Core beliefs - examining life's purpose",
+          "dbt_connection": "Wise Mind - hearing your calling",
+          "therapeutic_focus": "Purpose, awakening, self-evaluation"
+        },
+        "21_the_world": {
+          "card_meaning": "Completion, integration, wholeness, achievement, celebration",
+          "prompts": [
+            "What cycle am I completing?",
+            "How have I integrated the lessons of my journey?",
+            "What achievement deserves celebration?",
+            "Where do I feel whole? Where do I still feel fragmented?",
+            "What does 'home' feel like now?",
+            "How am I different from who I was at the start of this journey?",
+            "What new beginning awaits after this completion?"
+          ],
+          "cbt_connection": "Disqualifying the positive - celebrating completion",
+          "dbt_connection": "Mindfulness of current moment - honoring arrival",
+          "therapeutic_focus": "Integration, completion, celebration"
+        }
+      },
+      "minor_arcana_cups": {
+        "ace_of_cups": {
+          "prompts": [
+            "What new emotional beginning or relationship is emerging?",
+            "How am I opening my heart?",
+            "What would it feel like to let love in?",
+            "Where do I need to fill my own cup first?"
+          ]
+        },
+        "two_of_cups": {
+          "prompts": [
+            "What relationship (romantic, friendship, self) needs attention?",
+            "Where am I finding mutual support?",
+            "How do I show up in partnership?",
+            "What does equal exchange look like?"
+          ]
+        },
+        "three_of_cups": {
+          "prompts": [
+            "What do I have to celebrate with others?",
+            "Who is my chosen family/community?",
+            "How do I contribute to my community's joy?",
+            "Where do I need more social connection?"
+          ]
+        },
+        "four_of_cups": {
+          "prompts": [
+            "What opportunity am I not seeing because I'm focused on what's missing?",
+            "Where am I checked out emotionally?",
+            "What gift is being offered that I'm refusing?",
+            "How do I re-engage with life when feeling numb?"
+          ]
+        },
+        "five_of_cups": {
+          "prompts": [
+            "What loss am I grieving?",
+            "Can I turn around to see what remains?",
+            "How do I hold both grief AND gratitude?",
+            "What am I ruminating on instead of processing?"
+          ]
+        },
+        "six_of_cups": {
+          "prompts": [
+            "What childhood memory or pattern is present now?",
+            "How does my inner child need care today?",
+            "What innocence have I lost? What have I gained?",
+            "Where do I find nostalgia vs. being stuck in the past?"
+          ]
+        },
+        "seven_of_cups": {
+          "prompts": [
+            "What options am I overwhelmed by?",
+            "Which choice is fantasy vs. which is real possibility?",
+            "How do I discern between desires?",
+            "Where do I need to commit instead of daydream?"
+          ]
+        },
+        "eight_of_cups": {
+          "prompts": [
+            "What am I walking away from?",
+            "What is no longer serving me?",
+            "How do I know when to leave vs. when to stay?",
+            "What am I seeking that requires me to leave comfort behind?"
+          ]
+        },
+        "nine_of_cups": {
+          "prompts": [
+            "What wish has been fulfilled?",
+            "What am I satisfied with?",
+            "How do I celebrate emotional abundance?",
+            "Where can I allow myself to feel content?"
+          ]
+        },
+        "ten_of_cups": {
+          "prompts": [
+            "What does emotional fulfillment look like for me?",
+            "Where do I find 'home' (physical or emotional)?",
+            "How do I create family (chosen or blood)?",
+            "What would harmony in my relationships look like?"
+          ]
+        },
+        "page_of_cups": {
+          "prompts": [
+            "What new feeling or creative impulse is emerging?",
+            "How do I approach emotions with curiosity?",
+            "What message does my heart have for me?",
+            "Where can I be more emotionally open?"
+          ]
+        },
+        "knight_of_cups": {
+          "prompts": [
+            "What am I being called to pursue emotionally?",
+            "How do I balance romance/idealism with reality?",
+            "What creative quest am I on?",
+            "Where do I lead with my heart?"
+          ]
+        },
+        "queen_of_cups": {
+          "prompts": [
+            "How do I nurture my emotional life?",
+            "Where do I need to trust my intuition?",
+            "How do I hold space for my own feelings?",
+            "What does emotional mastery look like?"
+          ]
+        },
+        "king_of_cups": {
+          "prompts": [
+            "How do I lead with emotional wisdom?",
+            "Where do I balance feeling deeply with remaining steady?",
+            "How do I master my emotions without suppressing them?",
+            "What does emotional maturity mean to me?"
+          ]
+        }
+      },
+      "minor_arcana_swords": {
+        "note": "Swords = thoughts, communication, truth, conflict, clarity",
+        "ace_of_swords": {
+          "prompts": [
+            "What new clarity or truth is cutting through?",
+            "What do I need to communicate?",
+            "Where do I need to use my mind as a tool?",
+            "What breakthrough understanding am I having?"
+          ]
+        },
+        "two_of_swords": {
+          "prompts": [
+            "What decision am I avoiding?",
+            "How am I blocking information I need?",
+            "Where am I at a stalemate?",
+            "What would it take to remove the blindfold?"
+          ]
+        },
+        "three_of_swords": {
+          "prompts": [
+            "What heartbreak am I processing?",
+            "How do I allow myself to feel grief?",
+            "What painful truth needs acknowledgment?",
+            "How do I heal from this hurt?"
+          ]
+        },
+        "four_of_swords": {
+          "prompts": [
+            "Where do I need rest?",
+            "How do I recover from mental exhaustion?",
+            "What would true restoration look like?",
+            "Am I resting or avoiding?"
+          ]
+        },
+        "five_of_swords": {
+          "prompts": [
+            "What conflict did I 'win' but feel badly about?",
+            "Where have I prioritized being right over being kind?",
+            "What does defeat teach me?",
+            "How do I handle winning/losing with grace?"
+          ]
+        },
+        "six_of_swords": {
+          "prompts": [
+            "What am I moving away from? Toward?",
+            "How do I navigate transitions?",
+            "What do I carry with me through change?",
+            "Who is guiding me through troubled waters?"
+          ]
+        },
+        "seven_of_swords": {
+          "prompts": [
+            "Where am I being less than honest?",
+            "What am I stealing from myself (time, joy, truth)?",
+            "How do I navigate situations that require strategy?",
+            "What secret am I keeping? From others? From myself?"
+          ]
+        },
+        "eight_of_swords": {
+          "prompts": [
+            "What am I trapped by? How is it self-imposed?",
+            "What thoughts are binding me?",
+            "What would I see if I took the blindfold off?",
+            "What first small step toward freedom can I take?"
+          ]
+        },
+        "nine_of_swords": {
+          "prompts": [
+            "What am I catastrophizing about?",
+            "What's keeping me up at night?",
+            "How much of this worry is based in reality?",
+            "What would help me find peace with uncertainty?"
+          ]
+        },
+        "ten_of_swords": {
+          "prompts": [
+            "What has reached rock bottom?",
+            "How do I let this be the end instead of continuing to suffer?",
+            "What new beginning waits beyond this ending?",
+            "How do I surrender when I've been defeated?"
+          ]
+        },
+        "page_of_swords": {
+          "prompts": [
+            "What new idea or truth am I discovering?",
+            "How do I approach learning?",
+            "Where can I be more curious?",
+            "What question needs asking?"
+          ]
+        },
+        "knight_of_swords": {
+          "prompts": [
+            "Where am I charging ahead without thinking?",
+            "How do I balance speed with wisdom?",
+            "What truth am I fighting for?",
+            "Where do I need to slow down?"
+          ]
+        },
+        "queen_of_swords": {
+          "prompts": [
+            "How do I speak my truth with clarity and compassion?",
+            "Where do I need to set clear boundaries?",
+            "How do I balance discernment with kindness?",
+            "What does it mean to be both sharp and loving?"
+          ]
+        },
+        "king_of_swords": {
+          "prompts": [
+            "How do I use my intellect wisely?",
+            "Where do I need to make a fair, logical decision?",
+            "How do I lead with clarity and ethics?",
+            "What does mental mastery mean to me?"
+          ]
+        }
+      },
+      "minor_arcana_wands": {
+        "note": "Wands = passion, creativity, energy, action, will",
+        "ace_of_wands": {
+          "prompts": [
+            "What creative spark or new passion is igniting?",
+            "What do I feel called to create or start?",
+            "Where is my energy focused?",
+            "What would I do with unlimited energy and courage?"
+          ]
+        },
+        "two_of_wands": {
+          "prompts": [
+            "What future am I planning?",
+            "How do I balance vision with action?",
+            "What are my options? Which calls to me?",
+            "Where do I stand at a crossroads of potential?"
+          ]
+        },
+        "three_of_wands": {
+          "prompts": [
+            "What have I set in motion?",
+            "How do I wait for results with active patience?",
+            "What partnerships or collaborations are forming?",
+            "What distant goal am I working toward?"
+          ]
+        },
+        "four_of_wands": {
+          "prompts": [
+            "What foundation have I built?",
+            "What milestone deserves celebration?",
+            "How do I create stability while honoring freedom?",
+            "Where do I find 'home' and celebration?"
+          ]
+        },
+        "five_of_wands": {
+          "prompts": [
+            "What conflict or competition am I in?",
+            "Is this struggle productive or destructive?",
+            "How do I navigate differing opinions/goals?",
+            "Where is healthy challenge vs. unnecessary drama?"
+          ]
+        },
+        "six_of_wands": {
+          "prompts": [
+            "What victory or recognition have I earned?",
+            "How do I celebrate success with humility?",
+            "What journey led to this achievement?",
+            "How do I handle being in the spotlight?"
+          ]
+        },
+        "seven_of_wands": {
+          "prompts": [
+            "What am I defending? Is it worth defending?",
+            "Where do I need to stand my ground?",
+            "How do I maintain my position with integrity?",
+            "What am I fighting for?"
+          ]
+        },
+        "eight_of_wands": {
+          "prompts": [
+            "What is moving quickly in my life?",
+            "How do I handle rapid change/progress?",
+            "What communication or action is in flight?",
+            "Where do I need to keep up momentum?"
+          ]
+        },
+        "nine_of_wands": {
+          "prompts": [
+            "What am I exhausted from defending/fighting?",
+            "Where do I find resilience when I'm weary?",
+            "How do I protect myself without becoming paranoid?",
+            "What strength remains for the final push?"
+          ]
+        },
+        "ten_of_wands": {
+          "prompts": [
+            "What burdens am I carrying that aren't mine?",
+            "Where have I taken on too much?",
+            "What can I delegate or release?",
+            "How did I get here? What was the first yes that led to this overwhelm?"
+          ]
+        },
+        "page_of_wands": {
+          "prompts": [
+            "What new adventure or project excites me?",
+            "How do I approach new passions?",
+            "Where can I be more spontaneous?",
+            "What message of inspiration do I have?"
+          ]
+        },
+        "knight_of_wands": {
+          "prompts": [
+            "Where am I impulsive vs. passionate?",
+            "How do I channel my fire constructively?",
+            "What adventure am I charging toward?",
+            "Where do I need to temper enthusiasm with planning?"
+          ]
+        },
+        "queen_of_wands": {
+          "prompts": [
+            "How do I embody my creative power?",
+            "Where do I lead with charisma and warmth?",
+            "How do I balance confidence with humility?",
+            "What does owning my fire look like?"
+          ]
+        },
+        "king_of_wands": {
+          "prompts": [
+            "How do I lead with vision and inspiration?",
+            "Where do I take bold action?",
+            "How do I master my creative/passionate energy?",
+            "What legacy am I building?"
+          ]
+        }
+      },
+      "minor_arcana_pentacles": {
+        "note": "Pentacles = material world, body, work, resources, health, security",
+        "ace_of_pentacles": {
+          "prompts": [
+            "What new opportunity (work, health, financial) is emerging?",
+            "How am I planting seeds for future abundance?",
+            "What does security mean to me?",
+            "What gift from the material world am I receiving?"
+          ]
+        },
+        "two_of_pentacles": {
+          "prompts": [
+            "What am I juggling? How sustainable is this?",
+            "How do I find balance in practical life?",
+            "What priorities need adjusting?",
+            "Where am I adaptable vs. scattered?"
+          ]
+        },
+        "three_of_pentacles": {
+          "prompts": [
+            "What am I building/creating with others?",
+            "How do I contribute my skills to shared work?",
+            "Where am I learning mastery through practice?",
+            "What collaboration is strengthening my work?"
+          ]
+        },
+        "four_of_pentacles": {
+          "prompts": [
+            "What am I holding too tightly?",
+            "Where is my need for security becoming rigidity?",
+            "How do I balance saving with spending?",
+            "What would it feel like to loosen my grip?"
+          ]
+        },
+        "five_of_pentacles": {
+          "prompts": [
+            "Where do I feel lack or scarcity?",
+            "What resources am I not seeing (the lit window)?",
+            "How do I ask for help when I need it?",
+            "Where is my focus on what's missing vs. what remains?"
+          ]
+        },
+        "six_of_pentacles": {
+          "prompts": [
+            "How do I give and receive?",
+            "Where am I in balance with generosity?",
+            "What resources can I share?",
+            "How do I accept help gracefully?"
+          ]
+        },
+        "seven_of_pentacles": {
+          "prompts": [
+            "What have I been working on? What's the progress?",
+            "How do I wait for results I've earned?",
+            "What needs re-evaluation in my work/health/finances?",
+            "Where do I practice patience with growth?"
+          ]
+        },
+        "eight_of_pentacles": {
+          "prompts": [
+            "What skill am I developing through dedicated practice?",
+            "How do I find meaning in repetitive work?",
+            "Where am I building mastery?",
+            "What does 'showing up every day' teach me?"
+          ]
+        },
+        "nine_of_pentacles": {
+          "prompts": [
+            "What have I built through my own efforts?",
+            "How do I enjoy the fruits of my labor?",
+            "Where am I self-sufficient?",
+            "What does abundance feel like?"
+          ]
+        },
+        "ten_of_pentacles": {
+          "prompts": [
+            "What legacy am I building/inheriting?",
+            "How do I define lasting security?",
+            "Where do I find abundance in family/community/tradition?",
+            "What do I want to leave behind?"
+          ]
+        },
+        "page_of_pentacles": {
+          "prompts": [
+            "What new skill or practical knowledge am I learning?",
+            "How do I approach work with fresh eyes?",
+            "What opportunity for growth (financial, health, career) is present?",
+            "Where can I be more grounded and practical?"
+          ]
+        },
+        "knight_of_pentacles": {
+          "prompts": [
+            "Where do I need steady, reliable effort?",
+            "How do I balance responsibility with rigidity?",
+            "What slow progress am I making?",
+            "How do I stay committed to long-term goals?"
+          ]
+        },
+        "queen_of_pentacles": {
+          "prompts": [
+            "How do I nurture my physical/material well-being?",
+            "Where do I create abundance for myself and others?",
+            "How do I embody practical wisdom?",
+            "What does grounded, earthy care look like?"
+          ]
+        },
+        "king_of_pentacles": {
+          "prompts": [
+            "How do I master the material world (work, finances, health)?",
+            "Where do I build sustainable success?",
+            "How do I lead with practical wisdom?",
+            "What does financial/physical mastery mean to me?"
+          ]
+        }
+      }
+    },
+
+    "cbt_focused_prompts": {
+      "all_or_nothing_thinking": [
+        "Where am I seeing only black or white? What's in the gray area?",
+        "If I wasn't perfect, am I really a total failure? What evidence contradicts this?",
+        "On a scale of 0-10, where do I actually fall?",
+        "What would 'good enough' look like instead of perfection?"
+      ],
+      "overgeneralization": [
+        "I said 'always' or 'never' - is that actually true? What are the exceptions?",
+        "How many times has this actually happened vs. how many times have I predicted it?",
+        "What's the evidence that this ONE thing means EVERYTHING is ruined?",
+        "If this happened to a friend, would I say it means they 'always' fail?"
+      ],
+      "mental_filter": [
+        "What am I filtering out (the positive) to focus only on the negative?",
+        "If I made a list of ALL the evidence, what would be on it?",
+        "How much am I magnifying the negative and minimizing the positive?",
+        "What would someone outside my head see?"
+      ],
+      "disqualifying_positive": [
+        "What positive thing happened that I'm dismissing as 'doesn't count'?",
+        "Why doesn't it count? Would I say that to someone else?",
+        "What if I allowed this good thing to be real and meaningful?",
+        "How does disqualifying positives serve me? How does it hurt me?"
+      ],
+      "jumping_to_conclusions": [
+        "What am I assuming will happen? What's the evidence?",
+        "Am I mind-reading (assuming I know what they think)?",
+        "Am I fortune-telling (predicting the future)?",
+        "What are other possible explanations or outcomes?"
+      ],
+      "catastrophizing": [
+        "What's the worst that could happen? How likely is that REALLY?",
+        "What's the BEST that could happen? What's most LIKELY?",
+        "If this did happen, could I survive it? Have I survived worse?",
+        "What would I tell a friend who was catastrophizing about this?"
+      ],
+      "emotional_reasoning": [
+        "I feel _____, therefore I believe _____. Is feeling it the same as it being true?",
+        "What's the difference between my feelings and the facts?",
+        "What evidence exists outside of my emotions?",
+        "How might I feel about this tomorrow? Next week?"
+      ],
+      "should_statements": [
+        "Who says I 'should'? Where did this rule come from?",
+        "What happens when I replace 'should' with 'could' or 'I'd prefer'?",
+        "What's the cost of this should vs. the benefit?",
+        "What would self-compassion say instead of should?"
+      ],
+      "labeling": [
+        "I called myself _____. Is that WHO I am or what I DID?",
+        "Would I label someone else this harshly for this action?",
+        "What's a more accurate, compassionate description?",
+        "What would happen if I described the behavior without the label?"
+      ],
+      "personalization": [
+        "What role did I play? What role did circumstances/others play?",
+        "Am I taking too much or too little responsibility?",
+        "What percentage is truly my fault vs. other factors?",
+        "What would a judge/jury say about responsibility here?"
+      ]
+    },
+
+    "dbt_focused_prompts": {
+      "mindfulness_what_skills": [
+        "OBSERVE: What am I noticing right now (5 senses)? Not judging, just noticing.",
+        "DESCRIBE: How would I describe this moment using only facts? No evaluations.",
+        "PARTICIPATE: When was I fully absorbed today? When was I holding back?"
+      ],
+      "mindfulness_how_skills": [
+        "NONJUDGMENTALLY: What judgments am I making? Can I stick to the facts?",
+        "ONE-MINDFULLY: What am I doing? Am I doing JUST this, or thinking about 5 other things?",
+        "EFFECTIVELY: What works in this situation? Am I prioritizing being right or being effective?"
+      ],
+      "distress_tolerance_tipp": [
+        "TIPP: Temperature - Can I splash cold water on my face or hold ice?",
+        "Intense Exercise - Can I do 10 burpees or run up stairs?",
+        "Paced Breathing - Can I breathe slowly (5 in, 5 out)?",
+        "Paired Muscle Relaxation - Can I tense and release muscle groups?"
+      ],
+      "distress_tolerance_accepts": [
+        "Activities - What can I do to distract?",
+        "Contributing - How can I help someone else?",
+        "Comparisons - Have I survived worse than this?",
+        "Emotions (opposite) - What emotion would be opposite to what I feel?",
+        "Pushing away - Can I mentally put this aside for now?",
+        "Thoughts - Can I count or focus on something neutral?",
+        "Sensations - Can I use strong sensations (ice, hot shower) to ground?"
+      ],
+      "distress_tolerance_self_soothe": [
+        "Vision - What can I look at that's soothing?",
+        "Hearing - What music or sounds calm me?",
+        "Smell - What scent brings comfort?",
+        "Taste - What flavor is pleasurable?",
+        "Touch - What texture feels good (soft blanket, warm bath)?"
+      ],
+      "radical_acceptance": [
+        "What reality am I fighting? What is, whether I like it or not?",
+        "What would change if I accepted this completely?",
+        "How is refusing to accept this causing me suffering?",
+        "What does 'acceptance' NOT mean? (It doesn't mean approval or giving up.)",
+        "Can I say 'it is what it is' without bitterness?"
+      ],
+      "emotion_regulation_abc_please": [
+        "Accumulate positives - What pleasant event can I plan?",
+        "Build mastery - What can I do that makes me feel competent?",
+        "Cope ahead - What upcoming challenge can I mentally rehearse?",
+        "PhysicaL illness - Am I treating illness/pain?",
+        "Eating - Am I eating regularly and balanced?",
+        "Avoid mood-altering substances - Am I using alcohol/drugs to cope?",
+        "Sleep - Am I getting enough quality sleep?",
+        "Exercise - Am I moving my body?"
+      ],
+      "opposite_action": [
+        "What emotion am I feeling? What does it urge me to do?",
+        "Is the emotion JUSTIFIED (fits the facts)? Or UNJUSTIFIED?",
+        "If unjustified: What would the OPPOSITE action be?",
+        "Can I do the opposite ALL THE WAY (action + thoughts + body language)?",
+        "(Examples: Fear → Approach. Unjustified anger → Gently avoid/be kind. Shame → Share/don't hide.)"
+      ],
+      "dear_man": [
+        "Describe the situation (facts only)",
+        "Express how I feel about it",
+        "Assert what I want clearly",
+        "Reinforce the benefit for them",
+        "stay Mindful (broken record if needed)",
+        "Appear confident (body language, tone)",
+        "Negotiate if needed (willing to compromise)"
+      ],
+      "give_fast": [
+        "GIVE (relationship): Be Gentle, act Interested, Validate, use an Easy manner",
+        "FAST (self-respect): be Fair, no Apologies (for existing), Stick to values, be Truthful"
+      ],
+      "wise_mind": [
+        "What does my Emotion Mind say? (All feeling, no logic)",
+        "What does my Reasonable Mind say? (All logic, no feeling)",
+        "What does my Wise Mind know? (Deep, intuitive knowing that integrates both)",
+        "If I sit quietly and ask my Wise Mind, what does it tell me?"
+      ]
+    },
+
+    "mindfulness_integrated_prompts": [
+      "Right now, what am I aware of in my body? My thoughts? My emotions?",
+      "What is this moment asking of me?",
+      "What would it be like to be fully HERE instead of lost in thought?",
+      "What am I grateful for right now, in this moment?",
+      "What is here when I'm not trying to change anything?",
+      "Can I notice my thoughts like clouds passing in the sky?",
+      "What am I clinging to? What am I pushing away?",
+      "How does my breath feel right now? Fast? Slow? Shallow? Deep?",
+      "What would it be like to do ONLY this, just for 5 minutes?",
+      "Where is my attention? Can I bring it back to now?",
+      "What am I resisting about this moment?",
+      "If I had beginner's mind, what would I notice?",
+      "What is the kindest thing I can do for myself right now?",
+      "What does my body need? My heart? My mind?",
+      "What am I feeling? Where do I feel it in my body?"
+    ],
+
+    "emotional_states_prompts": {
+      "anxiety": [
+        "What am I anxious about? What's the worst, best, and most likely outcome?",
+        "What can I control? What can't I control?",
+        "What does my anxiety want me to know or do?",
+        "What would help me feel safer right now?",
+        "What grounding technique would help? (5-4-3-2-1, breathing, body scan)"
+      ],
+      "depression": [
+        "What small thing can I do today? (Tiny goals only.)",
+        "What gave me even a moment of relief or lightness?",
+        "What does my depression want me to believe? What's the truth?",
+        "If I could be kind to myself right now, what would that look like?",
+        "What's one thing I can do to take care of myself?"
+      ],
+      "anger": [
+        "What am I angry about? What's beneath the anger (hurt, fear, frustration)?",
+        "Is this anger justified? What are the facts?",
+        "What do I need to do with this anger? (Express, release, channel)",
+        "How can I honor this anger without letting it control me?",
+        "What would opposite action look like right now?"
+      ],
+      "grief": [
+        "What am I grieving?",
+        "How does grief feel in my body right now?",
+        "What do I need in order to grieve? (Space, support, time)",
+        "What am I afraid will happen if I let myself fully feel this?",
+        "How do I honor what I've lost while also moving forward?"
+      ],
+      "overwhelm": [
+        "What is the ONE thing I can do right now? (Not everything, just one.)",
+        "What can I let go of? What can wait?",
+        "What support do I need?",
+        "How do I get from feeling buried to just 'busy'?",
+        "What boundaries would reduce this overwhelm?"
+      ],
+      "joy": [
+        "What am I grateful for?",
+        "How does joy feel in my body?",
+        "What made this moment joyful?",
+        "Can I let myself fully feel this without waiting for the other shoe to drop?",
+        "How do I savor this?"
+      ],
+      "loneliness": [
+        "What am I longing for - connection, understanding, companionship?",
+        "How can I reach out? (Text a friend, join a group, call family)",
+        "What would self-companionship look like?",
+        "What makes me feel less alone?",
+        "How do I distinguish loneliness from being alone (which can be restorative)?"
+      ],
+      "shame": [
+        "What am I ashamed of?",
+        "Is this shame about WHO I AM or WHAT I DID? (Shame = I am bad. Guilt = I did bad.)",
+        "What would Opposite Action be? (Shame → Don't hide, share with safe person)",
+        "What would self-compassion say right now?",
+        "Have I forgiven others for similar things? Can I forgive myself?"
+      ]
+    },
+
+    "daily_reflection_prompts": [
+      "What happened today that I want to remember?",
+      "What did I do today that I'm proud of?",
+      "What challenged me today? How did I respond?",
+      "What am I grateful for from today?",
+      "What did I learn about myself today?",
+      "What emotion was most present today?",
+      "What do I need to let go of from today?",
+      "What do I want to carry forward into tomorrow?",
+      "How did I take care of myself today?",
+      "What made me smile or laugh today?",
+      "What would I do differently if I had today again?",
+      "What am I feeling right now as I reflect on today?"
+    ],
+
+    "crisis_support_prompts": [
+      "Right now, in this moment, am I safe?",
+      "What is the smallest thing I can do right now to feel more okay?",
+      "Who can I call? (Friend, family, crisis line: 988)",
+      "What has helped me through crisis before?",
+      "What grounding technique can I use RIGHT NOW? (5-4-3-2-1, ice, breathing)",
+      "Can I get through the next 5 minutes? (That's all I need to do right now.)",
+      "What do I need? (Safety, support, rest, help)",
+      "What would my wisest self tell me right now?",
+      "What is the TIPP skill I can use? (Temperature, Intense exercise, Paced breathing)",
+      "I feel _____ and I need _____."
+    ],
+
+    "growth_milestone_prompts": [
+      "How have I grown in the past month?",
+      "What pattern have I broken? What new pattern am I building?",
+      "What have I learned about myself recently?",
+      "What was I afraid of that I've now done?",
+      "How is my relationship with myself changing?",
+      "What coping skill have I gotten better at?",
+      "What boundary have I set that I'm proud of?",
+      "What did I think I couldn't survive that I have survived?",
+      "What does 'healing' feel like right now?",
+      "How would the me from a year ago see me now?",
+      "What am I becoming?",
+      "What vision do I have for my future self?"
+    ],
+
+    "prompt_selection_algorithm": {
+      "based_on_card_drawn": "If user draws a card, offer 3-5 card-specific prompts",
+      "based_on_user_mood": "If user indicates emotion, offer emotion-state prompts",
+      "based_on_recent_journal_themes": "AI analyzes recent entries, suggests relevant prompts",
+      "based_on_skill_tree_progress": "Suggest prompts aligned with current therapeutic focus (CBT/DBT/Mindfulness)",
+      "based_on_time_of_day": {
+        "morning": "Intention-setting, gratitude, day preview",
+        "evening": "Reflection, gratitude, processing",
+        "late_night": "Compassionate check-in, sleep preparation"
+      },
+      "random_deep_dive": "Occasionally offer unexpected prompt to break patterns"
+    },
+
+    "therapeutic_journaling_best_practices": {
+      "expressive_writing_protocol": {
+        "duration": "15-20 minutes",
+        "frequency": "3-4 times per week",
+        "focus": "Deepest thoughts and feelings about significant experience",
+        "evidence": "Pennebaker research - improves mental and physical health"
+      },
+      "thought_records": {
+        "structure": "Situation → Thoughts → Feelings → Alternative Thoughts → New Feelings",
+        "use_case": "CBT for depression and anxiety"
+      },
+      "gratitude_journaling": {
+        "structure": "3 good things from today + why they were good",
+        "frequency": "Daily (evening)",
+        "evidence": "Seligman research - increases happiness, decreases depression"
+      },
+      "dbt_diary_card": {
+        "track": "Emotions (0-10), Urges (0-10), Skills used, Effectiveness",
+        "frequency": "Daily",
+        "use_case": "DBT for emotion regulation"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+diff --git a/node_modules/@react-navigation/elements/lib/module/SafeAreaProviderCompat.js b/node_modules/@react-navigation/elements/lib/module/SafeAreaProviderCompat.js
+index ae6afbc..c993c1a 100644
+--- a/node_modules/@react-navigation/elements/lib/module/SafeAreaProviderCompat.js
++++ b/node_modules/@react-navigation/elements/lib/module/SafeAreaProviderCompat.js
+@@ -5,10 +5,19 @@ import { Dimensions, Platform, StyleSheet, View } from 'react-native';
+ import { initialWindowMetrics, SafeAreaInsetsContext, SafeAreaProvider } from 'react-native-safe-area-context';
+ import { FrameSizeProvider } from "./useFrameSize.js";
+ import { jsx as _jsx } from "react/jsx-runtime";
+-const {
+-  width = 0,
+-  height = 0
+-} = Dimensions.get('window');
++
++// PATCHED FOR REACT 19 + HERMES FIX: Avoid destructuring during module init
++let width = 0;
++let height = 0;
++try {
++  const dims = Dimensions.get('window');
++  if (dims && typeof dims === 'object') {
++    width = dims.width || 0;
++    height = dims.height || 0;
++  }
++} catch (e) {
++  console.warn('[SafeAreaProviderCompat] Dimensions not ready during init, using defaults');
++}
+ 
+ // To support SSR on web, we need to have empty insets for initial values
+ // Otherwise there can be mismatch between SSR and client output

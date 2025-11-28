@@ -1,0 +1,133 @@
+import React, { useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from 'expo-status-bar';
+
+// Keep useful old components/utils
+import { ErrorBoundary } from './src/components/ErrorBoundary';
+// import { SkiaDimensionsProvider } from './src/contexts/SkiaDimensionsContext'; // Commented out
+import InAppPurchaseManager from './src/utils/InAppPurchaseManager';
+
+console.log('[App.js] Starting imports - step 1');
+
+// NEW Dark Fantasy Screens (root level)
+import LoadingScreenNew from './screens/LoadingScreenNew';
+console.log('[App.js] LoadingScreenNew imported');
+import MainMenuScreen from './screens/MainMenuScreen';
+console.log('[App.js] MainMenuScreen imported');
+import ProfileScreen from './screens/ProfileScreen';
+console.log('[App.js] ProfileScreen imported');
+import SettingsScreen from './screens/SettingsScreen';
+console.log('[App.js] SettingsScreen imported');
+import CardReadingScreen from './screens/CardReadingScreen';
+console.log('[App.js] CardReadingScreen imported');
+import ReadingSummaryScreen from './screens/ReadingSummaryScreen';
+console.log('[App.js] ReadingSummaryScreen imported');
+import ReadingTypeSelectionScreen from './screens/ReadingTypeSelectionScreen';
+console.log('[App.js] ReadingTypeSelectionScreen imported');
+import WeeklyChallengeScreen from './screens/WeeklyChallengeScreen';
+console.log('[App.js] WeeklyChallengeScreen imported');
+
+// Development/Testing Screens
+// import SkiaTestHarnessScreen from './screens/SkiaTestHarnessScreen'; // Commented out - requires reanimated
+
+// Keep USEFUL old screens that we'll adapt
+import ReadingHistoryScreen from './src/screens/ReadingHistoryScreen';
+console.log('[App.js] ReadingHistoryScreen imported');
+import JournalScreen from './src/screens/JournalScreen';
+console.log('[App.js] JournalScreen imported');
+import AchievementsScreen from './src/screens/AchievementsScreen';
+console.log('[App.js] AchievementsScreen imported');
+import DeckViewerScreen from './src/screens/DeckViewerScreen';
+console.log('[App.js] DeckViewerScreen imported');
+import OracleChatScreen from './src/screens/OracleChatScreen';
+console.log('[App.js] OracleChatScreen imported');
+import PrivacyPolicyScreen from './src/screens/PrivacyPolicyScreen';
+console.log('[App.js] PrivacyPolicyScreen imported');
+console.log('[App.js] All imports complete!');
+
+// Screens created and imported above
+// RPG features (NPC, Quest, Shop) cut from scope - focus on tarot reading
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  // Initialize app services on startup
+  useEffect(() => {
+    const initializeApp = async () => {
+      console.log('[App] Initializing app services...');
+
+      // Initialize IAP (In-App Purchases)
+      try {
+        await InAppPurchaseManager.initialize();
+        InAppPurchaseManager.setupPurchaseListener();
+        console.log('[App] ✓ IAP initialized');
+      } catch (error) {
+        // IAP errors are expected in dev/testing environments
+        if (error && error.code === 'E_IAP_NOT_AVAILABLE') {
+          console.log('[App] IAP not available (dev mode or unsupported device)');
+        } else {
+          console.warn('[App] IAP initialization failed:', error.message);
+        }
+        // Continue - app works fine without IAP
+      }
+
+      console.log('[App] ✅ App services initialization complete');
+    };
+
+    // Run initialization (don't await - let it run in background)
+    initializeApp().catch(error => {
+      console.error('[App] CRITICAL: App initialization failed:', error);
+      // App will still render, but some features may not work
+    });
+
+    // Cleanup on unmount
+    return () => {
+      try {
+        InAppPurchaseManager?.cleanup();
+      } catch (error) {
+        console.error('[App] IAP cleanup error:', error);
+      }
+    };
+  }, []);
+
+  return (
+    <ErrorBoundary>
+      {/* <SkiaDimensionsProvider> */}
+        <StatusBar style="light" />
+        <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="LoadingNew"
+          screenOptions={{
+            headerShown: false,
+            cardStyle: { backgroundColor: '#000000' },
+            animationEnabled: true,
+            gestureEnabled: true
+          }}
+        >
+          {/* Dark Fantasy Main Flow */}
+          <Stack.Screen name="LoadingNew" component={LoadingScreenNew} />
+          <Stack.Screen name="MainMenu" component={MainMenuScreen} />
+          <Stack.Screen name="Profile" component={ProfileScreen} />
+          <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="Journal" component={JournalScreen} />
+          <Stack.Screen name="ReadingTypeSelection" component={ReadingTypeSelectionScreen} />
+          <Stack.Screen name="CardReading" component={CardReadingScreen} />
+          <Stack.Screen name="ReadingSummary" component={ReadingSummaryScreen} />
+          <Stack.Screen name="WeeklyChallenge" component={WeeklyChallengeScreen} />
+
+          {/* Utility Screens */}
+          <Stack.Screen name="ReadingHistory" component={ReadingHistoryScreen} />
+          <Stack.Screen name="Achievements" component={AchievementsScreen} />
+          <Stack.Screen name="DeckViewer" component={DeckViewerScreen} />
+          <Stack.Screen name="OracleChat" component={OracleChatScreen} />
+          <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicyScreen} />
+
+          {/* Development/Testing Screens */}
+          {/* <Stack.Screen name="SkiaTestHarness" component={SkiaTestHarnessScreen} /> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+      {/* </SkiaDimensionsProvider> */}
+    </ErrorBoundary>
+  );
+}

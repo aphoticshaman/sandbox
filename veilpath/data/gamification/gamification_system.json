@@ -1,0 +1,1064 @@
+{
+  "gamification_system": {
+    "meta": {
+      "version": "1.0",
+      "last_updated": "2025-11-22",
+      "levels": 5,
+      "philosophy": "Motivate therapeutic work without manipulation. Progress reflects genuine mental wellness practice.",
+      "ethics": "No dark patterns, no FOMO, no guilt. Celebrate progress, normalize setbacks."
+    },
+
+    "level_1_basic_metrics": {
+      "description": "Foundation tracking - what gets measured gets improved",
+      "metrics": [
+        {
+          "id": "readings_completed",
+          "name": "Readings Completed",
+          "description": "Total tarot readings done",
+          "icon": "card_stack",
+          "display_format": "count"
+        },
+        {
+          "id": "journal_entries",
+          "name": "Journal Entries",
+          "description": "Total journal entries written",
+          "icon": "journal_book",
+          "display_format": "count"
+        },
+        {
+          "id": "consecutive_days",
+          "name": "Current Streak",
+          "description": "Days in a row using the app",
+          "icon": "flame",
+          "display_format": "days",
+          "celebration_thresholds": [3, 7, 14, 30, 100, 365]
+        },
+        {
+          "id": "mindfulness_minutes",
+          "name": "Mindfulness Minutes",
+          "description": "Total time spent on mindfulness practices",
+          "icon": "meditation",
+          "display_format": "minutes"
+        },
+        {
+          "id": "distortions_identified",
+          "name": "Distortions Caught",
+          "description": "Cognitive distortions identified in journal",
+          "icon": "magnifying_glass",
+          "display_format": "count"
+        },
+        {
+          "id": "skills_practiced",
+          "name": "DBT Skills Used",
+          "description": "Times DBT skills applied",
+          "icon": "toolbox",
+          "display_format": "count"
+        },
+        {
+          "id": "cards_drawn",
+          "name": "Cards Drawn",
+          "description": "Total individual cards drawn",
+          "icon": "card_single",
+          "display_format": "count"
+        }
+      ],
+      "dashboard_layout": {
+        "primary": ["consecutive_days", "readings_completed", "journal_entries"],
+        "secondary": ["mindfulness_minutes", "distortions_identified", "skills_practiced"],
+        "hidden": ["cards_drawn"]
+      }
+    },
+
+    "level_2_xp_and_progression": {
+      "description": "Earn XP for therapeutic work, level up to unlock features",
+      "xp_actions": [
+        {
+          "action": "complete_single_card_reading",
+          "xp": 10,
+          "note": "Daily card pull"
+        },
+        {
+          "action": "complete_three_card_reading",
+          "xp": 30,
+          "note": "Past/Present/Future spread"
+        },
+        {
+          "action": "complete_celtic_cross",
+          "xp": 100,
+          "note": "Advanced 10-card reading"
+        },
+        {
+          "action": "journal_entry",
+          "xp": 15,
+          "multipliers": {
+            "first_of_day": 2.0,
+            "contains_cbt_work": 1.5,
+            "contains_dbt_skill": 1.5,
+            "contains_reflection": 1.3,
+            "word_count_250_plus": 1.2
+          }
+        },
+        {
+          "action": "identify_cognitive_distortion",
+          "xp": 20,
+          "note": "In journal or reading reflection"
+        },
+        {
+          "action": "practice_dbt_skill",
+          "xp": 25,
+          "skills": {
+            "tipp": 30,
+            "radical_acceptance": 35,
+            "opposite_action": 40,
+            "dear_man": 35
+          }
+        },
+        {
+          "action": "complete_mindfulness_exercise",
+          "xp": 20,
+          "duration_bonus": {
+            "5_minutes": 5,
+            "10_minutes": 15,
+            "20_minutes": 30,
+            "30_minutes": 50
+          }
+        },
+        {
+          "action": "consecutive_day_bonus",
+          "xp": 0,
+          "streak_multiplier": {
+            "3_days": 50,
+            "7_days": 150,
+            "14_days": 300,
+            "30_days": 1000,
+            "100_days": 5000,
+            "365_days": 20000
+          }
+        },
+        {
+          "action": "share_insight",
+          "xp": 30,
+          "note": "Share meaningful insight from reading (opt-in community feature)"
+        },
+        {
+          "action": "help_another_user",
+          "xp": 50,
+          "note": "Leave supportive comment (moderated)"
+        }
+      ],
+      "level_curve": {
+        "formula": "XP_required = 100 * (level^1.8)",
+        "levels": [
+          {"level": 1, "xp_required": 0, "title": "Seeker"},
+          {"level": 2, "xp_required": 100, "title": "Apprentice"},
+          {"level": 3, "xp_required": 347, "title": "Practitioner"},
+          {"level": 4, "xp_required": 724, "title": "Adept"},
+          {"level": 5, "xp_required": 1241, "title": "Sage"},
+          {"level": 6, "xp_required": 1907, "title": "Mystic"},
+          {"level": 7, "xp_required": 2733, "title": "Oracle"},
+          {"level": 8, "xp_required": 3727, "title": "Enlightened"},
+          {"level": 9, "xp_required": 4899, "title": "Master"},
+          {"level": 10, "xp_required": 6257, "title": "Transcendent"},
+          {"level": 15, "xp_required": 15811, "title": "Luminary"},
+          {"level": 20, "xp_required": 33012, "title": "Cosmic Guide"},
+          {"level": 25, "xp_required": 59421, "title": "Universal Mind"},
+          {"level": 30, "xp_required": 97054, "title": "Infinite Wisdom"},
+          {"level": 50, "xp_required": 445449, "title": "Eternal One"}
+        ]
+      },
+      "level_up_rewards": {
+        "every_level": {
+          "xp_multiplier": 1.01,
+          "card_unlock": "one_random_premium_skin"
+        },
+        "milestone_rewards": {
+          "level_5": {
+            "unlock": "advanced_readings",
+            "description": "Unlock Celtic Cross and other complex spreads"
+          },
+          "level_10": {
+            "unlock": "ai_journal_analysis",
+            "description": "Claude analyzes journal entries (opt-in)"
+          },
+          "level_15": {
+            "unlock": "skill_tree_branch_2",
+            "description": "Unlock second skill tree branch"
+          },
+          "level_20": {
+            "unlock": "custom_spreads",
+            "description": "Create and save custom reading spreads"
+          },
+          "level_25": {
+            "unlock": "oracle_mode",
+            "description": "Become an Oracle - help others (moderated community)"
+          },
+          "level_30": {
+            "unlock": "all_features",
+            "description": "Full platform access + eternal prestige badge"
+          }
+        }
+      }
+    },
+
+    "level_3_achievements": {
+      "description": "Unlock badges for milestones and mastery",
+      "categories": ["foundations", "mastery", "dedication", "discovery", "helping", "challenges"],
+      "achievements": [
+        {
+          "id": "first_reading",
+          "name": "First Steps",
+          "description": "Complete your first tarot reading",
+          "category": "foundations",
+          "icon": "card_single",
+          "xp": 25,
+          "rarity": "common"
+        },
+        {
+          "id": "first_journal",
+          "name": "Inner Voice",
+          "description": "Write your first journal entry",
+          "category": "foundations",
+          "icon": "journal_book",
+          "xp": 25,
+          "rarity": "common"
+        },
+        {
+          "id": "first_mindfulness",
+          "name": "Present Moment",
+          "description": "Complete your first mindfulness practice",
+          "category": "foundations",
+          "icon": "meditation",
+          "xp": 25,
+          "rarity": "common"
+        },
+        {
+          "id": "week_streak",
+          "name": "Seven Days",
+          "description": "Practice for 7 consecutive days",
+          "category": "dedication",
+          "icon": "flame_7",
+          "xp": 100,
+          "rarity": "uncommon"
+        },
+        {
+          "id": "month_streak",
+          "name": "Lunar Cycle",
+          "description": "Practice for 30 consecutive days",
+          "category": "dedication",
+          "icon": "moon_full",
+          "xp": 500,
+          "rarity": "rare"
+        },
+        {
+          "id": "hundred_days",
+          "name": "Century of Practice",
+          "description": "100 consecutive days",
+          "category": "dedication",
+          "icon": "flame_100",
+          "xp": 2000,
+          "rarity": "epic"
+        },
+        {
+          "id": "year_streak",
+          "name": "Solar Return",
+          "description": "365 consecutive days",
+          "category": "dedication",
+          "icon": "sun_eternal",
+          "xp": 10000,
+          "rarity": "legendary"
+        },
+        {
+          "id": "all_major_arcana",
+          "name": "Journey Complete",
+          "description": "Draw all 22 Major Arcana cards",
+          "category": "discovery",
+          "icon": "fool_to_world",
+          "xp": 200,
+          "rarity": "uncommon"
+        },
+        {
+          "id": "all_78_cards",
+          "name": "Full Deck",
+          "description": "Draw all 78 cards in the tarot",
+          "category": "discovery",
+          "icon": "deck_complete",
+          "xp": 500,
+          "rarity": "rare"
+        },
+        {
+          "id": "distortion_detective",
+          "name": "Distortion Detective",
+          "description": "Identify 50 cognitive distortions",
+          "category": "mastery",
+          "icon": "magnifying_glass",
+          "xp": 250,
+          "rarity": "uncommon"
+        },
+        {
+          "id": "dbt_practitioner",
+          "name": "DBT Practitioner",
+          "description": "Use 25 different DBT skills",
+          "category": "mastery",
+          "icon": "wise_mind",
+          "xp": 300,
+          "rarity": "rare"
+        },
+        {
+          "id": "mindfulness_master",
+          "name": "Mindfulness Master",
+          "description": "Complete all 28 mindfulness exercises",
+          "category": "mastery",
+          "icon": "meditation_master",
+          "xp": 500,
+          "rarity": "rare"
+        },
+        {
+          "id": "meditation_marathon",
+          "name": "Meditation Marathon",
+          "description": "Meditate for 1000 total minutes",
+          "category": "mastery",
+          "icon": "lotus_1000",
+          "xp": 750,
+          "rarity": "epic"
+        },
+        {
+          "id": "journal_100",
+          "name": "Century of Reflection",
+          "description": "Write 100 journal entries",
+          "category": "mastery",
+          "icon": "journal_100",
+          "xp": 500,
+          "rarity": "rare"
+        },
+        {
+          "id": "opposite_action_warrior",
+          "name": "Opposite Action Warrior",
+          "description": "Use Opposite Action 10 times",
+          "category": "mastery",
+          "icon": "opposite_action",
+          "xp": 300,
+          "rarity": "rare",
+          "note": "Most powerful DBT skill - hardest to use"
+        },
+        {
+          "id": "radical_acceptor",
+          "name": "Radical Acceptor",
+          "description": "Practice Radical Acceptance 20 times",
+          "category": "mastery",
+          "icon": "hanged_man",
+          "xp": 400,
+          "rarity": "rare"
+        },
+        {
+          "id": "tipp_master",
+          "name": "TIPP Master",
+          "description": "Use TIPP skill during 5 crises",
+          "category": "mastery",
+          "icon": "ice_cube",
+          "xp": 350,
+          "rarity": "rare"
+        },
+        {
+          "id": "loving_kindness_warrior",
+          "name": "Loving-Kindness Warrior",
+          "description": "Send metta to difficult person 5 times",
+          "category": "mastery",
+          "icon": "heart_difficult",
+          "xp": 500,
+          "rarity": "epic",
+          "note": "This is HARD - celebrate it"
+        },
+        {
+          "id": "panic_grounded",
+          "name": "Grounded in Crisis",
+          "description": "Use 5-4-3-2-1 during panic attack",
+          "category": "mastery",
+          "icon": "anchor",
+          "xp": 200,
+          "rarity": "uncommon"
+        },
+        {
+          "id": "all_spreads_tried",
+          "name": "Spread Explorer",
+          "description": "Try all 10 reading spread types",
+          "category": "discovery",
+          "icon": "spreads_all",
+          "xp": 300,
+          "rarity": "uncommon"
+        },
+        {
+          "id": "celtic_cross_master",
+          "name": "Celtic Cross Master",
+          "description": "Complete 25 Celtic Cross readings",
+          "category": "mastery",
+          "icon": "celtic_cross",
+          "xp": 400,
+          "rarity": "rare"
+        },
+        {
+          "id": "night_owl_practice",
+          "name": "Night Owl",
+          "description": "Journal between 2am-5am",
+          "category": "discovery",
+          "icon": "moon_owl",
+          "xp": 50,
+          "rarity": "uncommon",
+          "note": "Secret achievement - no insomnia encouragement"
+        },
+        {
+          "id": "morning_ritual",
+          "name": "Morning Sun",
+          "description": "Complete reading before 7am for 7 days",
+          "category": "challenges",
+          "icon": "sunrise",
+          "xp": 200,
+          "rarity": "uncommon"
+        },
+        {
+          "id": "wisdom_shared",
+          "name": "Wisdom Shared",
+          "description": "Share 10 insights with community",
+          "category": "helping",
+          "icon": "lantern",
+          "xp": 300,
+          "rarity": "rare",
+          "requires": "level_10"
+        },
+        {
+          "id": "oracle_guide",
+          "name": "Oracle Guide",
+          "description": "Help 25 other users",
+          "category": "helping",
+          "icon": "helping_hand",
+          "xp": 500,
+          "rarity": "epic",
+          "requires": "level_25"
+        },
+        {
+          "id": "tower_moment",
+          "name": "Tower Moment",
+          "description": "Journal during major life crisis",
+          "category": "challenges",
+          "icon": "tower_standing",
+          "xp": 500,
+          "rarity": "epic",
+          "note": "User manually flags entry as 'crisis' - validates resilience"
+        },
+        {
+          "id": "death_rebirth",
+          "name": "Death & Rebirth",
+          "description": "Journal about major life transition",
+          "category": "challenges",
+          "icon": "death_card",
+          "xp": 400,
+          "rarity": "rare"
+        },
+        {
+          "id": "all_achievements",
+          "name": "Completionist",
+          "description": "Unlock all other achievements",
+          "category": "mastery",
+          "icon": "trophy_ultimate",
+          "xp": 5000,
+          "rarity": "legendary"
+        }
+      ],
+      "rarity_tiers": {
+        "common": {"color": "gray", "glow": "none"},
+        "uncommon": {"color": "green", "glow": "soft"},
+        "rare": {"color": "blue", "glow": "medium"},
+        "epic": {"color": "purple", "glow": "strong"},
+        "legendary": {"color": "gold", "glow": "radiant"}
+      }
+    },
+
+    "level_4_skill_trees": {
+      "description": "Unlock skills and bonuses by progressing through therapeutic branches",
+      "branches": [
+        {
+          "id": "cbt_branch",
+          "name": "Cognitive Clarity",
+          "icon": "brain_light",
+          "color": "cyan",
+          "description": "Master cognitive distortions and thought challenging",
+          "tiers": [
+            {
+              "tier": 1,
+              "name": "Awareness",
+              "nodes": [
+                {
+                  "id": "cbt_t1_n1",
+                  "name": "Distortion Spotter",
+                  "description": "Unlock distortion identification hints",
+                  "cost": 100,
+                  "effect": "Journal shows possible distortions",
+                  "requires": null
+                },
+                {
+                  "id": "cbt_t1_n2",
+                  "name": "Thought Logger",
+                  "description": "Structured thought record templates",
+                  "cost": 100,
+                  "effect": "ABC thought record tool",
+                  "requires": null
+                }
+              ]
+            },
+            {
+              "tier": 2,
+              "name": "Challenge",
+              "nodes": [
+                {
+                  "id": "cbt_t2_n1",
+                  "name": "Evidence Examiner",
+                  "description": "Guided evidence gathering",
+                  "cost": 200,
+                  "effect": "'Evidence For/Against' prompts",
+                  "requires": ["cbt_t1_n1"]
+                },
+                {
+                  "id": "cbt_t2_n2",
+                  "name": "Alternative Thinker",
+                  "description": "Generate alternative thoughts",
+                  "cost": 200,
+                  "effect": "AI suggests balanced alternatives",
+                  "requires": ["cbt_t1_n2"]
+                }
+              ]
+            },
+            {
+              "tier": 3,
+              "name": "Mastery",
+              "nodes": [
+                {
+                  "id": "cbt_t3_n1",
+                  "name": "Automatic Thought Tracker",
+                  "description": "Catch distortions in real-time",
+                  "cost": 300,
+                  "effect": "Quick-log distortions throughout day",
+                  "requires": ["cbt_t2_n1", "cbt_t2_n2"]
+                },
+                {
+                  "id": "cbt_t3_n2",
+                  "name": "Core Belief Explorer",
+                  "description": "Uncover deep belief patterns",
+                  "cost": 300,
+                  "effect": "Downward arrow technique tool",
+                  "requires": ["cbt_t2_n1", "cbt_t2_n2"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dbt_branch",
+          "name": "Wise Mind Path",
+          "icon": "wise_mind_symbol",
+          "color": "purple",
+          "description": "Master DBT skills for emotional regulation",
+          "tiers": [
+            {
+              "tier": 1,
+              "name": "Mindfulness",
+              "nodes": [
+                {
+                  "id": "dbt_t1_n1",
+                  "name": "Observe Practice",
+                  "description": "Guided observe skill practice",
+                  "cost": 100,
+                  "effect": "Observe prompts in journal",
+                  "requires": null
+                },
+                {
+                  "id": "dbt_t1_n2",
+                  "name": "Describe Practice",
+                  "description": "Put words to experience",
+                  "cost": 100,
+                  "effect": "Describe prompts (facts, no judgments)",
+                  "requires": null
+                }
+              ]
+            },
+            {
+              "tier": 2,
+              "name": "Distress Tolerance",
+              "nodes": [
+                {
+                  "id": "dbt_t2_n1",
+                  "name": "TIPP Toolkit",
+                  "description": "Crisis skills at your fingertips",
+                  "cost": 200,
+                  "effect": "Quick-access TIPP instructions + timer",
+                  "requires": ["dbt_t1_n1"]
+                },
+                {
+                  "id": "dbt_t2_n2",
+                  "name": "Radical Acceptance Guide",
+                  "description": "Learn to accept reality",
+                  "cost": 200,
+                  "effect": "Step-by-step acceptance practice",
+                  "requires": ["dbt_t1_n2"]
+                },
+                {
+                  "id": "dbt_t2_n3",
+                  "name": "Self-Soothe Kit",
+                  "description": "5 senses self-soothing",
+                  "cost": 200,
+                  "effect": "Sensory self-soothe suggestions",
+                  "requires": ["dbt_t1_n1"]
+                }
+              ]
+            },
+            {
+              "tier": 3,
+              "name": "Emotion Regulation",
+              "nodes": [
+                {
+                  "id": "dbt_t3_n1",
+                  "name": "Opposite Action Master",
+                  "description": "The MOST powerful skill",
+                  "cost": 300,
+                  "effect": "Emotion → Opposite Action guide",
+                  "requires": ["dbt_t2_n1", "dbt_t2_n2"]
+                },
+                {
+                  "id": "dbt_t3_n2",
+                  "name": "ABC PLEASE",
+                  "description": "Build emotional resilience",
+                  "cost": 300,
+                  "effect": "Daily vulnerability tracking",
+                  "requires": ["dbt_t2_n2", "dbt_t2_n3"]
+                }
+              ]
+            },
+            {
+              "tier": 4,
+              "name": "Interpersonal Effectiveness",
+              "nodes": [
+                {
+                  "id": "dbt_t4_n1",
+                  "name": "DEAR MAN Tool",
+                  "description": "Ask for what you need",
+                  "cost": 400,
+                  "effect": "Script generator for requests",
+                  "requires": ["dbt_t3_n1"]
+                },
+                {
+                  "id": "dbt_t4_n2",
+                  "name": "GIVE & FAST",
+                  "description": "Relationships + self-respect",
+                  "cost": 400,
+                  "effect": "Relationship skill prompts",
+                  "requires": ["dbt_t3_n2"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mindfulness_branch",
+          "name": "Present Moment",
+          "icon": "meditation_lotus",
+          "color": "green",
+          "description": "Deepen mindfulness and meditation practice",
+          "tiers": [
+            {
+              "tier": 1,
+              "name": "Foundation",
+              "nodes": [
+                {
+                  "id": "mind_t1_n1",
+                  "name": "Breath Anchor",
+                  "description": "Master breath awareness",
+                  "cost": 100,
+                  "effect": "Guided breath meditation",
+                  "requires": null
+                },
+                {
+                  "id": "mind_t1_n2",
+                  "name": "Body Check-In",
+                  "description": "60-second body scan",
+                  "cost": 100,
+                  "effect": "Quick body awareness tool",
+                  "requires": null
+                }
+              ]
+            },
+            {
+              "tier": 2,
+              "name": "Practice",
+              "nodes": [
+                {
+                  "id": "mind_t2_n1",
+                  "name": "Breathing Techniques",
+                  "description": "All 5 breathing methods",
+                  "cost": 200,
+                  "effect": "Box, 4-7-8, coherent, sighing",
+                  "requires": ["mind_t1_n1"]
+                },
+                {
+                  "id": "mind_t2_n2",
+                  "name": "Body Scan Mastery",
+                  "description": "Full PMR + body scan",
+                  "cost": 200,
+                  "effect": "20-minute guided practices",
+                  "requires": ["mind_t1_n2"]
+                },
+                {
+                  "id": "mind_t2_n3",
+                  "name": "5-4-3-2-1 Grounding",
+                  "description": "Anxiety interrupt tool",
+                  "cost": 200,
+                  "effect": "Grounding exercise guide",
+                  "requires": ["mind_t1_n2"]
+                }
+              ]
+            },
+            {
+              "tier": 3,
+              "name": "Depth",
+              "nodes": [
+                {
+                  "id": "mind_t3_n1",
+                  "name": "Loving-Kindness",
+                  "description": "Metta meditation",
+                  "cost": 300,
+                  "effect": "Guided metta practice",
+                  "requires": ["mind_t2_n1"]
+                },
+                {
+                  "id": "mind_t3_n2",
+                  "name": "Open Awareness",
+                  "description": "Choiceless awareness",
+                  "cost": 300,
+                  "effect": "Advanced meditation",
+                  "requires": ["mind_t2_n1", "mind_t2_n2"]
+                }
+              ]
+            },
+            {
+              "tier": 4,
+              "name": "Integration",
+              "nodes": [
+                {
+                  "id": "mind_t4_n1",
+                  "name": "Daily Mindfulness",
+                  "description": "Mindful eating, walking, etc.",
+                  "cost": 400,
+                  "effect": "All 28 practices unlocked",
+                  "requires": ["mind_t3_n1", "mind_t3_n2"]
+                },
+                {
+                  "id": "mind_t4_n2",
+                  "name": "Meditation Mastery",
+                  "description": "Custom practice builder",
+                  "cost": 400,
+                  "effect": "Create custom meditation sequences",
+                  "requires": ["mind_t3_n2"]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "skill_points": {
+        "sources": [
+          {"action": "level_up", "points": 1},
+          {"action": "complete_achievement", "points_by_rarity": {
+            "common": 0,
+            "uncommon": 1,
+            "rare": 2,
+            "epic": 3,
+            "legendary": 5
+          }},
+          {"action": "milestone_streak", "points": 1}
+        ],
+        "respec": {
+          "cost_type": "premium_currency",
+          "cost_amount": 500,
+          "or_free": "once_per_month"
+        }
+      }
+    },
+
+    "level_5_meta_progression": {
+      "description": "Long-term goals, prestige, seasonal content, community features",
+      "long_term_goals": [
+        {
+          "id": "transformation_journey",
+          "name": "Transformation Journey",
+          "description": "Major Arcana as life transformation map",
+          "stages": [
+            {"stage": 0, "card": "The Fool", "theme": "Beginning, openness, potential"},
+            {"stage": 1, "card": "The Magician", "theme": "Skills, tools, taking action"},
+            {"stage": 2, "card": "The High Priestess", "theme": "Intuition, inner wisdom"},
+            {"stage": 3, "card": "The Empress", "theme": "Nurturing self, creativity"},
+            {"stage": 4, "card": "The Emperor", "theme": "Structure, boundaries, discipline"},
+            {"stage": 5, "card": "The Hierophant", "theme": "Learning, tradition, meaning"},
+            {"stage": 6, "card": "The Lovers", "theme": "Choice, values, integration"},
+            {"stage": 7, "card": "The Chariot", "theme": "Willpower, direction, progress"},
+            {"stage": 8, "card": "Strength", "theme": "Courage, compassion, resilience"},
+            {"stage": 9, "card": "The Hermit", "theme": "Solitude, reflection, wisdom"},
+            {"stage": 10, "card": "Wheel of Fortune", "theme": "Change, cycles, acceptance"},
+            {"stage": 11, "card": "Justice", "theme": "Balance, truth, accountability"},
+            {"stage": 12, "card": "The Hanged Man", "theme": "Perspective shift, surrender"},
+            {"stage": 13, "card": "Death", "theme": "Endings, transformation, release"},
+            {"stage": 14, "card": "Temperance", "theme": "Balance, integration, flow"},
+            {"stage": 15, "card": "The Devil", "theme": "Shadow work, addiction, freedom"},
+            {"stage": 16, "card": "The Tower", "theme": "Crisis, breakdown, breakthrough"},
+            {"stage": 17, "card": "The Star", "theme": "Hope, healing, renewal"},
+            {"stage": 18, "card": "The Moon", "theme": "Unconscious, fear, intuition"},
+            {"stage": 19, "card": "The Sun", "theme": "Joy, clarity, vitality"},
+            {"stage": 20, "card": "Judgement", "theme": "Awakening, calling, rebirth"},
+            {"stage": 21, "card": "The World", "theme": "Completion, integration, wholeness"}
+          ],
+          "progression": "User self-identifies which stage resonates. Journals reflect on current stage themes.",
+          "milestone_rewards": {
+            "every_stage": "Special journal prompt + card art unlock",
+            "complete_journey": "Prestige badge + custom card back"
+          }
+        },
+        {
+          "id": "yearly_themes",
+          "name": "Year of...",
+          "description": "Annual focus themes",
+          "examples": [
+            "Year of Compassion",
+            "Year of Courage",
+            "Year of Wisdom",
+            "Year of Balance",
+            "Year of Transformation"
+          ],
+          "mechanics": "User picks theme at year start. Readings/journals filter for theme-relevant cards/prompts."
+        }
+      ],
+      "prestige_system": {
+        "unlock_at_level": 30,
+        "description": "Reset to level 1, keep all unlocks, gain prestige star",
+        "benefits": [
+          "Prestige star badge (visible to community)",
+          "XP multiplier: 1.1x per prestige level",
+          "Exclusive card backs",
+          "Custom title colors",
+          "Early access to new features"
+        ],
+        "max_prestige": 5
+      },
+      "seasonal_content": {
+        "seasons": [
+          {
+            "name": "Winter Solstice",
+            "dates": "Dec 21 - Mar 19",
+            "theme": "Introspection, rest, renewal",
+            "card_emphasis": ["The Hermit", "The Star", "Four of Swords"],
+            "special_challenges": [
+              "30-day meditation challenge",
+              "Daily gratitude journaling"
+            ],
+            "rewards": "Winter card back + snow particle effects"
+          },
+          {
+            "name": "Spring Equinox",
+            "dates": "Mar 20 - Jun 20",
+            "theme": "Growth, new beginnings, energy",
+            "card_emphasis": ["The Fool", "The Empress", "Ace of Wands"],
+            "special_challenges": [
+              "Try all mindfulness exercises",
+              "Plant metaphor journaling"
+            ],
+            "rewards": "Spring card back + flower particle effects"
+          },
+          {
+            "name": "Summer Solstice",
+            "dates": "Jun 21 - Sep 22",
+            "theme": "Vitality, action, expansion",
+            "card_emphasis": ["The Sun", "Strength", "The Chariot"],
+            "special_challenges": [
+              "Opposite Action bootcamp",
+              "Joy practice challenge"
+            ],
+            "rewards": "Summer card back + sun ray effects"
+          },
+          {
+            "name": "Autumn Equinox",
+            "dates": "Sep 23 - Dec 20",
+            "theme": "Harvest, gratitude, balance",
+            "card_emphasis": ["Temperance", "Justice", "Nine of Pentacles"],
+            "special_challenges": [
+              "30 days of gratitude",
+              "Review & release journaling"
+            ],
+            "rewards": "Autumn card back + falling leaf effects"
+          }
+        ]
+      },
+      "community_features": {
+        "unlock_at_level": 10,
+        "features": [
+          {
+            "name": "Insight Sharing",
+            "description": "Share anonymous insights from readings",
+            "moderation": "AI + human moderation",
+            "privacy": "Opt-in, fully anonymous"
+          },
+          {
+            "name": "Oracle Mode",
+            "unlock_at_level": 25,
+            "description": "Respond to others' shared readings with supportive reflections",
+            "moderation": "Heavy moderation, report system"
+          },
+          {
+            "name": "Circles",
+            "unlock_at_level": 15,
+            "description": "Small groups (5-10 people) for shared journaling themes",
+            "privacy": "Invite-only, fully encrypted"
+          }
+        ],
+        "ethics": {
+          "no_comparison": "Never show leaderboards or compare users",
+          "no_fomo": "No time-limited exclusive content",
+          "no_guilt": "Streaks reset gently, no shame",
+          "no_addiction": "Daily usage limits with kind reminders"
+        }
+      },
+      "premium_currency": {
+        "name": "Starlight",
+        "earn_methods": [
+          "Level up: 100 Starlight",
+          "Complete rare achievement: 50 Starlight",
+          "Complete epic achievement: 100 Starlight",
+          "Complete legendary achievement: 500 Starlight",
+          "Monthly login (30 days): 200 Starlight",
+          "Daily gift: 10 Starlight"
+        ],
+        "purchase_options": [
+          {"amount": 500, "price_usd": 0.99},
+          {"amount": 1200, "price_usd": 1.99},
+          {"amount": 3000, "price_usd": 4.99},
+          {"amount": 10000, "price_usd": 9.99}
+        ],
+        "use_cases": [
+          "Unlock premium card backs: 500 Starlight",
+          "Unlock premium UI themes: 1000 Starlight",
+          "Respec skill tree (alternative to waiting): 500 Starlight",
+          "Unlock past seasonal content: 1500 Starlight",
+          "Custom reading spread slots: 300 Starlight each"
+        ],
+        "ethics": "All gameplay features earnable free. Only cosmetics are purchase-exclusive."
+      }
+    },
+
+    "onboarding_progression": {
+      "new_user_journey": [
+        {
+          "step": 1,
+          "action": "First card pull",
+          "reward": "Achievement: First Steps (25 XP)"
+        },
+        {
+          "step": 2,
+          "action": "Read card meaning",
+          "tutorial": "How to interpret cards + therapeutic lens"
+        },
+        {
+          "step": 3,
+          "action": "First journal entry",
+          "reward": "Achievement: Inner Voice (25 XP)",
+          "tutorial": "Journaling for mental wellness"
+        },
+        {
+          "step": 4,
+          "action": "Identify first cognitive distortion",
+          "reward": "20 XP + CBT skill tree node hint"
+        },
+        {
+          "step": 5,
+          "action": "Try first mindfulness exercise",
+          "reward": "Achievement: Present Moment (25 XP)"
+        },
+        {
+          "step": 6,
+          "action": "Return next day",
+          "reward": "Streak started! (50 XP bonus)"
+        },
+        {
+          "step": 7,
+          "action": "Reach level 2",
+          "reward": "Skill tree tutorial + first skill point",
+          "tutorial": "Choose your growth path"
+        }
+      ],
+      "tutorial_gates": {
+        "skill_trees": "Unlock at level 2",
+        "achievements": "Visible from start",
+        "community": "Unlock at level 10",
+        "prestige": "Unlock at level 30",
+        "seasonal": "Visible from start, participate when ready"
+      }
+    },
+
+    "analytics_and_insights": {
+      "user_dashboard": {
+        "sections": [
+          {
+            "name": "Progress Snapshot",
+            "metrics": ["Level", "XP to next level", "Current streak", "Total readings"]
+          },
+          {
+            "name": "Skill Tree Progress",
+            "visual": "Branching tree showing unlocked nodes"
+          },
+          {
+            "name": "Achievement Gallery",
+            "visual": "Badge collection with rarity glow"
+          },
+          {
+            "name": "Transformation Journey",
+            "visual": "Major Arcana path with current stage highlighted"
+          },
+          {
+            "name": "Insights",
+            "content": [
+              "Most drawn card (and what it might mean)",
+              "Therapy progress (distortions identified, skills used)",
+              "Mindfulness stats (total minutes, favorite practice)",
+              "Journal insights (word count, themes)"
+            ]
+          }
+        ]
+      },
+      "privacy_first": {
+        "local_storage": "All analytics calculated locally",
+        "no_server_tracking": "User data never leaves device unless opted-in cloud sync",
+        "export_option": "Export all data as JSON"
+      }
+    },
+
+    "ethical_gamification_principles": {
+      "motivate_not_manipulate": [
+        "Celebrate progress, don't punish absence",
+        "Normalize setbacks (broken streak = gentle reset, not shame)",
+        "No dark patterns (no countdown timers, no artificial scarcity)",
+        "No social comparison (no leaderboards, no 'your friend is ahead')"
+      ],
+      "align_with_mental_health": [
+        "XP rewards therapeutic work (journaling, mindfulness, skill practice)",
+        "Achievements reflect genuine milestones",
+        "Skill trees teach real DBT/CBT/Mindfulness skills",
+        "Community features are supportive, not competitive"
+      ],
+      "respect_user_autonomy": [
+        "All gamification can be hidden (accessibility setting)",
+        "Opt-in community features",
+        "Daily usage limit reminders ('You've practiced enough today. Rest!')",
+        "No addiction mechanics (no energy systems, no waiting timers)"
+      ],
+      "evidence_based": [
+        "Gamification elements based on motivation research (Deci & Ryan self-determination theory)",
+        "Progress tracking shown to improve adherence (habit formation literature)",
+        "Social support improves outcomes (community features, moderated)",
+        "Intrinsic motivation > extrinsic rewards (why skills unlocks > cosmetics)"
+      ]
+    }
+  }
+}

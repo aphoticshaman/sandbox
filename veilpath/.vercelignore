@@ -1,0 +1,32 @@
+# Ignore large asset directories (will be served from CDN instead)
+assets/art/new/
+# INCLUDE processed/common/ and processed/rare/ - required for card art static requires
+# INCLUDE curated/ - 86MB of AAA-quality Midjourney assets for web build
+
+# Ignore native build directories
+android/
+ios/
+backend/
+
+# Ignore documentation
+docs/
+skills/
+*.md
+!README.md
+
+# Ignore dev/test files
+jest.config.js
+jest.setup.js
+__tests__/
+*.test.js
+*.test.tsx
+
+# Ignore scripts (except build scripts)
+*.sh
+!fix-web-build.sh
+*.zip
+*.epub
+
+# Ignore config backups
+*.backup
+*.old

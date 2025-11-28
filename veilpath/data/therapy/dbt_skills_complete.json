@@ -1,0 +1,714 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2025-11-22",
+    "description": "Complete Dialectical Behavior Therapy (DBT) skills library mapped to tarot archetypes",
+    "source": "Linehan's DBT Skills Training Manual, evidence-based practices",
+    "modules": 4,
+    "total_skills": 30,
+    "card_mappings": 78
+  },
+
+  "dbt_core_principle": {
+    "dialectic": "Acceptance AND Change",
+    "explanation": "DBT balances accepting yourself as you are RIGHT NOW with working to change for the better. This is the Middle Way. Both are true.",
+    "tarot_card": "Temperance",
+    "integration": "Temperance literally depicts the blending of opposites - one foot in water (emotion), one on land (logic). This IS wise mind."
+  },
+
+  "module_1_mindfulness": {
+    "name": "Mindfulness",
+    "description": "Core skill underlying all DBT. Being present, aware, non-judgmental.",
+    "goal": "Achieve Wise Mind (balance of Emotion Mind + Reasonable Mind)",
+
+    "states_of_mind": {
+      "reasonable_mind": {
+        "description": "Logical, analytical, problem-solving mode. Cold facts.",
+        "example": "Analyzing spreadsheet data, planning logically",
+        "limitation": "Ignores emotions, can be robotic",
+        "tarot_cards": ["The Magician", "King of Swords", "Ace of Swords"],
+        "when_helpful": "Making big decisions, solving complex problems"
+      },
+
+      "emotion_mind": {
+        "description": "Feelings drive thoughts and actions. Hot emotions.",
+        "example": "Crying at sad movie, impulsive anger, passionate love",
+        "limitation": "Can be overwhelming, clouds judgment",
+        "tarot_cards": ["The Moon", "Queen of Cups", "Five of Cups"],
+        "when_helpful": "Connecting with others, creativity, passion"
+      },
+
+      "wise_mind": {
+        "description": "Integration of Reasonable + Emotion. Intuitive knowing.",
+        "example": "You KNOW the right answer, combining logic and feeling",
+        "power": "Makes decisions you won't regret later",
+        "tarot_cards": ["Temperance", "The High Priestess", "The Hermit", "Justice"],
+        "how_to_access": "Ask: 'What do I deeply know is right?' Feel it in your gut + think it through your head."
+      }
+    },
+
+    "what_skills": {
+      "name": "The 'What' Skills (WHAT you do)",
+
+      "observe": {
+        "skill": "Observe",
+        "description": "Notice without reacting. Just watch your thoughts/feelings/sensations.",
+        "how": "Step back. Witness like you're watching a movie of yourself.",
+        "tarot_cards": ["The Hermit", "The Star", "Seven of Pentacles"],
+        "practice": "Notice 5 things you see. Don't judge, just observe.",
+        "app_prompt": "Take 3 breaths. What sensations do you notice in your body right now?"
+      },
+
+      "describe": {
+        "skill": "Describe",
+        "description": "Put words to what you observe. Stick to facts, not interpretations.",
+        "how": "Use objective language. 'My chest is tight' not 'I'm having a panic attack.'",
+        "tarot_cards": ["Page of Swords", "The Magician", "Ace of Swords"],
+        "practice": "Describe your current emotion as a color, temperature, texture.",
+        "app_prompt": "If this emotion were a weather pattern, how would you describe it?"
+      },
+
+      "participate": {
+        "skill": "Participate",
+        "description": "Fully engage in the present moment. Become one with your activity.",
+        "how": "Throw yourself in. Lose self-consciousness. Flow state.",
+        "tarot_cards": ["The Fool", "The World", "Six of Wands"],
+        "practice": "Do ONE thing mindfully today - washing dishes, walking, eating.",
+        "app_prompt": "What activity helps you lose track of time? How can you do more of that?"
+      }
+    },
+
+    "how_skills": {
+      "name": "The 'How' Skills (HOW you do it)",
+
+      "non_judgmentally": {
+        "skill": "Non-judgmentally",
+        "description": "Let go of evaluations (good/bad, right/wrong). Just observe what IS.",
+        "how": "Notice judgments arise ('this is stupid'). Acknowledge them. Return to facts.",
+        "tarot_cards": ["Justice (reversed)", "Temperance", "Two of Swords"],
+        "practice": "Catch 3 judgments today. Replace 'good/bad' with factual description.",
+        "app_prompt": "What judgment are you holding about yourself? Can you observe it without believing it?"
+      },
+
+      "one_mindfully": {
+        "skill": "One-mindfully",
+        "description": "Do one thing at a time. Full attention, no multitasking.",
+        "how": "When eating, just eat. When walking, just walk. When worried, just worry (then move on).",
+        "tarot_cards": ["The Magician", "Ace of Pentacles", "Eight of Pentacles"],
+        "practice": "Eat one meal today without phone/TV/reading. Just taste.",
+        "app_prompt": "What's stealing your attention right now? Can you gently return to THIS moment?"
+      },
+
+      "effectively": {
+        "skill": "Effectively",
+        "description": "Do what WORKS. Let go of being 'right.' Focus on your goals.",
+        "how": "Ask: 'Will this help me reach my goal?' Not: 'Am I right or are they wrong?'",
+        "tarot_cards": ["The Chariot", "Three of Wands", "King of Pentacles"],
+        "practice": "In one conflict today, choose effectiveness over being right.",
+        "app_prompt": "What's your actual goal here? What action moves you toward it?"
+      }
+    },
+
+    "mindfulness_practices_mapped_to_cards": [
+      {
+        "card": "The Magician",
+        "practice": "One-pointed focus meditation (stare at candle flame for 5 min)",
+        "skill": "One-mindfully + Observe"
+      },
+      {
+        "card": "The High Priestess",
+        "practice": "Intuitive journaling (write without thinking, let Wise Mind speak)",
+        "skill": "Participate + Wise Mind access"
+      },
+      {
+        "card": "The Hermit",
+        "practice": "Silent observation walk (notice environment, no music/podcast)",
+        "skill": "Observe + Non-judgmentally"
+      },
+      {
+        "card": "The Star",
+        "practice": "Stargazing / Sky gazing (observe without naming)",
+        "skill": "Observe + Participate"
+      },
+      {
+        "card": "Temperance",
+        "practice": "Balancing breath (equal inhale/exhale, finding equilibrium)",
+        "skill": "Wise Mind embodied"
+      }
+    ]
+  },
+
+  "module_2_distress_tolerance": {
+    "name": "Distress Tolerance",
+    "description": "Surviving crisis without making it worse. Accepting painful reality.",
+    "goal": "Get through intense emotions without destructive behaviors",
+
+    "crisis_survival_skills": {
+      "name": "Crisis Survival (When you're overwhelmed RIGHT NOW)",
+
+      "tipp": {
+        "acronym": "TIPP",
+        "name": "Temperature, Intense exercise, Paced breathing, Paired muscle relaxation",
+        "when": "Emotion intensity 8-10/10. You're about to do something destructive.",
+
+        "t_temperature": {
+          "skill": "Temperature",
+          "how": "Splash ice-cold water on face, hold ice cube, cold shower",
+          "why": "Activates dive reflex, slows heart rate, calms nervous system",
+          "tarot_card": "Ace of Cups (cold water)",
+          "app_prompt": "Emotion too hot? Try cold water on your face for 30 seconds."
+        },
+
+        "i_intense_exercise": {
+          "skill": "Intense Exercise",
+          "how": "Run, jump, do burpees, anything vigorous for 10-20 min",
+          "why": "Burns off adrenaline, releases endorphins",
+          "tarot_card": "The Chariot (movement)",
+          "app_prompt": "Move your body intensely for 60 seconds. Match the emotion's intensity."
+        },
+
+        "p_paced_breathing": {
+          "skill": "Paced Breathing",
+          "how": "Breathe in for 4, hold for 4, out for 6. Repeat.",
+          "why": "Longer exhale activates parasympathetic (calm) nervous system",
+          "tarot_card": "Temperance (balance)",
+          "app_prompt": "Box breathing: In-2-3-4, Hold-2-3-4, Out-2-3-4-5-6, Hold-2-3-4"
+        },
+
+        "p_paired_muscle": {
+          "skill": "Paired Muscle Relaxation",
+          "how": "Tense muscle for 10 sec, release. Progressive through body.",
+          "why": "Releases physical tension, grounds you in body",
+          "tarot_card": "Four of Swords (rest)",
+          "app_prompt": "Squeeze fists tight for 10 seconds. Release. Feel the difference."
+        }
+      },
+
+      "accepts": {
+        "acronym": "ACCEPTS",
+        "name": "Activities, Contributing, Comparisons, Emotions, Pushing away, Thoughts, Sensations",
+        "when": "Need distraction from painful emotions (short-term relief)",
+
+        "skills": [
+          {
+            "letter": "A",
+            "skill": "Activities",
+            "description": "Do something engaging to occupy your mind",
+            "examples": ["Puzzle", "Video game", "Clean a room", "Call a friend"],
+            "tarot_card": "Eight of Pentacles (focused work)"
+          },
+          {
+            "letter": "C",
+            "skill": "Contributing",
+            "description": "Help someone else, volunteer, be of service",
+            "examples": ["Text a friend support", "Donate", "Help neighbor"],
+            "tarot_card": "Six of Pentacles (giving)"
+          },
+          {
+            "letter": "C",
+            "skill": "Comparisons",
+            "description": "Compare to times you coped well or when things were worse",
+            "examples": ["I've survived 100% of my worst days so far"],
+            "tarot_card": "Five of Pentacles (survived hardship)"
+          },
+          {
+            "letter": "E",
+            "skill": "Emotions (opposite)",
+            "description": "Watch/read something that creates opposite emotion",
+            "examples": ["Sad? Watch comedy. Angry? Listen to calm music"],
+            "tarot_card": "Queen of Cups (emotional regulation)"
+          },
+          {
+            "letter": "P",
+            "skill": "Pushing away",
+            "description": "Mentally put the problem in a box to deal with later",
+            "examples": ["'I'll think about this tomorrow at 3pm'"],
+            "tarot_card": "The Hanged Man (suspension)"
+          },
+          {
+            "letter": "T",
+            "skill": "Thoughts (other)",
+            "description": "Occupy your mind with neutral thoughts",
+            "examples": ["Count backwards from 100 by 7s", "Name state capitals"],
+            "tarot_card": "Page of Swords (mental activity)"
+          },
+          {
+            "letter": "S",
+            "skill": "Sensations",
+            "description": "Create strong physical sensations to shift focus",
+            "examples": ["Hold ice", "Squeeze stress ball", "Listen to loud music"],
+            "tarot_card": "Ace of Wands (physical sensation)"
+          }
+        ]
+      },
+
+      "self_soothe": {
+        "name": "Self-Soothe (The 5 Senses)",
+        "description": "Comfort yourself using sensory experiences",
+
+        "vision": {
+          "sense": "Vision",
+          "examples": ["Look at photos of loved ones", "Watch sunset", "Browse art"],
+          "tarot_card": "The Star (beautiful visuals)"
+        },
+
+        "hearing": {
+          "sense": "Hearing",
+          "examples": ["Favorite song", "Nature sounds", "Guided meditation"],
+          "tarot_card": "Three of Cups (music and joy)"
+        },
+
+        "smell": {
+          "sense": "Smell",
+          "examples": ["Essential oils", "Fresh flowers", "Bake cookies"],
+          "tarot_card": "Queen of Pentacles (earthly pleasures)"
+        },
+
+        "taste": {
+          "sense": "Taste",
+          "examples": ["Favorite tea", "Dark chocolate", "Fresh fruit"],
+          "tarot_card": "Ace of Cups (nourishment)"
+        },
+
+        "touch": {
+          "sense": "Touch",
+          "examples": ["Soft blanket", "Pet your cat", "Warm bath"],
+          "tarot_card": "The Empress (sensual comfort)"
+        }
+      }
+    },
+
+    "reality_acceptance_skills": {
+      "name": "Reality Acceptance (Long-term acceptance)",
+
+      "radical_acceptance": {
+        "skill": "Radical Acceptance",
+        "definition": "Completely accepting reality as it is, without fighting it",
+        "not": "Approving, liking, or giving up on change",
+        "is": "Acknowledging what is TRUE right now",
+        "buddhism_connection": "The First Noble Truth (suffering exists)",
+        "tarot_cards": ["The Hanged Man", "Death", "The Tower"],
+        "how": [
+          "Notice you're fighting reality ('This shouldn't be happening')",
+          "Remind yourself: 'This is the reality right now'",
+          "Relax your body (fighting shows up physically)",
+          "Breathe into acceptance",
+          "Acknowledge causes (everything has a cause, even if unfair)"
+        ],
+        "app_prompt": "What reality are you fighting? Can you say 'This is happening' without 'but it shouldn't'?"
+      },
+
+      "turning_the_mind": {
+        "skill": "Turning the Mind",
+        "definition": "Making the choice to accept, over and over",
+        "analogy": "Like turning a key. Each time you reject reality, turn the key back to acceptance.",
+        "tarot_card": "Two of Swords (making a choice)",
+        "practice": "When you notice yourself rejecting reality (even subtly), consciously choose: 'I'm turning toward acceptance.'"
+      },
+
+      "willingness": {
+        "skill": "Willingness",
+        "definition": "Being open to doing what's needed, even if you don't feel like it",
+        "opposite": "Willfulness (stubbornly refusing, 'I won't!')",
+        "tarot_cards": ["The Hanged Man (surrendering control)", "The Fool (openness)"],
+        "practice": "Notice 'I don't want to' vs. 'I'm willing to try.' Choose willingness.",
+        "app_prompt": "What are you resisting that might actually help? Can you be willing to try?"
+      }
+    },
+
+    "cards_mapped_to_distress_tolerance": [
+      {"card": "The Tower", "skill": "Radical Acceptance of sudden change"},
+      {"card": "Death", "skill": "Radical Acceptance of endings"},
+      {"card": "The Hanged Man", "skill": "Willingness, surrender"},
+      {"card": "Ten of Swords", "skill": "Radical Acceptance of rock bottom"},
+      {"card": "Five of Pentacles", "skill": "Surviving hardship"},
+      {"card": "Four of Swords", "skill": "Self-Soothe + rest"},
+      {"card": "The Chariot", "skill": "TIPP - Intense exercise"},
+      {"card": "Temperance", "skill": "TIPP - Paced breathing"}
+    ]
+  },
+
+  "module_3_emotion_regulation": {
+    "name": "Emotion Regulation",
+    "description": "Understanding and managing emotions, reducing vulnerability to negative emotions",
+    "goal": "Decrease emotional suffering, increase positive experiences",
+
+    "understanding_emotions": {
+      "function_of_emotions": "Emotions are DATA. They communicate information and motivate action.",
+      "example": "Fear = 'There's danger' → Motivates: Run/fight/freeze",
+      "tarot_suits_as_emotions": {
+        "Cups": "Core emotions (joy, sadness, love, grief)",
+        "Swords": "Mental/cognitive emotions (anxiety, clarity)",
+        "Wands": "Passionate/energizing emotions (anger, excitement)",
+        "Pentacles": "Grounded/practical emotions (security, contentment)"
+      }
+    },
+
+    "please_master": {
+      "acronym": "PLEASE",
+      "name": "Physical illness, Eating, Avoid mood-altering drugs, Sleep, Exercise",
+      "description": "Reduce vulnerability to negative emotions by taking care of your body",
+
+      "skills": [
+        {
+          "letter": "PL",
+          "skill": "Treat Physical Illness",
+          "how": "See doctor when sick, take meds as prescribed",
+          "why": "Physical pain increases emotional pain",
+          "tarot_card": "The Empress (self-care)"
+        },
+        {
+          "letter": "E",
+          "skill": "Balanced Eating",
+          "how": "Regular meals, balanced nutrition, not too much/little",
+          "why": "Blood sugar affects mood dramatically",
+          "tarot_card": "Ace of Pentacles (nourishment)"
+        },
+        {
+          "letter": "A",
+          "skill": "Avoid Mood-Altering Substances",
+          "how": "Limit alcohol/drugs (including self-medication)",
+          "why": "Substances dysregulate emotions long-term",
+          "tarot_card": "The Devil (breaking chains of addiction)"
+        },
+        {
+          "letter": "S",
+          "skill": "Sleep Hygiene",
+          "how": "7-9 hours, consistent schedule, dark room",
+          "why": "Sleep deprivation = emotional dysregulation",
+          "tarot_card": "Four of Swords (rest)"
+        },
+        {
+          "letter": "E",
+          "skill": "Exercise",
+          "how": "20-30 min most days, anything that moves your body",
+          "why": "Regulates neurotransmitters, reduces cortisol",
+          "tarot_card": "Strength (vitality)"
+        }
+      ]
+    },
+
+    "abc_please": {
+      "acronym": "ABC PLEASE",
+      "name": "Accumulate positive emotions, Build mastery, Cope ahead, PLEASE",
+
+      "accumulate_positive_short_term": {
+        "skill": "Accumulate Positive Emotions (Short-term)",
+        "how": "Do pleasant things daily that fit your values",
+        "examples": ["Call a friend", "Listen to favorite song", "Pet your dog"],
+        "tarot_card": "The Sun (joy)",
+        "app_feature": "Daily pleasant event tracker with mood correlation"
+      },
+
+      "accumulate_positive_long_term": {
+        "skill": "Accumulate Positive Emotions (Long-term)",
+        "how": "Build a life worth living - work toward valued goals",
+        "examples": ["Pursue meaningful career", "Deepen relationships", "Learn a skill"],
+        "tarot_card": "The World (fulfillment)"
+      },
+
+      "build_mastery": {
+        "skill": "Build Mastery",
+        "how": "Do something challenging that makes you feel competent",
+        "examples": ["Learn guitar", "Complete a project", "Cook new recipe"],
+        "why": "Competence builds self-esteem, counters helplessness",
+        "tarot_card": "Eight of Pentacles (mastery through practice)"
+      },
+
+      "cope_ahead": {
+        "skill": "Cope Ahead",
+        "how": [
+          "Identify situation that might be difficult",
+          "Plan coping strategies ahead of time",
+          "Mentally rehearse using the skills",
+          "Gather resources you'll need"
+        ],
+        "example": "Before difficult conversation: plan DEAR MAN, practice deep breathing, have friend on standby",
+        "tarot_card": "Seven of Wands (prepared for challenge)"
+      }
+    },
+
+    "opposite_action": {
+      "skill": "Opposite Action",
+      "description": "When emotion doesn't fit the facts, act opposite to the emotion's urge",
+      "revolutionary": "This is the MOST POWERFUL DBT skill for changing emotions",
+
+      "when_to_use": "When emotion is NOT JUSTIFIED by facts OR intensity doesn't fit",
+
+      "examples": [
+        {
+          "emotion": "Fear (unjustified)",
+          "urge": "Avoid the scary thing",
+          "opposite_action": "Approach it (gradual exposure)",
+          "result": "Fear decreases over time",
+          "tarot_card": "Strength (courage despite fear)"
+        },
+        {
+          "emotion": "Anger (unjustified)",
+          "urge": "Attack, yell, blame",
+          "opposite_action": "Gently avoid, be kind, empathize",
+          "result": "Anger de-escalates",
+          "tarot_card": "Temperance (cooling hot emotion)"
+        },
+        {
+          "emotion": "Sadness (wallowing)",
+          "urge": "Isolate, stay in bed, ruminate",
+          "opposite_action": "Get active, socialize, solve problems",
+          "result": "Mood lifts",
+          "tarot_card": "Three of Cups (connection as antidote)"
+        },
+        {
+          "emotion": "Shame (unwarranted)",
+          "urge": "Hide, withdraw, keep secret",
+          "opposite_action": "Share it, hold head high, repeat the behavior (if not harmful)",
+          "result": "Shame loses power",
+          "tarot_card": "The Sun (no more hiding)"
+        }
+      ]
+    },
+
+    "problem_solving": {
+      "skill": "Problem Solving",
+      "when": "When emotion IS justified (problem exists), solve the problem!",
+      "steps": [
+        "Identify the problem clearly",
+        "Brainstorm solutions (write down ALL ideas, even bad ones)",
+        "Choose best solution (pros/cons list)",
+        "Implement solution",
+        "Evaluate result (if didn't work, try different solution)"
+      ],
+      "tarot_card": "The Magician (using tools to solve problems)"
+    }
+  },
+
+  "module_4_interpersonal_effectiveness": {
+    "name": "Interpersonal Effectiveness",
+    "description": "Getting what you need from relationships while keeping self-respect and the relationship",
+    "goal": "Ask effectively, say no effectively, maintain relationships, maintain self-respect",
+
+    "dear_man": {
+      "acronym": "DEAR MAN",
+      "name": "Describe, Express, Assert, Reinforce, Mindful, Appear confident, Negotiate",
+      "when": "Asking for something or saying no",
+
+      "describe": {
+        "skill": "Describe",
+        "how": "State the FACTS of the situation, no judgments",
+        "example": "'You said you'd call at 7pm and didn't' (not 'You're so unreliable!')",
+        "tarot_card": "Ace of Swords (clarity)"
+      },
+
+      "express": {
+        "skill": "Express",
+        "how": "Share your FEELINGS and OPINIONS using 'I' statements",
+        "example": "'I felt worried when I didn't hear from you'",
+        "tarot_card": "Queen of Cups (emotional honesty)"
+      },
+
+      "assert": {
+        "skill": "Assert",
+        "how": "ASK clearly for what you want or SAY NO clearly",
+        "example": "'I need you to text if you'll be late' or 'No, I can't do that'",
+        "tarot_card": "The Emperor (healthy assertion)"
+      },
+
+      "reinforce": {
+        "skill": "Reinforce",
+        "how": "Explain positive effects of getting what you want",
+        "example": "'If you text, I won't worry and we'll both be happier'",
+        "tarot_card": "Six of Pentacles (mutual benefit)"
+      },
+
+      "mindful": {
+        "skill": "Stay Mindful",
+        "how": "Don't be distracted. Broken record if needed ('But what about...' → 'I understand, AND I need X')",
+        "tarot_card": "The Magician (focused intention)"
+      },
+
+      "appear_confident": {
+        "skill": "Appear Confident",
+        "how": "Eye contact, calm tone, confident posture (even if you don't feel it)",
+        "why": "People respond to confidence",
+        "tarot_card": "Strength (inner and outer power)"
+      },
+
+      "negotiate": {
+        "skill": "Negotiate",
+        "how": "Be willing to compromise. Offer solutions. Ask what they need.",
+        "example": "'What if we...?' or 'Can we meet in the middle?'",
+        "tarot_card": "Justice (fairness, balance)"
+      }
+    },
+
+    "give": {
+      "acronym": "GIVE",
+      "name": "Gentle, Interested, Validate, Easy manner",
+      "when": "Maintaining the RELATIONSHIP (while asking/saying no)",
+
+      "gentle": {
+        "skill": "Be Gentle",
+        "how": "No attacks, threats, or judgments. Kind tone and words.",
+        "not": "'You ALWAYS do this!' or 'You're so selfish!'",
+        "is": "'I've noticed this pattern' or 'I feel hurt'",
+        "tarot_card": "The Empress (gentleness)"
+      },
+
+      "interested": {
+        "skill": "Act Interested",
+        "how": "Listen. Ask questions. Show you care about their perspective.",
+        "example": "'Tell me more about why that's important to you'",
+        "tarot_card": "The High Priestess (deep listening)"
+      },
+
+      "validate": {
+        "skill": "Validate",
+        "how": "Acknowledge their feelings/perspective as understandable (even if you disagree)",
+        "example": "'I can see why you'd feel that way' or 'That makes sense given X'",
+        "power": "Validation de-escalates conflict faster than anything",
+        "tarot_card": "Temperance (acknowledging both sides)"
+      },
+
+      "easy_manner": {
+        "skill": "Use Easy Manner",
+        "how": "Smile, be light, use humor if appropriate. Don't be grim/heavy.",
+        "why": "People respond better to pleasant interactions",
+        "tarot_card": "Three of Cups (warmth, ease)"
+      }
+    },
+
+    "fast": {
+      "acronym": "FAST",
+      "name": "Fair, Apologies (no excessive), Stick to values, Truthful",
+      "when": "Maintaining SELF-RESPECT (not betraying yourself)",
+
+      "fair": {
+        "skill": "Be Fair",
+        "how": "Fair to yourself AND the other person. Not a doormat, not a tyrant.",
+        "tarot_card": "Justice (balance)"
+      },
+
+      "no_apologies": {
+        "skill": "No Excessive Apologies",
+        "how": "Apologize ONCE for actual wrongdoing. Don't apologize for existing/having needs.",
+        "not": "'I'm so sorry to bother you...' (50 times)",
+        "is": "I need your help with X'",
+        "tarot_card": "Strength (stand tall)"
+      },
+
+      "stick_to_values": {
+        "skill": "Stick to Values",
+        "how": "Don't abandon your principles to please someone. Know your non-negotiables.",
+        "example": "If honesty is a value, don't lie to avoid conflict",
+        "tarot_card": "The Hierophant (values, integrity)"
+      },
+
+      "truthful": {
+        "skill": "Be Truthful",
+        "how": "Don't lie, exaggerate, or make excuses. Honesty (with kindness).",
+        "tarot_card": "Justice (truth)"
+      }
+    },
+
+    "relationship_to_tarot_suits": {
+      "Cups": "Emotional connection in relationships (GIVE skills)",
+      "Swords": "Clear communication (DEAR MAN)",
+      "Wands": "Passion and boundaries",
+      "Pentacles": "Practical give-and-take (fairness)"
+    }
+  },
+
+  "integration_with_tarot_major_arcana": {
+    "0_The_Fool": "Willingness, beginner's mind, participate",
+    "1_The_Magician": "One-mindfully, using all skills available",
+    "2_The_High_Priestess": "Wise Mind, deep listening",
+    "3_The_Empress": "Self-soothe, PLEASE (self-care)",
+    "4_The_Emperor": "Structure, boundaries, assert",
+    "5_The_Hierophant": "Stick to values (FAST)",
+    "6_The_Lovers": "Interpersonal effectiveness",
+    "7_The_Chariot": "Opposite action, moving forward despite emotion",
+    "8_Strength": "Emotion regulation, gentle power",
+    "9_The_Hermit": "Observe, turning inward mindfully",
+    "10_Wheel_of_Fortune": "Radical acceptance of change",
+    "11_Justice": "FAST skills, fairness, balance",
+    "12_The_Hanged_Man": "Willingness, radical acceptance, surrender",
+    "13_Death": "Radical acceptance of endings, transitions",
+    "14_Temperance": "THE DBT CARD - Wise Mind, balance, dialectics",
+    "15_The_Devil": "Recognizing chains, opposite action",
+    "16_The_Tower": "Crisis survival skills, radical acceptance",
+    "17_The_Star": "Accumulate positive, hope",
+    "18_The_Moon": "Emotion Mind, facing difficult emotions",
+    "19_The_Sun": "Joy, positive emotions, build mastery",
+    "20_Judgement": "Self-validation, letting go of shame",
+    "21_The_World": "Integration, effectiveness, life worth living"
+  },
+
+  "gamification": {
+    "achievements": [
+      {
+        "id": "wise_mind_warrior",
+        "name": "Wise Mind Warrior",
+        "description": "Access Wise Mind 10 times (identify in journal)",
+        "xp": 200,
+        "icon": "Temperance card"
+      },
+      {
+        "id": "tipp_master",
+        "name": "TIPP Master",
+        "description": "Use all 4 TIPP skills during crisis",
+        "xp": 150,
+        "icon": "The Chariot"
+      },
+      {
+        "id": "radical_acceptor",
+        "name": "Radical Acceptor",
+        "description": "Practice radical acceptance 7 days in a row",
+        "xp": 300,
+        "icon": "The Hanged Man"
+      },
+      {
+        "id": "dear_man_diplomat",
+        "name": "DEAR MAN Diplomat",
+        "description": "Use DEAR MAN successfully 5 times",
+        "xp": 250,
+        "icon": "Justice"
+      },
+      {
+        "id": "opposite_action_hero",
+        "name": "Opposite Action Hero",
+        "description": "Act opposite to emotion and track mood change",
+        "xp": 200,
+        "icon": "Strength"
+      }
+    ],
+
+    "skill_tree": {
+      "mindfulness_branch": [
+        "Observe",
+        "Describe",
+        "Participate",
+        "Non-judgmental",
+        "One-mindfully",
+        "Effectively",
+        "Wise Mind"
+      ],
+      "distress_tolerance_branch": [
+        "TIPP",
+        "ACCEPTS",
+        "Self-Soothe",
+        "Radical Acceptance",
+        "Willingness"
+      ],
+      "emotion_regulation_branch": [
+        "PLEASE",
+        "ABC PLEASE",
+        "Opposite Action",
+        "Problem Solving"
+      ],
+      "interpersonal_branch": [
+        "DEAR MAN",
+        "GIVE",
+        "FAST"
+      ]
+    }
+  }
+}

@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2025-11-22",
+    "description": "Complete CBT cognitive distortions library mapped to tarot archetypes",
+    "source": "Evidence-based CBT practices (Beck, Burns, Ellis)"
+  },
+  "cognitive_distortions": [
+    {
+      "id": "all_or_nothing",
+      "name": "All-or-Nothing Thinking",
+      "aka": ["Black-and-white thinking", "Dichotomous thinking"],
+      "definition": "Viewing situations in only two categories instead of on a continuum",
+      "example": "If I'm not perfect, I'm a total failure",
+      "tarot_cards": ["The Tower", "Two of Swords", "Justice"],
+      "card_meanings": {
+        "The Tower": "Represents sudden extremes, the shattering of rigid thinking",
+        "Two of Swords": "Stuck between binary choices, unable to see nuance",
+        "Justice": "Harsh self-judgment without mercy or middle ground"
+      },
+      "therapeutic_prompts": [
+        "What evidence contradicts this extreme view?",
+        "Can you find the gray area between these extremes?",
+        "How would you advise a friend in this situation?"
+      ],
+      "reframing_questions": [
+        "Instead of perfect or failure, where do you fall on a 0-10 scale?",
+        "What's ONE thing you did well, even if everything wasn't perfect?",
+        "What would 'good enough' look like in this situation?"
+      ],
+      "behavioral_activation": "Practice accepting 'B+ work' on a low-stakes task this week"
+    },
+    {
+      "id": "overgeneralization",
+      "name": "Overgeneralization",
+      "aka": ["Jumping to conclusions"],
+      "definition": "Making broad interpretations from a single or few events",
+      "example": "I failed this test, I'm going to fail everything",
+      "tarot_cards": ["The Hermit", "Ten of Swords", "Five of Cups"],
+      "card_meanings": {
+        "The Hermit": "Isolation based on one past experience",
+        "Ten of Swords": "Catastrophizing from a single painful event",
+        "Five of Cups": "Focusing on spilled cups, ignoring the two still standing"
+      },
+      "therapeutic_prompts": [
+        "How many times has this actually happened?",
+        "What are the exceptions to this pattern?",
+        "Is this a universal truth or one data point?"
+      ],
+      "reframing_questions": [
+        "If this happened once, what percentage of the time does it NOT happen?",
+        "What's a counter-example from your own experience?",
+        "How would a scientist evaluate this claim?"
+      ],
+      "behavioral_activation": "Keep a log this week: track how often your feared outcome actually happens vs. doesn't happen"
+    },
+    {
+      "id": "mental_filter",
+      "name": "Mental Filter",
+      "aka": ["Tunnel vision", "Selective attention"],
+      "definition": "Focusing exclusively on negative details while filtering out positive ones",
+      "example": "Got 9/10 positive reviews but obsessing over the 1 negative",
+      "tarot_cards": ["Nine of Swords", "Five of Cups", "The Moon"],
+      "card_meanings": {
+        "Nine of Swords": "Ruminating on worries while ignoring solutions",
+        "Five of Cups": "Literally focusing on spilled cups, missing upright ones",
+        "The Moon": "Distorted perception, seeing only shadows"
+      },
+      "therapeutic_prompts": [
+        "What positive details am I filtering out?",
+        "If I had to find 3 good things about this situation, what would they be?",
+        "Am I wearing 'gray-tinted glasses'?"
+      ],
+      "reframing_questions": [
+        "What would a balanced view include?",
+        "If someone else described this situation, what positives might they mention?",
+        "What am I taking for granted as 'neutral' that's actually positive?"
+      ],
+      "behavioral_activation": "Daily '3 Good Things' journal: write down 3 positive events each day for a week"
+    },
+    {
+      "id": "disqualifying_positive",
+      "name": "Disqualifying the Positive",
+      "aka": ["Yes, but...", "Minimizing"],
+      "definition": "Rejecting positive experiences as 'not counting' for arbitrary reasons",
+      "example": "I only succeeded because the task was easy / I got lucky",
+      "tarot_cards": ["Four of Cups", "The Hanged Man", "Six of Swords"],
+      "card_meanings": {
+        "Four of Cups": "Offered a gift, rejecting it as inadequate",
+        "The Hanged Man": "Stuck perspective, unable to see value",
+        "Six of Swords": "Moving away from positivity, toward familiar negativity"
+      },
+      "therapeutic_prompts": [
+        "What would it mean if I DID accept this positive?",
+        "Why is it so important to dismiss my successes?",
+        "Would I dismiss this if it happened to a friend?"
+      ],
+      "reframing_questions": [
+        "Even if it was 'easy,' did I still do it?",
+        "If luck played a role, did I also create the opportunity for luck?",
+        "What skills did I use, even in an 'easy' situation?"
+      ],
+      "behavioral_activation": "Accept ONE compliment this week without deflecting or explaining it away"
+    },
+    {
+      "id": "catastrophizing",
+      "name": "Catastrophizing",
+      "aka": ["Magnification", "Fortune-telling"],
+      "definition": "Expecting the worst possible outcome without evidence",
+      "example": "If I make one mistake, I'll get fired and become homeless",
+      "tarot_cards": ["The Tower", "Ten of Swords", "Death"],
+      "card_meanings": {
+        "The Tower": "Imagining complete disaster from a small crack",
+        "Ten of Swords": "Worst-case scenario thinking",
+        "Death": "Fearing permanent, catastrophic endings"
+      },
+      "therapeutic_prompts": [
+        "What's the MOST LIKELY outcome, not the worst?",
+        "Have I survived similar 'catastrophes' before?",
+        "What's my evidence for this prediction?"
+      ],
+      "reframing_questions": [
+        "On a scale of 1-10, how bad would this realistically be?",
+        "What resources do I have to handle this if it happens?",
+        "What would I tell an anxious friend imagining this scenario?"
+      ],
+      "behavioral_activation": "Write down your feared catastrophe. In one week, check: did it happen? How did you cope?"
+    },
+    {
+      "id": "emotional_reasoning",
+      "name": "Emotional Reasoning",
+      "aka": ["Feeling equals fact"],
+      "definition": "Believing that negative feelings reflect reality: 'I feel it, therefore it must be true'",
+      "example": "I feel stupid, therefore I AM stupid",
+      "tarot_cards": ["The Moon", "Queen of Cups", "Eight of Cups"],
+      "card_meanings": {
+        "The Moon": "Emotions creating illusions, feelings obscuring facts",
+        "Queen of Cups": "Deep emotional waters mistaken for objective truth",
+        "Eight of Cups": "Walking away based on feeling, not facts"
+      },
+      "therapeutic_prompts": [
+        "What do I FEEL vs. what do I KNOW?",
+        "If feelings aren't facts, what IS the evidence?",
+        "Have my feelings been wrong before?"
+      ],
+      "reframing_questions": [
+        "When I'm calm, do I believe this?",
+        "What would objective data say about this situation?",
+        "How might I feel about this tomorrow? Next week?"
+      ],
+      "behavioral_activation": "Fact-check ONE emotion-based belief this week: gather actual evidence pro/con"
+    },
+    {
+      "id": "should_statements",
+      "name": "Should Statements",
+      "aka": ["Musturbation (Albert Ellis)", "Tyranny of shoulds"],
+      "definition": "Using rigid 'should,' 'must,' or 'ought' statements that create guilt and pressure",
+      "example": "I should always be productive / I must never make mistakes",
+      "tarot_cards": ["The Emperor", "Justice", "Judgement"],
+      "card_meanings": {
+        "The Emperor": "Rigid rules, inflexible expectations",
+        "Justice": "Harsh self-judgment, punitive standards",
+        "Judgement": "Critical evaluation based on impossible ideals"
+      },
+      "therapeutic_prompts": [
+        "Where did this 'should' come from? Is it truly mine?",
+        "What would happen if I replaced 'should' with 'could' or 'prefer'?",
+        "Am I applying standards to myself I wouldn't apply to others?"
+      ],
+      "reframing_questions": [
+        "What do I VALUE vs. what do I think I SHOULD do?",
+        "Is this rule helping me or hurting me?",
+        "What would be more realistic or compassionate language?"
+      ],
+      "behavioral_activation": "Notice 'shoulds' this week. Reframe 3 of them using 'I'd like to' or 'I prefer'"
+    },
+    {
+      "id": "labeling",
+      "name": "Labeling",
+      "aka": ["Name-calling"],
+      "definition": "Assigning global, negative labels to yourself or others",
+      "example": "I'm a loser / They're an idiot",
+      "tarot_cards": ["The Devil", "Five of Pentacles", "Ten of Swords"],
+      "card_meanings": {
+        "The Devil": "Chains of negative self-identity",
+        "Five of Pentacles": "Defining self as 'broken' or 'defective'",
+        "Ten of Swords": "Identifying with complete defeat"
+      },
+      "therapeutic_prompts": [
+        "Am I describing a behavior or attacking my character?",
+        "Would I use this label on someone I love?",
+        "What's a more specific, less global description?"
+      ],
+      "reframing_questions": [
+        "Instead of 'I AM a failure,' can I say 'I EXPERIENCED a failure'?",
+        "What qualities do I have that contradict this label?",
+        "If I had to describe the situation without labels, what would I say?"
+      ],
+      "behavioral_activation": "Catch ONE self-label this week and challenge it with specific evidence to the contrary"
+    },
+    {
+      "id": "personalization",
+      "name": "Personalization",
+      "aka": ["Blame", "Self-reference"],
+      "definition": "Believing you're responsible for events outside your control",
+      "example": "My friend is upset, it must be my fault",
+      "tarot_cards": ["Six of Swords", "Four of Swords", "The Hermit"],
+      "card_meanings": {
+        "Six of Swords": "Carrying burdens that aren't yours",
+        "Four of Swords": "Exhaustion from taking on others' emotions",
+        "The Hermit": "Isolation from feeling responsible for everything"
+      },
+      "therapeutic_prompts": [
+        "What percentage of this situation is actually under my control?",
+        "What OTHER factors might be contributing?",
+        "Am I taking credit for things beyond my influence?"
+      ],
+      "reframing_questions": [
+        "If I had no involvement, what would the outcome be?",
+        "What's HER/HIS responsibility vs. mine?",
+        "Am I powerful enough to control others' feelings/outcomes?"
+      ],
+      "behavioral_activation": "List 3 factors contributing to a situation you personalized. What percentage is your actual responsibility?"
+    },
+    {
+      "id": "mind_reading",
+      "name": "Mind Reading",
+      "aka": ["Assuming"],
+      "definition": "Assuming you know what others are thinking without evidence",
+      "example": "They think I'm incompetent (with no actual statement from them)",
+      "tarot_cards": ["The High Priestess", "The Moon", "Two of Swords"],
+      "card_meanings": {
+        "The High Priestess": "Intuition mistaken for certainty",
+        "The Moon": "Projecting fears onto others' minds",
+        "Two of Swords": "Blocked communication, assumptions fill the gap"
+      },
+      "therapeutic_prompts": [
+        "What ACTUAL evidence do I have for this belief?",
+        "Have I asked them directly?",
+        "Could there be alternative explanations?"
+      ],
+      "reframing_questions": [
+        "If I asked them directly, what might they actually say?",
+        "Am I projecting my own self-criticism onto them?",
+        "What percentage certainty do I have about their thoughts?"
+      ],
+      "behavioral_activation": "Test ONE mind-reading assumption by asking the person directly what they actually think"
+    }
+  ],
+  "card_to_distortion_mapping": {
+    "The Tower": ["all_or_nothing", "catastrophizing"],
+    "The Moon": ["mental_filter", "emotional_reasoning", "mind_reading"],
+    "The Devil": ["labeling"],
+    "The Hermit": ["overgeneralization", "personalization"],
+    "Justice": ["all_or_nothing", "should_statements"],
+    "Death": ["catastrophizing"],
+    "Judgement": ["should_statements"],
+    "The Emperor": ["should_statements"],
+    "The High Priestess": ["mind_reading"],
+    "The Hanged Man": ["disqualifying_positive"],
+    "Nine of Swords": ["mental_filter", "catastrophizing"],
+    "Ten of Swords": ["overgeneralization", "catastrophizing", "labeling"],
+    "Two of Swords": ["all_or_nothing", "mind_reading"],
+    "Four of Cups": ["disqualifying_positive"],
+    "Five of Cups": ["mental_filter", "overgeneralization"],
+    "Six of Cups": ["overgeneralization"],
+    "Eight of Cups": ["emotional_reasoning"],
+    "Six of Swords": ["disqualifying_positive", "personalization"],
+    "Four of Swords": ["personalization"],
+    "Five of Pentacles": ["labeling"]
+  },
+  "therapeutic_reading_prompts": {
+    "single_card": "This card reveals a thinking pattern that might be limiting you. What cognitive distortion does it suggest?",
+    "three_card_spread": {
+      "position_1": "Current distorted thinking pattern",
+      "position_2": "Evidence that challenges this distortion",
+      "position_3": "More balanced thought to practice"
+    },
+    "celtic_cross_positions": {
+      "1_present": "Current cognitive distortion affecting you",
+      "2_challenge": "What's reinforcing this thinking pattern",
+      "3_foundation": "Root belief underlying the distortion",
+      "4_recent_past": "When this pattern started or intensified",
+      "5_alternative": "Healthier thought pattern to consider",
+      "6_near_future": "What changes if you reframe this",
+      "7_your_approach": "Your current relationship to your thoughts",
+      "8_external": "External factors validating/invalidating the distortion",
+      "9_hopes_fears": "What scares you about changing this pattern",
+      "10_outcome": "Integration of new, balanced thinking"
+    }
+  },
+  "gamification_integration": {
+    "achievements": [
+      {
+        "id": "distortion_detective",
+        "name": "Distortion Detective",
+        "description": "Identify 10 cognitive distortions in your journal",
+        "xp": 100
+      },
+      {
+        "id": "thought_challenger",
+        "name": "Thought Challenger",
+        "description": "Successfully reframe 25 distorted thoughts",
+        "xp": 250
+      },
+      {
+        "id": "pattern_breaker",
+        "name": "Pattern Breaker",
+        "description": "Catch the same distortion 5 times in a week",
+        "xp": 150
+      },
+      {
+        "id": "cbt_master",
+        "name": "CBT Master",
+        "description": "Identify all 10 cognitive distortion types",
+        "xp": 500
+      }
+    ],
+    "skill_tree_nodes": [
+      {
+        "id": "identify_distortions",
+        "name": "Identify Distortions",
+        "description": "Learn to spot cognitive distortions in real-time",
+        "prerequisite": null,
+        "unlocks": ["challenge_thoughts"]
+      },
+      {
+        "id": "challenge_thoughts",
+        "name": "Challenge Automatic Thoughts",
+        "description": "Question the validity of negative thoughts",
+        "prerequisite": "identify_distortions",
+        "unlocks": ["reframe_beliefs"]
+      },
+      {
+        "id": "reframe_beliefs",
+        "name": "Reframe Core Beliefs",
+        "description": "Develop alternative, balanced interpretations",
+        "prerequisite": "challenge_thoughts",
+        "unlocks": ["maintain_gains"]
+      },
+      {
+        "id": "maintain_gains",
+        "name": "Maintain Cognitive Gains",
+        "description": "Practice prevents relapse into old patterns",
+        "prerequisite": "reframe_beliefs",
+        "unlocks": null
+      }
+    ]
+  }
+}

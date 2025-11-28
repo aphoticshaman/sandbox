@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeilPath - Card Collection Showcase</title>
+    <style>
+        /* VEILPATH CARD COLLECTION SHOWCASE */
+        
+        :root {
+            /* Material tiers */
+            --copper: #b87333;
+            --silver: #c0c0c0;
+            --gold: #ffd700;
+            --platinum: #e5e4e2;
+            --diamond: #b9f2ff;
+            
+            /* Backgrounds */
+            --void: #0a0514;
+            --deep-purple: #1a0033;
+            --amethyst: #4a148c;
+            
+            /* UI colors */
+            --moon-glow: #e1bee7;
+            --crystal-pink: #f8bbd0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--void) 100%);
+            color: var(--moon-glow);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--platinum) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            opacity: 0.8;
+            margin-bottom: 50px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* CARD SHOWCASE SECTION */
+        .showcase-section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            color: var(--crystal-pink);
+        }
+        
+        /* FRAME PROGRESSION */
+        .frame-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        /* Individual card with frame */
+        .showcase-card {
+            position: relative;
+            width: 250px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .showcase-card:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+        
+        /* Card artwork placeholder */
+        .card-artwork {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2a0845 0%, #1a0033 50%, #4a148c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Placeholder tarot image */
+        .card-artwork::before {
+            content: 'THE FOOL';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            opacity: 0.3;
+            letter-spacing: 3px;
+        }
+        
+        /* Major Arcana video effect simulation */
+        .card-artwork.major-arcana {
+            background: linear-gradient(45deg, #4a148c, #1a0033, #4a148c);
+            background-size: 200% 200%;
+            animation: video-shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes video-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* MINIMALIST FRAME OVERLAYS */
+        
+        /* No frame (default) */
+        .frame-none {
+            /* No additional styling */
+        }
+        
+        /* Copper frame - Very subtle */
+        .frame-copper {
+            border: 2px solid var(--copper);
+            box-shadow: inset 0 0 10px rgba(184, 115, 51, 0.2);
+        }
+        
+        .frame-copper::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border: 1px solid rgba(184, 115, 51, 0.1);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+        
+        /* Silver frame - Subtle shine */
+        .frame-silver {
+            border: 2px solid var(--silver);
+            box-shadow: 
+                inset 0 0 15px rgba(192, 192, 192, 0.3),
+                0 0 20px rgba(192, 192, 192, 0.1);
+        }
+        
+        .frame-silver::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 40%, 
+                rgba(255,255,255,0.1) 50%, 
+                transparent 60%);
+            animation: silver-shine 3s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes silver-shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Gold frame - Leaf pattern corners */
+        .frame-gold {
+            border: 2px solid var(--gold);
+            box-shadow: 
+                inset 0 0 20px rgba(255, 215, 0, 0.3),
+                0 0 30px rgba(255, 215, 0, 0.2);
+            position: relative;
+        }
+        
+        /* Gold leaf filigree - just corners */
+        .frame-gold::before,
+        .frame-gold::after,
+        .gold-corner-3,
+        .gold-corner-4 {
+            content: '◉';
+            position: absolute;
+            color: var(--gold);
+            font-size: 12px;
+            text-shadow: 0 0 10px var(--gold);
+        }
+        
+        .frame-gold::before { top: -2px; left: -2px; }
+        .frame-gold::after { top: -2px; right: -2px; }
+        .gold-corner-3 { bottom: -2px; left: -2px; }
+        .gold-corner-4 { bottom: -2px; right: -2px; }
+        
+        /* Platinum frame - Subtle filigree */
+        .frame-platinum {
+            border: 2px solid var(--platinum);
+            box-shadow: 
+                inset 0 0 25px rgba(229, 228, 226, 0.4),
+                0 0 40px rgba(229, 228, 226, 0.2);
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 48%,
+                rgba(229, 228, 226, 0.03) 48%,
+                rgba(229, 228, 226, 0.03) 52%,
+                transparent 52%
+            );
+        }
+        
+        /* Diamond frame - Gem inlays */
+        .frame-diamond {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, var(--diamond), white, var(--diamond)) 1;
+            box-shadow: 
+                inset 0 0 30px rgba(185, 242, 255, 0.5),
+                0 0 50px rgba(185, 242, 255, 0.3);
+            animation: diamond-rainbow 3s linear infinite;
+        }
+        
+        @keyframes diamond-rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        /* Diamond gems */
+        .gem {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--diamond) 0%, transparent 70%);
+            box-shadow: 0 0 15px var(--diamond);
+            animation: gem-pulse 2s ease-in-out infinite;
+        }
+        
+        .gem-top { top: -4px; left: 50%; transform: translateX(-50%); }
+        .gem-bottom { bottom: -4px; left: 50%; transform: translateX(-50%); }
+        .gem-left { left: -4px; top: 50%; transform: translateY(-50%); }
+        .gem-right { right: -4px; top: 50%; transform: translateY(-50%); }
+        
+        @keyframes gem-pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        
+        /* Frame labels */
+        .frame-label {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+        
+        .frame-label .tier {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-size: 10px;
+        }
+        
+        .tier-copper { background: var(--copper); color: black; }
+        .tier-silver { background: var(--silver); color: black; }
+        .tier-gold { background: var(--gold); color: black; }
+        .tier-platinum { background: var(--platinum); color: black; }
+        .tier-diamond { background: var(--diamond); color: black; }
+        
+        /* CARD BACKS SHOWCASE */
+        .cardback-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .cardback {
+            width: 200px;
+            height: 320px;
+            margin: 0 auto;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .cardback:hover {
+            transform: rotateY(15deg) scale(1.05);
+        }
+        
+        /* Different card back designs */
+        .back-default {
+            background: radial-gradient(circle at center, var(--amethyst) 0%, var(--void) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .back-moonphase {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f3460 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-crystalgrid {
+            background: conic-gradient(from 45deg, 
+                var(--crystal-pink), 
+                var(--moon-glow), 
+                #ce93d8, 
+                #ba68c8, 
+                var(--crystal-pink));
+            animation: crystal-spin 20s linear infinite;
+        }
+        
+        @keyframes crystal-spin {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        .back-witchinghour {
+            background: radial-gradient(circle at 30% 30%, 
+                #ffa726 0%, 
+                #ff6b6b 25%, 
+                var(--amethyst) 50%, 
+                var(--void) 100%);
+        }
+        
+        .back-seasonal {
+            background: linear-gradient(135deg, #ff6b35 0%, #8b0000 50%, #1a0000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Card back patterns */
+        .pattern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.3;
+        }
+        
+        .pentagram {
+            width: 100px;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50,10 L61,40 L90,40 L65,60 L76,90 L50,70 L24,90 L35,60 L10,40 L39,40 Z' stroke='%23ffd700' stroke-width='2' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;
+        }
+        
+        .moon-phases {
+            font-size: 30px;
+            letter-spacing: 10px;
+            animation: moon-cycle 10s linear infinite;
+        }
+        
+        @keyframes moon-cycle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Ornate borders for all card backs */
+        .cardback::before,
+        .cardback::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+        }
+        
+        .cardback::before {
+            inset: 10px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        .cardback::after {
+            inset: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        .cardback-label {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        
+        .unlock-method {
+            font-size: 10px;
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+        
+        /* Achievement progress */
+        .achievement-hint {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            max-width: 400px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            margin: 15px auto;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold) 0%, #ffa726 100%);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>VEILPATH COLLECTION</h1>
+        <p class="subtitle">Card Frames · Card Backs · Achievement Rewards</p>
+        
+        <!-- FRAME PROGRESSION SHOWCASE -->
+        <div class="showcase-section">
+            <h2 class="section-title">Card Frame Progression (Minimalist Design)</h2>
+            <p style="opacity: 0.7; margin-bottom: 30px;">
+                Frames are earned through wellness achievements. They're designed to be minimal, 
+                allowing the artwork (PNG or MP4 for Major Arcana) to shine through.
+            </p>
+            
+            <div class="frame-showcase">
+                <!-- No Frame -->
+                <div>
+                    <div class="showcase-card">
+                        <div class="card-artwork frame-none"></div>
+                    </div>
+                    <div class="frame-label">
+                        No Frame
+                        <span class="tier" style="opacity: 0.5">Default</span>
+                    </div>
+                </div>
+                
+                <!-- Copper Frame -->
+                <div>
+                    <div class="showcase-card">
+                        <div class="card-artwork frame-copper"></div>
+                    </div>
+                    <div class="frame-label">
+                        Copper Frame
+                        <span class="tier tier-copper">7-day streak</span>
+                    </div>
+                </div>
+                
+                <!-- Silver Frame -->
+                <div>
+                    <div class="showcase-card">
+                        <div class="card-artwork frame-silver"></div>
+                    </div>
+                    <div class="frame-label">
+                        Silver Frame
+                        <span class="tier tier-silver">28-day cycle</span>
+                    </div>
+                </div>
+                
+                <!-- Gold Frame -->
+                <div>
+                    <div class="showcase-card">
+                        <div class="card-artwork frame-gold">
+                            <span class="gold-corner-3">◉</span>
+                            <span class="gold-corner-4">◉</span>
+                        </div>
+                    </div>
+                    <div class="frame-label">
+                        Gold Leaf Frame
+                        <span class="tier tier-gold">100-day streak</span>
+                    </div>
+                </div>
+                
+                <!-- Platinum Frame -->
+                <div>
+                    <div class="showcase-card">
+                        <div class="card-artwork frame-platinum major-arcana"></div>
+                    </div>
+                    <div class="frame-label">
+                        Platinum Filigree
+                        <span class="tier tier-platinum">Full year</span>
+                    </div>
+                </div>
+                
+                <!-- Diamond Frame -->
+                <div>
+                    <div class="showcase-card">
+                        <div class="card-artwork frame-diamond major-arcana">
+                            <div class="gem gem-top"></div>
+                            <div class="gem gem-bottom"></div>
+                            <div class="gem gem-left"></div>
+                            <div class="gem gem-right"></div>
+                        </div>
+                    </div>
+                    <div class="frame-label">
+                        Diamond with Gems
+                        <span class="tier tier-diamond">1000 readings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CARD BACKS SHOWCASE -->
+        <div class="showcase-section">
+            <h2 class="section-title">Card Back Collection</h2>
+            <p style="opacity: 0.7; margin-bottom: 30px;">
+                Unique card backs earned through achievements, events, and purchases. 
+                These mystical designs appear when cards are face-down or during shuffles.
+            </p>
+            
+            <div class="cardback-showcase">
+                <!-- Default Back -->
+                <div>
+                    <div class="cardback back-default">
+                        <div class="pattern pentagram"></div>
+                    </div>
+                    <div class="cardback-label">
+                        <strong>Classic Veil</strong>
+                        <div class="unlock-method">Default</div>
+                    </div>
+                </div>
+                
+                <!-- Moon Phase Back -->
+                <div>
+                    <div class="cardback back-moonphase">
+                        <div class="pattern moon-phases">🌑🌓🌕🌗</div>
+                    </div>
+                    <div class="cardback-label">
+                        <strong>Lunar Cycle</strong>
+                        <div class="unlock-method">Complete moon tracking</div>
+                    </div>
+                </div>
+                
+                <!-- Crystal Grid Back -->
+                <div>
+                    <div class="cardback back-crystalgrid">
+                        <div class="pattern" style="font-size: 60px;">💎</div>
+                    </div>
+                    <div class="cardback-label">
+                        <strong>Crystal Matrix</strong>
+                        <div class="unlock-method">Collect full suit</div>
+                    </div>
+                </div>
+                
+                <!-- Witching Hour Back -->
+                <div>
+                    <div class="cardback back-witchinghour">
+                        <div class="pattern" style="font-size: 50px;">⏰</div>
+                    </div>
+                    <div class="cardback-label">
+                        <strong>Witching Hour</strong>
+                        <div class="unlock-method">3am reading streak</div>
+                    </div>
+                </div>
+                
+                <!-- Seasonal Back -->
+                <div>
+                    <div class="cardback back-seasonal">
+                        <div class="pattern" style="font-size: 40px;">🍂</div>
+                    </div>
+                    <div class="cardback-label">
+                        <strong>Samhain Special</strong>
+                        <div class="unlock-method">Limited Event</div>
+                    </div>
+                </div>
+                
+                <!-- Premium Back -->
+                <div>
+                    <div class="cardback" style="background: linear-gradient(45deg, #ff6ec7, #ffa500, #ffff00, #00ff00, #00ffff, #ff00ff);">
+                        <div class="pattern" style="font-size: 50px;">🔮</div>
+                    </div>
+                    <div class="cardback-label">
+                        <strong>Oracle's Pride</strong>
+                        <div class="unlock-method">Premium ($4.99)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Achievement hint -->
+        <div class="achievement-hint">
+            <h3 style="color: var(--gold); margin-bottom: 10px;">Next Unlock: Silver Frame</h3>
+            <p style="font-size: 14px; opacity: 0.8;">Complete 28-day lunar cycle tracking</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 54%;"></div>
+            </div>
+            <p style="font-size: 12px; opacity: 0.6;">15/28 days completed</p>
+        </div>
+        
+        <!-- Collection stats -->
+        <div style="text-align: center; margin-top: 60px; padding: 30px; background: rgba(0,0,0,0.3); border-radius: 20px;">
+            <h3 style="color: var(--crystal-pink); margin-bottom: 20px;">Your Collection</h3>
+            <div style="display: flex; justify-content: space-around; max-width: 600px; margin: 0 auto;">
+                <div>
+                    <div style="font-size: 32px; color: var(--gold);">47/78</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Art Variants</div>
+                </div>
+                <div>
+                    <div style="font-size: 32px; color: var(--silver);">3/6</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Frames Unlocked</div>
+                </div>
+                <div>
+                    <div style="font-size: 32px; color: var(--platinum);">8/24</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Card Backs</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add hover interactions
+        document.querySelectorAll('.showcase-card, .cardback').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+        
+        // Simulate achievement progress
+        setTimeout(() => {
+            const fill = document.querySelector('.progress-fill');
+            if (fill) {
+                fill.style.width = '64%';
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

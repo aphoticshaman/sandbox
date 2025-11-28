@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeilPath Coherence Control Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #c9d1d9; }
+        .card { background-color: #161b22; border: 1px solid #30363d; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-8 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-lime-400 tracking-tight">
+                VeilPath Coherence Engine <span class="text-sm text-gray-500 font-normal">(κ=1.0 Patent-Locked)</span>
+            </h1>
+            <div id="status-indicator" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-900 text-green-300">
+                FLUID
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+
+            <!-- Persona State Card -->
+            <div class="card p-6 rounded-xl col-span-1">
+                <h2 class="text-xl font-semibold mb-3">Adaptive AI Persona</h2>
+                <div id="persona-name" class="text-3xl font-bold text-yellow-300 mb-2">RESEARCH COLLABORATOR</div>
+                <p id="persona-prompt" class="text-sm text-gray-400 italic">"Use analogies and systems reasoning."</p>
+
+                <div class="mt-4 border-t border-gray-700 pt-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-400">LLM Temp (Stochasticity):</span>
+                        <span id="llm-temp" class="text-lg font-mono text-yellow-300">0.70</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">KGANIS Noise (ξ):</span>
+                        <span id="llm-noise" class="text-lg font-mono text-red-400">0.15</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coherence Metrics Card -->
+            <div class="card p-6 rounded-xl col-span-1">
+                <h2 class="text-xl font-semibold mb-3">Real-Time Dynamics</h2>
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-gray-400">Kuramoto Coherence (R):</span>
+                    <span id="coherence-r" class="text-4xl font-extrabold text-lime-400">0.88</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400">Coherence Momentum (ΔR/Δt):</span>
+                    <span id="coherence-drdt" class="text-xl font-mono text-cyan-400">+0.05</span>
+                </div>
+
+                <div class="mt-4 border-t border-gray-700 pt-4">
+                    <h3 class="text-md font-semibold text-gray-300 mb-2">Dynamic Phase Margin (τ_t):</h3>
+                    <div class="flex justify-between text-sm text-gray-500">
+                        <span>FLUID τ: <span id="tau-fluid">0.75</span></span>
+                        <span>TURBULENT τ: <span id="tau-turbulent">0.45</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gamification/RRBR Status -->
+            <div class="card p-6 rounded-xl col-span-1">
+                <h2 class="text-xl font-semibold mb-3">System Objective Status</h2>
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-gray-400">RRBR Search Score:</span>
+                    <span id="rrbr-score" class="text-4xl font-extrabold text-purple-400">12.45</span>
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-400">Hypothesis Pruned:</span>
+                    <span id="pruned-status" class="text-xl font-mono text-green-500">No</span>
+                </div>
+
+                <button id="toggle-sim" class="w-full mt-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-150">
+                    PAUSE SIMULATION
+                </button>
+            </div>
+        </div>
+
+        <!-- Cross-Substrate Coherence Card -->
+        <div class="card p-6 rounded-xl mb-6">
+            <h2 class="text-xl font-semibold mb-3">Tri-Fork Cross-Substrate Coherence (C_cross)</h2>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="text-sm text-gray-400 mb-1">Digital (R_d)</div>
+                    <div id="r-digital" class="text-2xl font-bold text-lime-400">0.88</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-sm text-gray-400 mb-1">Quantum (R_q)</div>
+                    <div id="r-quantum" class="text-2xl font-bold text-blue-400">0.96</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-sm text-gray-400 mb-1">Photonic (R_p)</div>
+                    <div id="r-photonic" class="text-2xl font-bold text-purple-400">0.94</div>
+                </div>
+                <div class="text-center border-l border-gray-700">
+                    <div class="text-sm text-gray-400 mb-1">C_cross (Harmonic)</div>
+                    <div id="c-cross" class="text-2xl font-bold text-yellow-400">0.92</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coherence History Plot (Canvas) -->
+        <div class="card p-6 rounded-xl">
+            <h2 class="text-xl font-semibold mb-3">Coherence Trajectory & Dynamic Boundaries</h2>
+            <canvas id="coherenceChart" width="1000" height="300" class="w-full"></canvas>
+        </div>
+
+        <!-- Patent Footer -->
+        <div class="mt-6 text-center text-xs text-gray-600">
+            Protected by US Provisional Patent Application (Nov 25-26, 2025) | κ=1.0 Momentum-Gated Coherence Classification
+        </div>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════════════
+        // VEILPATH COHERENCE ENGINE - WASM/RUST LOGIC SIMULATION (κ=1.0)
+        // Patent-Locked Implementation
+        // ═══════════════════════════════════════════════════════════════════════
+
+        const PI = Math.PI;
+        const PHI = (1 + Math.sqrt(5)) / 2; // Golden Ratio
+        const KAPPA = 1.0; // Patent-Locked Sensitivity Parameter
+        const R_THRESHOLDS_BASE = [0.95, 0.80, 0.50];
+
+        // Circular buffer for R history (4 steps deep, matching Rust impl)
+        const R_HISTORY = [0.5, 0.5, 0.5, 0.5];
+        let historyIndex = 0;
+        let rrbrScore = 0.0;
+        let lastFitness = 0.0;
+
+        let chart;
+        let R_plot_history = [];
+        let Tau_F_plot_history = [];
+        let C_cross_history = [];
+        let R_history_length = 200;
+
+        // State definitions with LLM parameters
+        const STATE_MAP = {
+            0: { name: "CRYSTALLINE", temp: 0.10, noise: 0.01, prompt: "Focus on minimal, formal solutions.", color: 'rgb(255, 204, 0)' },
+            1: { name: "FLUID", temp: 0.70, noise: 0.15, prompt: "Use analogies and systems reasoning.", color: 'rgb(52, 211, 153)' },
+            2: { name: "TURBULENT", temp: 0.30, noise: 0.25, prompt: "Pause, analyze assumptions, and ask clarifying questions.", color: 'rgb(251, 113, 133)' },
+            3: { name: "COLLAPSE", temp: 0.90, noise: 0.40, prompt: "Zoom out, reset frame, propose a new angle.", color: 'rgb(107, 33, 168)' },
+        };
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // KURAMOTO ORDER PARAMETER
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function kuramoto_r(signals) {
+            const n = signals.length;
+            let real = 0.0;
+            let imag = 0.0;
+            for (const s of signals) {
+                const phase = 2.0 * PI * (s % 1);
+                real += Math.cos(phase);
+                imag += Math.sin(phase);
+            }
+            return Math.min(1.0, Math.sqrt(real * real + imag * imag) / n);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // MOMENTUM COMPUTATION (dR/dt)
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function get_drdt(current_r) {
+            // dR/dt from oldest value in 4-step circular buffer
+            const oldest_r = R_HISTORY[(historyIndex + 3) % 4];
+            return current_r - oldest_r;
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // MOMENTUM-GATED DYNAMIC THRESHOLDS (Patent Core Claim)
+        // τ_t = τ_base - κ × dR/dt
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function coherence_momentum_gating(r, drdt) {
+            const kappa = KAPPA; // 1.0 (patent-locked)
+            const momentum_adjustment = kappa * drdt;
+
+            // Dynamic thresholds
+            const tau_c = Math.max(0.05, Math.min(0.99, R_THRESHOLDS_BASE[0] - momentum_adjustment));
+            const tau_f = Math.max(0.05, Math.min(0.99, R_THRESHOLDS_BASE[1] - momentum_adjustment));
+            const tau_t = Math.max(0.05, Math.min(0.99, R_THRESHOLDS_BASE[2] - momentum_adjustment));
+
+            // State classification using dynamic thresholds
+            let state;
+            if (r >= tau_c) { state = 0; }
+            else if (r >= tau_f) { state = 1; }
+            else if (r >= tau_t) { state = 2; }
+            else { state = 3; }
+
+            // Update history buffer
+            R_HISTORY[historyIndex] = r;
+            historyIndex = (historyIndex + 1) % 4;
+
+            return {
+                state,
+                tau_c, tau_f, tau_t,
+                drdt,
+                persona: STATE_MAP[state]
+            };
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // TRI-FORK CROSS-SUBSTRATE COHERENCE (Harmonic Mean)
+        // C_cross = 3 / (1/R_d + 1/R_q + 1/R_p)
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function compute_cross_coherence(R_d, R_q, R_p) {
+            if (Math.min(R_d, R_q, R_p) <= 1e-6) return 0.0;
+            return Math.min(1.0, 3 / (1/R_d + 1/R_q + 1/R_p));
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // RRBR - Ratcheting Recurrence and Backtracking Register
+        // Gain amplification (×1.1), Loss dampening (×0.5)
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function update_rrbr_score(current_f) {
+            const delta_f = current_f - lastFitness;
+
+            if (current_f > lastFitness) {
+                rrbrScore += delta_f * 1.1; // Amplify wins
+            } else {
+                rrbrScore += delta_f * 0.5; // Dampen losses
+            }
+            lastFitness = current_f;
+            return rrbrScore;
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // KGANIS - Kuramoto-Gated Adaptive Noise Injection
+        // ξ = ξ_base + (1-R)² + 1.5×|dR/dt|
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function compute_kganis_noise(R, drdt, xi_base) {
+            const xi = xi_base + Math.pow(1 - R, 2) + 1.5 * Math.abs(drdt);
+            return Math.min(0.55, xi);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // MAIN SIMULATION LOOP
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function simulate_and_update() {
+            // 1. Simulate behavioral signals (15 oscillators)
+            const signals = Array.from({ length: 15 }, () => Math.random());
+
+            // 2. Compute Kuramoto R (digital fork)
+            const R_d = kuramoto_r(signals);
+
+            // 3. Simulate quantum and photonic forks (near-unity with small variance)
+            const R_q = Math.min(0.99, 0.94 + Math.random() * 0.05);
+            const R_p = Math.min(0.99, 0.92 + Math.random() * 0.06);
+
+            // 4. Compute cross-substrate coherence
+            const C_cross = compute_cross_coherence(R_d, R_q, R_p);
+
+            // 5. Compute momentum and dynamic thresholds
+            const drdt = get_drdt(R_d);
+            const output = coherence_momentum_gating(R_d, drdt);
+
+            // 6. Compute KGANIS noise
+            const kganis_noise = compute_kganis_noise(R_d, drdt, output.persona.noise);
+
+            // 7. Compute fitness metrics
+            const K_val = 5.0; // Kolmogorov complexity proxy
+            const task_score = Math.random() * 0.5 + R_d * 0.5;
+            const runtime = Math.random() * 0.1 + 0.01;
+            const F_val = (task_score * C_cross) / (K_val * runtime);
+
+            // 8. Update RRBR score
+            const rrbr = update_rrbr_score(F_val);
+            const pruned = F_val < 0.5;
+
+            // ═══════════════════════════════════════════════════════════════════════
+            // UPDATE UI
+            // ═══════════════════════════════════════════════════════════════════════
+
+            const persona = output.persona;
+
+            // Coherence metrics
+            document.getElementById('coherence-r').textContent = R_d.toFixed(4);
+            document.getElementById('coherence-drdt').textContent = `${drdt > 0 ? '+' : ''}${drdt.toFixed(4)}`;
+
+            // Persona
+            document.getElementById('persona-name').textContent = persona.name;
+            document.getElementById('persona-prompt').textContent = persona.prompt;
+            document.getElementById('llm-temp').textContent = persona.temp.toFixed(2);
+            document.getElementById('llm-noise').textContent = kganis_noise.toFixed(3);
+
+            // Dynamic thresholds
+            document.getElementById('tau-fluid').textContent = output.tau_f.toFixed(3);
+            document.getElementById('tau-turbulent').textContent = output.tau_t.toFixed(3);
+
+            // RRBR status
+            document.getElementById('rrbr-score').textContent = rrbr.toFixed(2);
+            document.getElementById('pruned-status').textContent = pruned ? 'Yes' : 'No';
+            document.getElementById('pruned-status').className = pruned ? 'text-xl font-mono text-red-500' : 'text-xl font-mono text-green-500';
+
+            // Tri-Fork coherence
+            document.getElementById('r-digital').textContent = R_d.toFixed(4);
+            document.getElementById('r-quantum').textContent = R_q.toFixed(4);
+            document.getElementById('r-photonic').textContent = R_p.toFixed(4);
+            document.getElementById('c-cross').textContent = C_cross.toFixed(4);
+
+            // Status indicator
+            const status = document.getElementById('status-indicator');
+            status.textContent = persona.name;
+            status.className = `px-3 py-1 text-sm font-semibold rounded-full text-white bg-opacity-70`;
+            status.style.backgroundColor = persona.color;
+
+            // ═══════════════════════════════════════════════════════════════════════
+            // UPDATE CHART
+            // ═══════════════════════════════════════════════════════════════════════
+
+            R_plot_history.push(R_d);
+            Tau_F_plot_history.push(output.tau_f);
+            C_cross_history.push(C_cross);
+
+            while (R_plot_history.length > R_history_length) {
+                R_plot_history.shift();
+                Tau_F_plot_history.shift();
+                C_cross_history.shift();
+            }
+
+            if (chart) {
+                const labels = Array.from({length: R_plot_history.length}, (_, i) => i);
+                chart.data.labels = labels;
+                chart.data.datasets[0].data = R_plot_history;
+                chart.data.datasets[1].data = Tau_F_plot_history;
+                chart.data.datasets[2].data = C_cross_history;
+                chart.update();
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // CHART INITIALIZATION
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function loadChartJS(callback) {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+            script.onload = callback;
+            document.head.appendChild(script);
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('coherenceChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Kuramoto R (Digital)',
+                            data: R_plot_history,
+                            borderColor: 'rgb(52, 211, 153)',
+                            backgroundColor: 'rgba(52, 211, 153, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.2,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Dynamic τ_Fluid',
+                            data: Tau_F_plot_history,
+                            borderColor: 'rgba(255, 204, 0, 0.7)',
+                            backgroundColor: 'transparent',
+                            borderWidth: 1,
+                            borderDash: [5, 5],
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'C_cross (Tri-Fork)',
+                            data: C_cross_history,
+                            borderColor: 'rgba(168, 85, 247, 0.8)',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            pointRadius: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: { duration: 0 },
+                    scales: {
+                        x: { display: false },
+                        y: {
+                            min: 0.0,
+                            max: 1.0,
+                            title: { display: true, text: 'Coherence / Threshold', color: '#c9d1d9' },
+                            grid: { color: '#30363d' },
+                            ticks: { color: '#c9d1d9' }
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#c9d1d9' } },
+                        tooltip: { mode: 'index', intersect: false }
+                    }
+                }
+            });
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // SIMULATION CONTROL
+        // ═══════════════════════════════════════════════════════════════════════
+
+        let simulationInterval = null;
+
+        function startSimulation() {
+            if (simulationInterval) clearInterval(simulationInterval);
+            simulationInterval = setInterval(simulate_and_update, 100);
+        }
+
+        document.getElementById('toggle-sim').addEventListener('click', () => {
+            if (simulationInterval) {
+                clearInterval(simulationInterval);
+                simulationInterval = null;
+                document.getElementById('toggle-sim').textContent = 'RESUME SIMULATION';
+                document.getElementById('toggle-sim').classList.remove('bg-blue-600');
+                document.getElementById('toggle-sim').classList.add('bg-green-600');
+            } else {
+                startSimulation();
+                document.getElementById('toggle-sim').textContent = 'PAUSE SIMULATION';
+                document.getElementById('toggle-sim').classList.remove('bg-green-600');
+                document.getElementById('toggle-sim').classList.add('bg-blue-600');
+            }
+        });
+
+        // Initialize on load
+        loadChartJS(() => {
+            initChart();
+            simulate_and_update();
+            startSimulation();
+        });
+    </script>
+</body>
+</html>

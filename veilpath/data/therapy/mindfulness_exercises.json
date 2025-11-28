@@ -1,0 +1,922 @@
+{
+  "mindfulness_exercises": {
+    "meta": {
+      "total_exercises": 28,
+      "categories": ["breathing", "body_scan", "sensory_grounding", "meditation", "movement", "daily_activities"],
+      "evidence_base": "Practices from MBSR (Kabat-Zinn), DBT (Linehan), and contemplative traditions",
+      "app_integration": "Each exercise includes guided prompts, timer suggestions, and tarot correspondences"
+    },
+
+    "breathing_techniques": {
+      "box_breathing": {
+        "id": "box_breathing",
+        "name": "Box Breathing (4-4-4-4)",
+        "category": "breathing",
+        "duration_minutes": 3,
+        "difficulty": "beginner",
+        "description": "Equal counts for inhale, hold, exhale, hold. Calms nervous system.",
+        "instructions": [
+          "Breathe in for 4 counts",
+          "Hold breath for 4 counts",
+          "Breathe out for 4 counts",
+          "Hold empty for 4 counts",
+          "Repeat for 3-5 minutes"
+        ],
+        "why_it_works": "Activates parasympathetic nervous system. Used by Navy SEALs for stress management.",
+        "when_to_use": ["Before stressful event", "During anxiety", "To focus mind"],
+        "tarot_correspondences": {
+          "primary_card": "Temperance",
+          "reason": "Perfect balance and equilibrium. Four equal parts.",
+          "suit": "Major Arcana",
+          "element": "All four elements balanced"
+        },
+        "app_prompts": {
+          "pre_practice": "Find a comfortable position. We'll breathe together in perfect squares.",
+          "during": "Inhale 2...3...4. Hold 2...3...4. Exhale 2...3...4. Hold 2...3...4.",
+          "post_practice": "How does your body feel now? Notice any changes in heart rate or tension?"
+        },
+        "journal_prompt": "What did you notice happening in your body as you practiced? Did your mind wander?",
+        "xp_reward": 10
+      },
+
+      "four_seven_eight": {
+        "id": "four_seven_eight",
+        "name": "4-7-8 Breathing (Relaxing Breath)",
+        "category": "breathing",
+        "duration_minutes": 2,
+        "difficulty": "beginner",
+        "description": "Dr. Andrew Weil's technique. Natural tranquilizer for nervous system.",
+        "instructions": [
+          "Exhale completely through mouth (whoosh sound)",
+          "Close mouth, inhale through nose for 4 counts",
+          "Hold breath for 7 counts",
+          "Exhale completely through mouth for 8 counts (whoosh)",
+          "Repeat cycle 4 times"
+        ],
+        "why_it_works": "Longer exhale activates vagus nerve, triggering relaxation response.",
+        "when_to_use": ["Insomnia", "Acute anxiety", "Before sleep"],
+        "tarot_correspondences": {
+          "primary_card": "The Star",
+          "reason": "Hope and healing. Star breathes life into stillness.",
+          "suit": "Major Arcana",
+          "element": "Air (breath) flowing into Water (calm)"
+        },
+        "app_prompts": {
+          "pre_practice": "This breathing pattern is like a natural sedative. Let's calm your nervous system.",
+          "during": "In through nose 2...3...4. Hold 2...3...4...5...6...7. Out through mouth 2...3...4...5...6...7...8.",
+          "post_practice": "Notice the wave of calm washing over you."
+        },
+        "journal_prompt": "Did you feel sleepy? Relaxed? What changed?",
+        "xp_reward": 10
+      },
+
+      "coherent_breathing": {
+        "id": "coherent_breathing",
+        "name": "Coherent Breathing (5-5)",
+        "category": "breathing",
+        "duration_minutes": 10,
+        "difficulty": "beginner",
+        "description": "5 breaths per minute. Optimal for heart rate variability (HRV).",
+        "instructions": [
+          "Breathe in for 5 seconds",
+          "Breathe out for 5 seconds",
+          "No holding, continuous gentle rhythm",
+          "Practice for 10-20 minutes"
+        ],
+        "why_it_works": "Synchronizes heart rate, breath, and brain waves. Maximizes HRV (heart health indicator).",
+        "when_to_use": ["Daily practice", "Building resilience", "Cardiovascular health"],
+        "tarot_correspondences": {
+          "primary_card": "Two of Pentacles",
+          "reason": "Rhythmic flow, balance in motion, sustainable practice",
+          "suit": "Pentacles",
+          "element": "Earth (grounding, steady)"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's find your natural rhythm. 5 seconds in, 5 seconds out.",
+          "during": "In...2...3...4...5. Out...2...3...4...5. Like gentle ocean waves.",
+          "post_practice": "You just gave your heart a gift. HRV training complete."
+        },
+        "journal_prompt": "Could you find the rhythm? How did it feel after 5 minutes? After 10?",
+        "xp_reward": 20
+      },
+
+      "alternate_nostril": {
+        "id": "alternate_nostril",
+        "name": "Alternate Nostril Breathing (Nadi Shodhana)",
+        "category": "breathing",
+        "duration_minutes": 5,
+        "difficulty": "intermediate",
+        "description": "Yogic breathing to balance left/right brain hemispheres.",
+        "instructions": [
+          "Close right nostril with right thumb",
+          "Inhale through left nostril",
+          "Close left nostril with ring finger, release right",
+          "Exhale through right nostril",
+          "Inhale through right nostril",
+          "Close right, release left",
+          "Exhale through left",
+          "This is one cycle. Repeat 5-10 times."
+        ],
+        "why_it_works": "Balances sympathetic/parasympathetic. Oxygenates brain evenly.",
+        "when_to_use": ["Mental fog", "Before meditation", "To balance energy"],
+        "tarot_correspondences": {
+          "primary_card": "Justice",
+          "reason": "Perfect balance between two sides",
+          "suit": "Major Arcana",
+          "element": "Air (breath as balance point)"
+        },
+        "app_prompts": {
+          "pre_practice": "We'll balance your inner energies by alternating breath between nostrils.",
+          "during": "Close right. Breathe in left. Switch. Breathe out right. Breathe in right. Switch. Out left.",
+          "post_practice": "Notice if your mind feels clearer, more balanced."
+        },
+        "journal_prompt": "Did one nostril feel more open? What shifted mentally?",
+        "xp_reward": 15
+      },
+
+      "sighing_breath": {
+        "id": "sighing_breath",
+        "name": "Physiological Sigh",
+        "category": "breathing",
+        "duration_minutes": 1,
+        "difficulty": "beginner",
+        "description": "Stanford neuroscience discovery. Fastest way to reduce stress.",
+        "instructions": [
+          "Double inhale through nose (big breath, then little sip of air on top)",
+          "Long slow exhale through mouth",
+          "Repeat 1-3 times"
+        ],
+        "why_it_works": "Re-inflates collapsed alveoli in lungs, offloads CO2, calms amygdala immediately.",
+        "when_to_use": ["Acute stress spike", "Mid-conversation tension", "Quick reset"],
+        "tarot_correspondences": {
+          "primary_card": "The Fool",
+          "reason": "Fresh breath, new beginning, instant reset",
+          "suit": "Major Arcana",
+          "element": "Air (liberation)"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's do the fastest stress-relief technique known to neuroscience.",
+          "during": "Big breath in...little sip on top...looong sigh out. Again.",
+          "post_practice": "Feel that instant relief? That's your nervous system resetting."
+        },
+        "journal_prompt": "When could you use this today?",
+        "xp_reward": 5
+      }
+    },
+
+    "body_scan_practices": {
+      "progressive_muscle_relaxation": {
+        "id": "pmr",
+        "name": "Progressive Muscle Relaxation (PMR)",
+        "category": "body_scan",
+        "duration_minutes": 15,
+        "difficulty": "beginner",
+        "description": "Systematically tense and release muscle groups to release stored tension.",
+        "instructions": [
+          "Start with feet: Curl toes tight for 5 seconds, release",
+          "Calves: Point toes, tighten, release",
+          "Thighs: Squeeze, release",
+          "Buttocks: Clench, release",
+          "Stomach: Pull in tight, release",
+          "Chest: Inhale deeply and hold, release",
+          "Hands: Make fists, release",
+          "Arms: Flex biceps, release",
+          "Shoulders: Lift to ears, release",
+          "Neck: Press head back, release",
+          "Face: Scrunch everything, release",
+          "Full body scan: Notice the relaxation"
+        ],
+        "why_it_works": "Teaches difference between tension and relaxation. Releases chronic holding patterns.",
+        "when_to_use": ["Insomnia", "Chronic tension", "Before sleep"],
+        "tarot_correspondences": {
+          "primary_card": "Four of Swords",
+          "reason": "Rest, recovery, releasing what you've been holding",
+          "suit": "Swords",
+          "element": "Air (awareness moving through body)"
+        },
+        "app_prompts": {
+          "pre_practice": "We'll travel through your body, tensing and releasing each part. Notice where you hold stress.",
+          "during": "Feet: Curl tight...tighter...hold...and release. Feel the difference.",
+          "post_practice": "Your body just released tension it's been holding for days, maybe weeks."
+        },
+        "journal_prompt": "Where did you hold the most tension? Were you surprised?",
+        "xp_reward": 25
+      },
+
+      "body_scan_meditation": {
+        "id": "body_scan",
+        "name": "Mindful Body Scan",
+        "category": "body_scan",
+        "duration_minutes": 20,
+        "difficulty": "intermediate",
+        "description": "MBSR foundation practice. Bring awareness to each body part without changing anything.",
+        "instructions": [
+          "Lie down or sit comfortably",
+          "Bring attention to left toes",
+          "Notice sensations (tingling, warmth, pressure, nothing)",
+          "Don't try to feel anything, just observe",
+          "Move to left foot, ankle, calf, knee, thigh",
+          "Right leg",
+          "Pelvis, abdomen, chest",
+          "Hands, arms, shoulders",
+          "Neck, face, head",
+          "Whole body breathing"
+        ],
+        "why_it_works": "Develops interoception (awareness of internal sensations). Foundation for all mindfulness.",
+        "when_to_use": ["Daily practice", "Chronic pain", "Disconnection from body"],
+        "tarot_correspondences": {
+          "primary_card": "The Hermit",
+          "reason": "Turning inward, illuminating what's within",
+          "suit": "Major Arcana",
+          "element": "Earth (embodiment)"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's explore the landscape of your body with kind curiosity.",
+          "during": "Left toes. What do you notice? Warmth? Coolness? Tingling? Nothing? All answers are right.",
+          "post_practice": "You just practiced being present in your body for 20 minutes. That's powerful."
+        },
+        "journal_prompt": "What surprised you? Any areas you couldn't feel? Where did your mind wander?",
+        "xp_reward": 30
+      },
+
+      "body_parts_check_in": {
+        "id": "quick_body_check",
+        "name": "60-Second Body Check-In",
+        "category": "body_scan",
+        "duration_minutes": 1,
+        "difficulty": "beginner",
+        "description": "Quick scan for tension hotspots.",
+        "instructions": [
+          "Jaw - clenched?",
+          "Shoulders - hunched?",
+          "Hands - gripping?",
+          "Breath - shallow?",
+          "Belly - tight?",
+          "Notice, soften, release"
+        ],
+        "why_it_works": "Interrupts stress accumulation throughout day.",
+        "when_to_use": ["Every hour at work", "Driving", "Before meals"],
+        "tarot_correspondences": {
+          "primary_card": "Ace of Pentacles",
+          "reason": "Grounding in body, present moment",
+          "suit": "Pentacles",
+          "element": "Earth"
+        },
+        "app_prompts": {
+          "pre_practice": "Quick body scan. Where are you holding tension right now?",
+          "during": "Jaw...shoulders...hands...belly. Notice and soften.",
+          "post_practice": "Tension spotted and released. Micro-mindfulness complete."
+        },
+        "journal_prompt": "Which body part holds tension most often?",
+        "xp_reward": 5
+      }
+    },
+
+    "sensory_grounding": {
+      "five_four_three_two_one": {
+        "id": "54321",
+        "name": "5-4-3-2-1 Grounding",
+        "category": "sensory_grounding",
+        "duration_minutes": 5,
+        "difficulty": "beginner",
+        "description": "Anxiety-interruption technique. Brings awareness to present moment through senses.",
+        "instructions": [
+          "Name 5 things you can SEE (blue pen, wooden table, crack in ceiling...)",
+          "Name 4 things you can TOUCH/FEEL (smooth phone, soft shirt, cool air...)",
+          "Name 3 things you can HEAR (birds, traffic, breath...)",
+          "Name 2 things you can SMELL (coffee, soap...)",
+          "Name 1 thing you can TASTE (mint, morning mouth...)"
+        ],
+        "why_it_works": "Engages prefrontal cortex, interrupts amygdala hijack. Grounds in present reality.",
+        "when_to_use": ["Panic attack", "Dissociation", "Flashback", "Acute anxiety"],
+        "tarot_correspondences": {
+          "primary_card": "The Magician",
+          "reason": "All five elements/senses on table, mastery of present moment",
+          "suit": "Major Arcana",
+          "element": "All five senses"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's pull you back to right here, right now. Engage all five senses.",
+          "during": "Look around. 5 things you see...4 things you feel...3 sounds...2 smells...1 taste.",
+          "post_practice": "You're here. You're safe. You're grounded in this moment."
+        },
+        "journal_prompt": "How did your anxiety level change from start to finish?",
+        "xp_reward": 15,
+        "clinical_note": "Evidence-based for PTSD, panic disorder, dissociative disorders"
+      },
+
+      "sensory_exploration": {
+        "id": "sensory_exploration",
+        "name": "Single Sense Deep Dive",
+        "category": "sensory_grounding",
+        "duration_minutes": 5,
+        "difficulty": "beginner",
+        "description": "Choose one sense and explore it deeply for 5 minutes.",
+        "instructions": [
+          "Choose a sense (hearing, sight, touch, smell, taste)",
+          "Set timer for 5 minutes",
+          "Notice EVERYTHING that sense detects",
+          "HEARING: Every layer of sound (near, far, constant, intermittent)",
+          "SIGHT: Colors, shapes, shadows, movement, stillness",
+          "TOUCH: Textures, temperatures, air on skin, clothing",
+          "Return when mind wanders"
+        ],
+        "why_it_works": "Develops concentration. Reveals richness of present moment.",
+        "when_to_use": ["Building mindfulness muscle", "Appreciation practice", "Breaking rumination"],
+        "tarot_correspondences": {
+          "primary_card": "The High Priestess",
+          "reason": "Deep perception, seeing beyond surface",
+          "suit": "Major Arcana",
+          "element": "Water (receptivity)"
+        },
+        "app_prompts": {
+          "pre_practice": "Choose one sense. We'll explore its entire universe.",
+          "during": "What new layers are you discovering? What have you never noticed before?",
+          "post_practice": "The present moment just revealed its depth."
+        },
+        "journal_prompt": "What did you discover that you'd never noticed before?",
+        "xp_reward": 10
+      },
+
+      "barefoot_grounding": {
+        "id": "barefoot_earth",
+        "name": "Barefoot Earthing",
+        "category": "sensory_grounding",
+        "duration_minutes": 10,
+        "difficulty": "beginner",
+        "description": "Stand barefoot on earth/grass. Physical and electrical grounding.",
+        "instructions": [
+          "Remove shoes and socks",
+          "Stand on grass, dirt, sand, or stone",
+          "Feel texture beneath feet",
+          "Notice temperature, moisture, firmness",
+          "Imagine roots growing from soles into earth",
+          "Stand or walk slowly for 10 minutes"
+        ],
+        "why_it_works": "Physical contact with earth has measurable effects on cortisol, inflammation, and nervous system regulation.",
+        "when_to_use": ["Feeling ungrounded", "After screen time", "Nature connection"],
+        "tarot_correspondences": {
+          "primary_card": "Six of Pentacles",
+          "reason": "Receiving from earth, exchange of energy",
+          "suit": "Pentacles",
+          "element": "Earth"
+        },
+        "app_prompts": {
+          "pre_practice": "Find a patch of earth. Let's ground you physically and electrically.",
+          "during": "Feel the earth supporting you. You're held by something ancient and stable.",
+          "post_practice": "Earth's electrons just flowed into you. Notice any shift?"
+        },
+        "journal_prompt": "How did your body feel before vs. after? Any energy shift?",
+        "xp_reward": 15
+      }
+    },
+
+    "meditation_practices": {
+      "loving_kindness": {
+        "id": "metta",
+        "name": "Loving-Kindness Meditation (Metta)",
+        "category": "meditation",
+        "duration_minutes": 15,
+        "difficulty": "beginner",
+        "description": "Buddhist practice. Cultivate unconditional goodwill toward self and others.",
+        "instructions": [
+          "Sit comfortably, eyes closed",
+          "Start with YOURSELF: 'May I be happy. May I be healthy. May I be safe. May I live with ease.'",
+          "Repeat 5 times, feeling the words",
+          "BENEFACTOR (someone who's helped you): 'May you be happy. May you be healthy. May you be safe. May you live with ease.'",
+          "NEUTRAL PERSON (someone you barely know): Same phrases",
+          "DIFFICULT PERSON (start small): Same phrases",
+          "ALL BEINGS: 'May all beings be happy, healthy, safe, and live with ease.'"
+        ],
+        "why_it_works": "Activates left prefrontal cortex (wellbeing center). Increases compassion, reduces self-criticism.",
+        "when_to_use": ["Self-criticism", "Resentment", "Loneliness", "After conflict"],
+        "tarot_correspondences": {
+          "primary_card": "The Empress",
+          "reason": "Unconditional love, nurturing, abundance of care",
+          "suit": "Major Arcana",
+          "element": "Earth (embodied love)"
+        },
+        "app_prompts": {
+          "pre_practice": "We'll cultivate unconditional kindness, starting with yourself.",
+          "during": "May I be happy. May I be healthy. May I be safe. May I live with ease. (Feel the wish.)",
+          "post_practice": "You just practiced radical self-compassion and extended it outward."
+        },
+        "journal_prompt": "Which person was hardest to send kindness to? Why?",
+        "xp_reward": 25,
+        "clinical_note": "Evidence-based for depression, PTSD, chronic pain, social anxiety"
+      },
+
+      "breath_awareness": {
+        "id": "breath_meditation",
+        "name": "Simple Breath Awareness",
+        "category": "meditation",
+        "duration_minutes": 10,
+        "difficulty": "beginner",
+        "description": "Foundation meditation. Just watch the breath.",
+        "instructions": [
+          "Sit comfortably, eyes closed or lowered",
+          "Bring attention to breath",
+          "Don't change breath, just observe",
+          "Notice: Coolness at nostrils? Chest rising? Belly expanding?",
+          "When mind wanders (IT WILL), notice, return to breath",
+          "Wandering isn't failure. Returning is the practice."
+        ],
+        "why_it_works": "Strengthens attention. Reveals workings of mind. Develops metacognition.",
+        "when_to_use": ["Daily practice", "Building focus", "Scattered mind"],
+        "tarot_correspondences": {
+          "primary_card": "The Hermit",
+          "reason": "Solitary practice, inner light, simplicity",
+          "suit": "Major Arcana",
+          "element": "Air (breath)"
+        },
+        "app_prompts": {
+          "pre_practice": "No agenda. Just you and your breath.",
+          "during": "Breathing in...breathing out. Mind wandered? That's okay. Return to breath.",
+          "post_practice": "How many times did you notice your mind wander? That's awareness!"
+        },
+        "journal_prompt": "What was your mind most interested in thinking about today?",
+        "xp_reward": 15
+      },
+
+      "open_awareness": {
+        "id": "choiceless_awareness",
+        "name": "Open Monitoring (Choiceless Awareness)",
+        "category": "meditation",
+        "duration_minutes": 15,
+        "difficulty": "advanced",
+        "description": "Don't focus on anything specific. Notice whatever arises.",
+        "instructions": [
+          "Sit comfortably",
+          "Open awareness to everything",
+          "Sound arises? Notice it, let it pass",
+          "Sensation? Notice, pass",
+          "Thought? Notice, pass",
+          "Emotion? Notice, pass",
+          "Don't grasp, don't push away",
+          "Be like sky: everything passes through, nothing sticks"
+        ],
+        "why_it_works": "Develops equanimity. Reduces reactivity. Sees impermanence directly.",
+        "when_to_use": ["After mastering breath meditation", "Emotional overwhelm", "Attachment"],
+        "tarot_correspondences": {
+          "primary_card": "The Fool",
+          "reason": "Open, receptive, non-attached, zero point",
+          "suit": "Major Arcana",
+          "element": "Spirit (beyond elements)"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's practice being the sky. Everything passes through.",
+          "during": "Sound...thought...sensation...emotion. Arising, passing. You're the space in which it all happens.",
+          "post_practice": "Nothing stuck to you. Everything flowed through."
+        },
+        "journal_prompt": "What patterns did you notice in what arose?",
+        "xp_reward": 30
+      },
+
+      "visualization_safe_place": {
+        "id": "safe_place",
+        "name": "Safe Place Visualization",
+        "category": "meditation",
+        "duration_minutes": 10,
+        "difficulty": "beginner",
+        "description": "Create inner sanctuary for nervous system regulation.",
+        "instructions": [
+          "Close eyes, breathe deeply",
+          "Imagine a place (real or imagined) where you feel completely safe",
+          "Beach? Forest? Childhood room? Fantasy location?",
+          "Engage all senses: What do you see? Hear? Smell? Feel?",
+          "Colors, textures, temperature, sounds",
+          "Anchor: Choose object/symbol to represent this place (shell, feather, stone)",
+          "Practice visiting regularly"
+        ],
+        "why_it_works": "Creates neural pathway to safety state. Portable calm-down tool.",
+        "when_to_use": ["Before stressful event", "During anxiety", "PTSD stabilization"],
+        "tarot_correspondences": {
+          "primary_card": "Four of Wands",
+          "reason": "Sanctuary, home, celebration of safety",
+          "suit": "Wands",
+          "element": "Fire (warmth, safety)"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's build your inner sanctuary. Somewhere you're completely safe.",
+          "during": "What do you see? Hear the sounds. Feel the textures. Smell the air. This is yours.",
+          "post_practice": "You can return here anytime. It's always available."
+        },
+        "journal_prompt": "Describe your safe place. What makes it safe?",
+        "xp_reward": 15,
+        "clinical_note": "Used in trauma therapy, EMDR preparation"
+      }
+    },
+
+    "movement_practices": {
+      "walking_meditation": {
+        "id": "walking_meditation",
+        "name": "Mindful Walking",
+        "category": "movement",
+        "duration_minutes": 15,
+        "difficulty": "beginner",
+        "description": "Moving meditation. Pay attention to each step.",
+        "instructions": [
+          "Walk slowly (slower than normal)",
+          "Notice: Lifting foot, moving forward, placing down, shifting weight",
+          "Feel: Heel contact, ball of foot, toes pressing",
+          "Notice: Legs, hips, arms, balance",
+          "If mind wanders, return to sensation of walking",
+          "Can be done anywhere (hallway, park, loop)"
+        ],
+        "why_it_works": "Integrates mindfulness with movement. Accessible for those who struggle sitting still.",
+        "when_to_use": ["Restless energy", "After sitting too long", "Nature walks"],
+        "tarot_correspondences": {
+          "primary_card": "The Fool",
+          "reason": "Journey, being present to each step",
+          "suit": "Major Arcana",
+          "element": "Air (movement) + Earth (grounding)"
+        },
+        "app_prompts": {
+          "pre_practice": "Each step is a meditation. Let's walk with full awareness.",
+          "during": "Lifting...moving...placing. Feel the earth meeting your foot.",
+          "post_practice": "You just practiced being present while moving. Take this into daily life."
+        },
+        "journal_prompt": "What did you notice about how you walk?",
+        "xp_reward": 15
+      },
+
+      "mindful_stretching": {
+        "id": "mindful_stretching",
+        "name": "Mindful Stretching",
+        "category": "movement",
+        "duration_minutes": 10,
+        "difficulty": "beginner",
+        "description": "Gentle stretches with full attention to sensations.",
+        "instructions": [
+          "Start standing or seated",
+          "Slowly raise arms overhead - notice shoulders, chest opening",
+          "Side bend - feel ribs expanding",
+          "Forward fold - notice hamstrings, back",
+          "Twist - feel spine",
+          "Move SLOWLY, notice every sensation",
+          "Stay at edge of comfort, breathe into stretch"
+        ],
+        "why_it_works": "Combines body awareness with gentle movement. Releases tension mindfully.",
+        "when_to_use": ["Morning routine", "After sitting", "Tight muscles"],
+        "tarot_correspondences": {
+          "primary_card": "Eight of Pentacles",
+          "reason": "Mindful practice, attention to craft (body)",
+          "suit": "Pentacles",
+          "element": "Earth"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's explore your body's edges gently.",
+          "during": "Breathe into the stretch. What do you feel? Honor your limits.",
+          "post_practice": "You listened to your body and gave it what it needed."
+        },
+        "journal_prompt": "Where was tightest? Where felt best?",
+        "xp_reward": 10
+      },
+
+      "shaking_practice": {
+        "id": "shaking",
+        "name": "Somatic Shaking (TRE-inspired)",
+        "category": "movement",
+        "duration_minutes": 5,
+        "difficulty": "beginner",
+        "description": "Let body shake to release stored stress/trauma.",
+        "instructions": [
+          "Stand with knees slightly bent",
+          "Start bouncing gently on balls of feet",
+          "Let trembling/shaking happen naturally",
+          "Don't force, just allow",
+          "Arms, legs, torso - let them shake",
+          "Continue 3-5 minutes",
+          "Slow down gradually, notice sensations"
+        ],
+        "why_it_works": "Animals shake after threats to discharge adrenaline. Humans need this too. Releases incomplete stress responses.",
+        "when_to_use": ["After stressful event", "Stored trauma", "Feeling 'wired'"],
+        "tarot_correspondences": {
+          "primary_card": "The Tower",
+          "reason": "Shaking loose what needs to fall, release, liberation",
+          "suit": "Major Arcana",
+          "element": "Fire (energy discharge)"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's shake off what you've been carrying.",
+          "during": "Let your body do what it needs. Shake, tremble, release.",
+          "post_practice": "Feel that? Your nervous system just completed a cycle."
+        },
+        "journal_prompt": "What did you feel during and after? Any emotions arise?",
+        "xp_reward": 15,
+        "clinical_note": "Based on Trauma Release Exercises (TRE)"
+      }
+    },
+
+    "daily_activities": {
+      "mindful_eating": {
+        "id": "mindful_eating",
+        "name": "Mindful Eating Practice",
+        "category": "daily_activities",
+        "duration_minutes": 15,
+        "difficulty": "beginner",
+        "description": "Eat one food item with complete attention.",
+        "instructions": [
+          "Choose one food (raisin, chocolate, orange slice)",
+          "LOOK: Really see it. Colors, texture, shape",
+          "TOUCH: Feel it. Soft? Rough? Temperature?",
+          "SMELL: Bring to nose. What do you notice?",
+          "PLACE IN MOUTH: Don't chew yet. Notice on tongue.",
+          "CHEW SLOWLY: Texture changing? Flavors emerging?",
+          "SWALLOW: Feel it moving down",
+          "PAUSE: Notice aftermath, taste lingering"
+        ],
+        "why_it_works": "Interrupts automatic eating. Increases satisfaction. Reveals how often we're NOT present.",
+        "when_to_use": ["First bite of meals", "Emotional eating patterns", "Appreciation practice"],
+        "tarot_correspondences": {
+          "primary_card": "Ace of Pentacles",
+          "reason": "Earthly pleasure, sensory gift, presence",
+          "suit": "Pentacles",
+          "element": "Earth"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's eat one raisin like you've never tasted food before.",
+          "during": "Look at it...really look. Now smell. Now taste. Chew slowly. Notice everything.",
+          "post_practice": "When's the last time you were that present with food?"
+        },
+        "journal_prompt": "How is mindful eating different from usual? Can you do this once per meal?",
+        "xp_reward": 10
+      },
+
+      "mindful_dishwashing": {
+        "id": "mindful_dishes",
+        "name": "Mindful Dishwashing (Thich Nhat Hanh)",
+        "category": "daily_activities",
+        "duration_minutes": 10,
+        "difficulty": "beginner",
+        "description": "Wash dishes to wash dishes, not to get dishes clean.",
+        "instructions": [
+          "Stand at sink, feel feet on floor",
+          "Notice water temperature on hands",
+          "Feel texture of dish, soap, sponge",
+          "Hear sound of water, dishes clinking",
+          "Move slowly, deliberately",
+          "If thinking about after-dishes plans, return to sensation",
+          "This moment is the only moment"
+        ],
+        "why_it_works": "Transforms chore into meditation. Practices being present with 'boring' tasks.",
+        "when_to_use": ["Daily chores", "Resistance to present moment", "Restlessness"],
+        "tarot_correspondences": {
+          "primary_card": "Seven of Pentacles",
+          "reason": "Patience with process, tending garden, valuing work",
+          "suit": "Pentacles",
+          "element": "Earth + Water"
+        },
+        "app_prompts": {
+          "pre_practice": "Let's turn this chore into a meditation.",
+          "during": "Warm water on hands. Smooth ceramic. Slippery soap. Just this.",
+          "post_practice": "You were fully present for something you usually rush through."
+        },
+        "journal_prompt": "What other daily tasks can you transform into mindfulness practice?",
+        "xp_reward": 10
+      },
+
+      "morning_intentions": {
+        "id": "morning_intentions",
+        "name": "Morning Intention Setting",
+        "category": "daily_activities",
+        "duration_minutes": 3,
+        "difficulty": "beginner",
+        "description": "Set intention for the day before getting out of bed.",
+        "instructions": [
+          "Before checking phone, sit on edge of bed",
+          "Take 3 deep breaths",
+          "Ask: 'How do I want to FEEL today?'",
+          "Choose one quality (calm, curious, kind, focused, playful)",
+          "Ask: 'How do I want to SHOW UP today?'",
+          "Visualize yourself embodying this",
+          "Set gentle intention: 'Today, I practice [quality].'"
+        ],
+        "why_it_works": "Engages prefrontal cortex before autopilot mode. Sets tone before reactive mode kicks in.",
+        "when_to_use": ["Every morning", "Before big days", "When feeling directionless"],
+        "tarot_correspondences": {
+          "primary_card": "The Magician",
+          "reason": "Conscious creation, 'As above, so below', intention manifests",
+          "suit": "Major Arcana",
+          "element": "Air (intention) + Fire (will)"
+        },
+        "app_prompts": {
+          "pre_practice": "Before the day sweeps you away, let's set your intention.",
+          "during": "How do you want to feel today? Choose one word.",
+          "post_practice": "You've planted a seed. Notice when this quality shows up today."
+        },
+        "journal_prompt": "What intention did you set? Did you notice it influencing your day?",
+        "xp_reward": 5
+      },
+
+      "gratitude_practice": {
+        "id": "gratitude_three_things",
+        "name": "Three Good Things (Gratitude)",
+        "category": "daily_activities",
+        "duration_minutes": 5,
+        "difficulty": "beginner",
+        "description": "Evidence-based positive psychology practice.",
+        "instructions": [
+          "Before bed, write three good things from today",
+          "They can be tiny ('good coffee', 'sun on face')",
+          "For each, write WHY it was good",
+          "Feel the feeling as you write",
+          "Do daily for 1 week, see effects"
+        ],
+        "why_it_works": "Retrains brain's negativity bias. Increases happiness, decreases depression (Seligman research).",
+        "when_to_use": ["Every night", "Depression", "Cynicism", "Difficulty finding joy"],
+        "tarot_correspondences": {
+          "primary_card": "The Sun",
+          "reason": "Joy, vitality, seeing the light",
+          "suit": "Major Arcana",
+          "element": "Fire (warmth, life)"
+        },
+        "app_prompts": {
+          "pre_practice": "What went well today? Even small things count.",
+          "during": "1. What? 2. Why was it good? 3. How did it feel?",
+          "post_practice": "Your brain just learned to look for good. Do this daily."
+        },
+        "journal_prompt": "After one week: Are you noticing more good things as they happen?",
+        "xp_reward": 10,
+        "clinical_note": "Studied by Martin Seligman (positive psychology founder). 6 months of practice = lasting happiness increase."
+      },
+
+      "tech_free_morning": {
+        "id": "no_phone_morning",
+        "name": "Phone-Free First Hour",
+        "category": "daily_activities",
+        "duration_minutes": 60,
+        "difficulty": "intermediate",
+        "description": "Don't check phone for first hour after waking.",
+        "instructions": [
+          "Set intention night before",
+          "Place phone charger outside bedroom (or far from bed)",
+          "First hour: Stretch, breathe, coffee, journal, shower",
+          "NO email, news, social media, texts",
+          "Let your brain wake up on its own terms"
+        ],
+        "why_it_works": "Prevents cortisol spike from starting day in reactive mode. Preserves morning neuroplasticity for intentional use.",
+        "when_to_use": ["Every day (goal)", "Anxiety", "Feeling controlled by phone"],
+        "tarot_correspondences": {
+          "primary_card": "The Hermit",
+          "reason": "Solitude, inner-directed, not buffeted by outside world",
+          "suit": "Major Arcana",
+          "element": "Earth (grounding before chaos)"
+        },
+        "app_prompts": {
+          "pre_practice": "Tomorrow morning: phone stays put for first hour.",
+          "during": "Noticing urge to check? That's addiction speaking. Breathe through it.",
+          "post_practice": "You started your day on YOUR terms, not your phone's."
+        },
+        "journal_prompt": "How did it feel? What did you do instead? How was your day different?",
+        "xp_reward": 20
+      },
+
+      "pause_practice": {
+        "id": "sacred_pause",
+        "name": "The Sacred Pause",
+        "category": "daily_activities",
+        "duration_minutes": 1,
+        "difficulty": "beginner",
+        "description": "Insert tiny pause between stimulus and response.",
+        "instructions": [
+          "When triggered (email, text, request, emotion)",
+          "PAUSE for 3 breaths before responding",
+          "Notice body sensations",
+          "Notice impulse to react",
+          "Choose response consciously",
+          "Viktor Frankl: 'Between stimulus and response there is a space. In that space is our power.'"
+        ],
+        "why_it_works": "Creates space for prefrontal cortex (wise mind) instead of amygdala (reactive mind).",
+        "when_to_use": ["Before replying to texts/emails", "During conflict", "Impulse control"],
+        "tarot_correspondences": {
+          "primary_card": "The Hanged Man",
+          "reason": "Pause, suspension, seeing from new angle before acting",
+          "suit": "Major Arcana",
+          "element": "Water (flow vs. reaction)"
+        },
+        "app_prompts": {
+          "pre_practice": "Next time you're triggered, pause for 3 breaths.",
+          "during": "Breathe 1...notice the urge...breathe 2...feel it...breathe 3...now choose.",
+          "post_practice": "You just exercised freedom. That's the gap between stimulus and response."
+        },
+        "journal_prompt": "When did you use this today? How did the outcome differ?",
+        "xp_reward": 15
+      }
+    },
+
+    "gamification": {
+      "streak_bonuses": {
+        "3_day_streak": 50,
+        "7_day_streak": 100,
+        "30_day_streak": 500,
+        "100_day_streak": 2000
+      },
+      "achievements": [
+        {
+          "id": "mindfulness_beginner",
+          "name": "First Breath",
+          "description": "Complete your first mindfulness practice",
+          "xp": 25,
+          "icon": "🌬️"
+        },
+        {
+          "id": "body_awareness",
+          "name": "Embodied",
+          "description": "Complete 10 body scan practices",
+          "xp": 100,
+          "icon": "🧘"
+        },
+        {
+          "id": "grounding_master",
+          "name": "Grounded",
+          "description": "Use 5-4-3-2-1 during panic attack",
+          "xp": 150,
+          "icon": "⚓"
+        },
+        {
+          "id": "metta_warrior",
+          "name": "Loving-Kindness Warrior",
+          "description": "Send metta to difficult person 5 times",
+          "xp": 200,
+          "icon": "💚"
+        },
+        {
+          "id": "daily_practitioner",
+          "name": "Daily Devotion",
+          "description": "Practice mindfulness 30 days in a row",
+          "xp": 500,
+          "icon": "🔥"
+        },
+        {
+          "id": "meditation_master",
+          "name": "Meditation Master",
+          "description": "Complete 100 meditation sessions",
+          "xp": 1000,
+          "icon": "🏆"
+        },
+        {
+          "id": "present_moment",
+          "name": "Here Now",
+          "description": "Complete all 28 mindfulness exercises at least once",
+          "xp": 750,
+          "icon": "✨"
+        }
+      ],
+      "skill_tree_integration": {
+        "mindfulness_branch": {
+          "tier_1": ["box_breathing", "54321", "breath_meditation"],
+          "tier_2": ["body_scan", "walking_meditation", "mindful_eating"],
+          "tier_3": ["metta", "pmr", "open_awareness"],
+          "tier_4": ["All 28 practices mastered"]
+        }
+      }
+    },
+
+    "tarot_suit_correspondences": {
+      "cups": {
+        "element": "Water",
+        "practices": ["Loving-kindness", "Gratitude", "Safe place visualization"],
+        "why": "Emotional awareness, heart-opening, compassion"
+      },
+      "swords": {
+        "element": "Air",
+        "practices": ["All breathing techniques", "Breath awareness meditation", "Pause practice"],
+        "why": "Clarity, mental focus, cutting through reactivity"
+      },
+      "wands": {
+        "element": "Fire",
+        "practices": ["Movement practices", "Shaking", "Morning intentions"],
+        "why": "Energy, vitality, intentional action"
+      },
+      "pentacles": {
+        "element": "Earth",
+        "practices": ["Body scan", "Barefoot grounding", "Mindful eating", "Daily activities"],
+        "why": "Embodiment, presence, sensory awareness"
+      }
+    },
+
+    "research_citations": {
+      "evidence_base": [
+        "Kabat-Zinn, J. (1990). Full Catastrophe Living. MBSR foundation.",
+        "Linehan, M. (2015). DBT Skills Training Manual. Mindfulness module.",
+        "Seligman, M. (2011). Flourish. Three Good Things research.",
+        "Huberman, A. (2022). Physiological Sigh research, Stanford.",
+        "Brown, R. & Gerbarg, P. (2012). The Healing Power of the Breath. Coherent breathing.",
+        "Salzberg, S. (1995). Loving-Kindness: The Revolutionary Art of Happiness. Metta practice.",
+        "Thich Nhat Hanh. (1975). The Miracle of Mindfulness. Mindful daily activities.",
+        "van der Kolk, B. (2014). The Body Keeps the Score. Somatic practices."
+      ]
+    },
+
+    "app_features": {
+      "guided_audio": "Each practice includes optional guided audio with timer",
+      "customization": "Adjust duration, background sounds, voice/no voice",
+      "progress_tracking": "Track which practices used, frequency, favorite",
+      "smart_suggestions": "App suggests practice based on: time of day, recent mood logs, cards drawn",
+      "integration_with_readings": "Card pulls can recommend specific practices (Tower → 5-4-3-2-1 grounding)",
+      "challenge_mode": "Try all 28 practices in 28 days",
+      "favorites": "Save your go-to practices for quick access"
+    }
+  }
+}

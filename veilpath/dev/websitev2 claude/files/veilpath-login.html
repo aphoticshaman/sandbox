@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeilPath - Your Mystical Wellness Journey</title>
+    <style>
+        /* VEILPATH LOGIN - WITCHTOK MEETS CARNIVAL ROW */
+        
+        :root {
+            /* WitchTok Color Palette */
+            --midnight-void: #0a0514;
+            --deep-amethyst: #4a148c;
+            --moon-glow: #e1bee7;
+            --crystal-pink: #f8bbd0;
+            --sage-green: #87a96b;
+            --candle-flame: #ffa726;
+            --blood-moon: #8b0000;
+            --starlight: #fff9c4;
+            --shadow-purple: #311b92;
+            --brass-Victorian: #b8860b;
+            
+            /* Gradients */
+            --witchy-gradient: linear-gradient(135deg, 
+                var(--deep-amethyst) 0%, 
+                var(--midnight-void) 50%,
+                var(--shadow-purple) 100%);
+            --moon-gradient: radial-gradient(circle at 30% 30%, 
+                var(--moon-glow), 
+                transparent 70%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @font-face {
+            font-family: 'Mystical';
+            src: local('Cinzel'), local('Playfair Display'), serif;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: var(--moon-glow);
+            height: 100vh;
+            overflow: hidden;
+            background: var(--midnight-void);
+            position: relative;
+        }
+        
+        /* ANIMATED BACKGROUND - WITCHTOK AESTHETIC */
+        .cosmic-background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -2;
+            background: var(--witchy-gradient);
+        }
+        
+        /* Floating crystals */
+        .crystal {
+            position: absolute;
+            width: 4px;
+            height: 8px;
+            background: linear-gradient(45deg, 
+                var(--crystal-pink) 0%, 
+                var(--moon-glow) 50%, 
+                var(--crystal-pink) 100%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: float-up 20s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes float-up {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { 
+                transform: translateY(-100px) rotate(360deg); 
+                opacity: 0;
+            }
+        }
+        
+        /* Candle flicker effect */
+        .candle-glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(255, 167, 38, 0.3) 0%, 
+                transparent 70%);
+            animation: flicker 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { 
+                opacity: 0.8; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.6; 
+                transform: scale(1.1);
+            }
+            75% { 
+                opacity: 0.9; 
+                transform: scale(0.95);
+            }
+        }
+        
+        /* Moon phases display */
+        .moon-phases {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            font-size: 24px;
+            opacity: 0.6;
+            animation: moon-cycle 30s linear infinite;
+        }
+        
+        @keyframes moon-cycle {
+            0%, 100% { filter: brightness(0.5); }
+            50% { filter: brightness(1.2); }
+        }
+        
+        /* MAIN LOGIN CONTAINER */
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 420px;
+            z-index: 10;
+            animation: entrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes entrance {
+            0% { 
+                opacity: 0; 
+                transform: translate(-50%, -40%) scale(0.9);
+                filter: blur(10px);
+            }
+            100% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1);
+                filter: blur(0);
+            }
+        }
+        
+        /* Victorian Gothic Card Frame */
+        .login-card {
+            background: linear-gradient(135deg, 
+                rgba(74, 20, 140, 0.3) 0%,
+                rgba(10, 5, 20, 0.9) 50%,
+                rgba(49, 27, 146, 0.3) 100%);
+            backdrop-filter: blur(20px) saturate(1.5);
+            border: 2px solid var(--brass-Victorian);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.8),
+                0 0 100px rgba(74, 20, 140, 0.4),
+                inset 0 1px 0 rgba(225, 190, 231, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        /* Ornate corners */
+        .corner-ornament {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--brass-Victorian);
+            opacity: 0.6;
+        }
+        
+        .corner-ornament.top-left {
+            top: -1px;
+            left: -1px;
+            border-right: none;
+            border-bottom: none;
+            border-top-left-radius: 20px;
+        }
+        
+        .corner-ornament.top-right {
+            top: -1px;
+            right: -1px;
+            border-left: none;
+            border-bottom: none;
+            border-top-right-radius: 20px;
+        }
+        
+        .corner-ornament.bottom-left {
+            bottom: -1px;
+            left: -1px;
+            border-right: none;
+            border-top: none;
+            border-bottom-left-radius: 20px;
+        }
+        
+        .corner-ornament.bottom-right {
+            bottom: -1px;
+            right: -1px;
+            border-left: none;
+            border-top: none;
+            border-bottom-right-radius: 20px;
+        }
+        
+        /* Logo and title */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .mystical-symbol {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            position: relative;
+            animation: symbol-rotate 20s linear infinite;
+        }
+        
+        @keyframes symbol-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .mystical-symbol svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        h1 {
+            font-family: 'Mystical', serif;
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, 
+                var(--moon-glow) 0%, 
+                var(--candle-flame) 50%, 
+                var(--moon-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(225, 190, 231, 0.5);
+        }
+        
+        .tagline {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.7;
+            color: var(--crystal-pink);
+        }
+        
+        /* Form inputs - WitchTok style */
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .mystical-input {
+            width: 100%;
+            padding: 15px 20px 15px 45px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(225, 190, 231, 0.2);
+            border-radius: 10px;
+            color: var(--moon-glow);
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        
+        .mystical-input::placeholder {
+            color: rgba(225, 190, 231, 0.4);
+            font-style: italic;
+        }
+        
+        .mystical-input:focus {
+            outline: none;
+            border-color: var(--candle-flame);
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 
+                0 0 0 3px rgba(255, 167, 38, 0.2),
+                inset 0 0 20px rgba(255, 167, 38, 0.05);
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.6;
+        }
+        
+        /* Login button - Premium Polish */
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, 
+                var(--candle-flame) 0%, 
+                var(--deep-amethyst) 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin-top: 25px;
+            box-shadow: 
+                0 10px 30px rgba(255, 167, 38, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 70%);
+            transform: rotate(45deg) translate(-100%, -100%);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 15px 40px rgba(255, 167, 38, 0.4),
+                0 0 0 2px rgba(255, 167, 38, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .login-btn:hover::before {
+            transform: rotate(45deg) translate(100%, 100%);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Social proof - WitchTok style */
+        .social-proof {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(225, 190, 231, 0.1);
+            text-align: center;
+        }
+        
+        .active-witches {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .witch-avatars {
+            display: flex;
+            margin-left: 10px;
+        }
+        
+        .witch-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--midnight-void);
+            margin-left: -10px;
+            background: linear-gradient(135deg, var(--crystal-pink), var(--moon-glow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .active-count {
+            font-size: 12px;
+            opacity: 0.8;
+            color: var(--crystal-pink);
+        }
+        
+        /* Divination features */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        .feature {
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.7;
+        }
+        
+        .feature-icon {
+            font-size: 20px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        /* Floating herbs animation */
+        .herb {
+            position: absolute;
+            font-size: 20px;
+            animation: herb-float 15s linear infinite;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes herb-float {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0;
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { 
+                transform: translateY(-100px) rotate(360deg); 
+                opacity: 0;
+            }
+        }
+        
+        /* Streak counter badge */
+        .streak-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: linear-gradient(135deg, var(--candle-flame), var(--blood-moon));
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Remember me - mystical checkbox */
+        .remember-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        
+        .mystical-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .checkbox-input {
+            width: 18px;
+            height: 18px;
+            appearance: none;
+            border: 1px solid rgba(225, 190, 231, 0.3);
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-input:checked {
+            background: var(--deep-amethyst);
+            border-color: var(--candle-flame);
+        }
+        
+        .checkbox-input:checked::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+        }
+        
+        .forgot-link {
+            color: var(--crystal-pink);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .forgot-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Loading state */
+        .loading-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(225, 190, 231, 0.2);
+            border-top-color: var(--candle-flame);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated cosmic background -->
+    <div class="cosmic-background">
+        <!-- Floating crystals -->
+        <div class="crystal" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="crystal" style="left: 25%; animation-delay: 3s;"></div>
+        <div class="crystal" style="left: 40%; animation-delay: 7s;"></div>
+        <div class="crystal" style="left: 55%; animation-delay: 5s;"></div>
+        <div class="crystal" style="left: 70%; animation-delay: 9s;"></div>
+        <div class="crystal" style="left: 85%; animation-delay: 2s;"></div>
+        
+        <!-- Candle glow effects -->
+        <div class="candle-glow" style="top: 10%; left: 5%;"></div>
+        <div class="candle-glow" style="bottom: 20%; right: 10%;"></div>
+        
+        <!-- Floating herbs -->
+        <div class="herb" style="left: 15%; animation-delay: 0s;">🌿</div>
+        <div class="herb" style="left: 45%; animation-delay: 4s;">🌾</div>
+        <div class="herb" style="left: 75%; animation-delay: 8s;">🌱</div>
+        <div class="herb" style="left: 30%; animation-delay: 12s;">🍃</div>
+    </div>
+    
+    <!-- Moon phases header -->
+    <div class="moon-phases">
+        <span>🌑</span>
+        <span>🌒</span>
+        <span>🌓</span>
+        <span>🌔</span>
+        <span>🌕</span>
+        <span>🌖</span>
+        <span>🌗</span>
+        <span>🌘</span>
+    </div>
+    
+    <!-- Main login container -->
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Ornate corners -->
+            <div class="corner-ornament top-left"></div>
+            <div class="corner-ornament top-right"></div>
+            <div class="corner-ornament bottom-left"></div>
+            <div class="corner-ornament bottom-right"></div>
+            
+            <!-- Streak badge -->
+            <div class="streak-badge">
+                🔥 2,847 ON STREAKS
+            </div>
+            
+            <!-- Logo section -->
+            <div class="logo-section">
+                <div class="mystical-symbol">
+                    <svg viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="symbolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e1bee7;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#ffa726;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#e1bee7;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Pentagram with moon -->
+                        <circle cx="50" cy="50" r="45" stroke="url(#symbolGrad)" stroke-width="1" fill="none"/>
+                        <path d="M50,10 L61,40 L90,40 L65,60 L76,90 L50,70 L24,90 L35,60 L10,40 L39,40 Z" 
+                              stroke="url(#symbolGrad)" stroke-width="2" fill="none"/>
+                        <circle cx="50" cy="50" r="15" stroke="url(#symbolGrad)" stroke-width="1" fill="none"/>
+                    </svg>
+                </div>
+                <h1>VEILPATH</h1>
+                <div class="tagline">Your Mystical Wellness Grimoire</div>
+            </div>
+            
+            <!-- Login form -->
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <span class="input-icon">✉️</span>
+                    <input type="email" class="mystical-input" placeholder="Coven Email Address" required>
+                </div>
+                
+                <div class="input-group">
+                    <span class="input-icon">🔮</span>
+                    <input type="password" class="mystical-input" placeholder="Sacred Password" required>
+                </div>
+                
+                <div class="remember-section">
+                    <label class="mystical-checkbox">
+                        <input type="checkbox" class="checkbox-input">
+                        <span>Keep me in the circle</span>
+                    </label>
+                    <a href="#" class="forgot-link">Forgot spell?</a>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    ENTER THE VEIL
+                </button>
+            </form>
+            
+            <!-- Social proof -->
+            <div class="social-proof">
+                <div class="active-witches">
+                    <span class="active-count">13,847 witches online</span>
+                    <div class="witch-avatars">
+                        <div class="witch-avatar">🌙</div>
+                        <div class="witch-avatar">⭐</div>
+                        <div class="witch-avatar">🔮</div>
+                        <div class="witch-avatar">✨</div>
+                        <div class="witch-avatar">+</div>
+                    </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">📜</span>
+                        <span>78 Tarot Cards</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🌙</span>
+                        <span>Moon Tracking</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📝</span>
+                        <span>Journal Streaks</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🏆</span>
+                        <span>Coven Battles</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Loading overlay -->
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add interactive polish
+        function handleLogin(event) {
+            event.preventDefault();
+            const overlay = document.getElementById('loadingOverlay');
+            const button = event.target.querySelector('.login-btn');
+            
+            // Show loading
+            overlay.style.display = 'flex';
+            button.textContent = 'CONSULTING THE CARDS...';
+            
+            // Simulate login
+            setTimeout(() => {
+                button.textContent = '✨ WELCOME BACK ✨';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    button.textContent = 'ENTER THE VEIL';
+                    alert('Welcome to VeilPath! Your daily card awaits...');
+                }, 1000);
+            }, 2000);
+        }
+        
+        // Add micro-interactions
+        document.querySelectorAll('.mystical-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.querySelector('.input-icon').style.color = 'var(--candle-flame)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.querySelector('.input-icon').style.color = '';
+            });
+        });
+        
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            
+            document.querySelector('.login-container').style.transform = 
+                `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        });
+    </script>
+</body>
+</html>
