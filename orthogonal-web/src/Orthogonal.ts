@@ -133,11 +133,11 @@ export class Orthogonal {
     this.camera = this.createCamera();
 
     // Initialize systems (order matters)
-    this.inputManager = new InputManager();
+    this.inputManager = new InputManager(config.canvas);
     this.audioEngine = new AudioEngine();
     this.shaderPipeline = new ShaderPipeline(this.renderer, this.scene, this.camera);
     this.levelScene = new LevelScene(config.canvas);
-    this.awarenessController = new AwarenessController(this.scene, this.camera);
+    this.awarenessController = new AwarenessController(this.camera, this.inputManager);
     this.sdpmProfiler = new SDPMProfiler();
 
     // Setup event listeners
@@ -374,7 +374,7 @@ export class Orthogonal {
     const isWitnessing = this.inputManager.isKeyDown('Space') ||
                          this.inputManager.isMouseButtonDown(1);
 
-    this.awarenessController.update(deltaTime, mousePos, isWitnessing);
+    this.awarenessController.update(deltaTime);
 
     // Feed input to SDPM profiler
     this.sdpmProfiler.recordInput({
@@ -1189,6 +1189,9 @@ export class Orthogonal {
   // ===========================================================================
 
   private setupEventListeners(): void {
+    // Initialize input manager
+    this.inputManager.initialize();
+
     // Pause/Resume
     window.addEventListener('orthogonal:toggle-pause', () => {
       if (this.state === 'playing') {

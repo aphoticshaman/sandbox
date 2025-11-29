@@ -432,30 +432,47 @@ export class SDPMProfileManager {
 
   // Record individual input events for pattern building
   recordInput(input: {
-    type: string;
+    type?: string;
     position?: { x: number; y: number };
     velocity?: { x: number; y: number };
+    mousePosition?: { x: number; y: number };
+    mouseVelocity?: { x: number; y: number };
+    isWitnessing?: boolean;
     timestamp?: number;
   }): void {
-    const now = Date.now();
+    // Get velocity from either field
+    const velocity = input.velocity || input.mouseVelocity;
 
-    switch (input.type) {
-      case 'mouse_move':
-        if (input.velocity) {
-          const speed = Math.sqrt(input.velocity.x ** 2 + input.velocity.y ** 2);
-          this.pendingInputs.mouseVelocities.push(speed);
-        }
-        break;
-      case 'focus_start':
-        this.pendingInputs.decisionDelays.push(50 + Math.random() * 200);
-        break;
-      case 'focus_end':
-        this.pendingInputs.focusDurations.push(100 + Math.random() * 500);
-        break;
-      case 'witness_start':
-      case 'witness_end':
-        this.pendingInputs.witnessDurations.push(200 + Math.random() * 1000);
-        break;
+    // Track mouse movement
+    if (velocity) {
+      const speed = Math.sqrt(velocity.x ** 2 + velocity.y ** 2);
+      if (speed > 0.001) {
+        this.pendingInputs.mouseVelocities.push(speed);
+      }
+    }
+
+    // Track witnessing
+    if (input.isWitnessing) {
+      this.pendingInputs.witnessDurations.push(16); // ~one frame
+    }
+
+    // Handle typed events
+    if (input.type) {
+      switch (input.type) {
+        case 'mouse_move':
+          // Already handled above
+          break;
+        case 'focus_start':
+          this.pendingInputs.decisionDelays.push(50 + Math.random() * 200);
+          break;
+        case 'focus_end':
+          this.pendingInputs.focusDurations.push(100 + Math.random() * 500);
+          break;
+        case 'witness_start':
+        case 'witness_end':
+          this.pendingInputs.witnessDurations.push(200 + Math.random() * 1000);
+          break;
+      }
     }
 
     // Periodically flush to profile
