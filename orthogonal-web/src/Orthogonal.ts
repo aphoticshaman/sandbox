@@ -576,9 +576,10 @@ export class Orthogonal {
   private setupGameplayInput(): void {
     // Remove old handlers
     this.config.canvas.onclick = null;
+    this.config.canvas.ontouchstart = null;
 
-    // Add click handler for node selection
-    this.config.canvas.onclick = (event: MouseEvent) => {
+    // Unified input handler for both mouse and touch
+    const handleInput = (clientX: number, clientY: number) => {
       if (this.state !== 'playing') return;
 
       const runtime = this.levelScene.getRuntime();
@@ -605,10 +606,10 @@ export class Orthogonal {
         }
       }
 
-      // Raycast to find clicked node
+      // Raycast to find clicked/tapped node
       const rect = this.config.canvas.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      const x = ((clientX - rect.left) / rect.width) * 2 - 1;
+      const y = -((clientY - rect.top) / rect.height) * 2 + 1;
 
       const raycaster = new THREE.Raycaster();
       raycaster.setFromCamera(new THREE.Vector2(x, y), this.levelScene.getCamera());
@@ -628,6 +629,45 @@ export class Orthogonal {
           break;
         }
       }
+    };
+
+    // Mouse click handler
+    this.config.canvas.onclick = (event: MouseEvent) => {
+      handleInput(event.clientX, event.clientY);
+    };
+
+    // Touch handler for mobile/tablet
+    this.config.canvas.ontouchstart = (event: TouchEvent) => {
+      event.preventDefault();  // Prevent double-firing with click
+      if (event.touches.length === 1) {
+        const touch = event.touches[0];
+        handleInput(touch.clientX, touch.clientY);
+      }
+    };
+
+    // Multi-touch gestures for camera (pinch zoom, pan)
+    let lastTouchDistance = 0;
+    let lastTouchCenter = { x: 0, y: 0 };
+
+    this.config.canvas.ontouchmove = (event: TouchEvent) => {
+      if (event.touches.length === 2) {
+        // Pinch to zoom
+        const touch1 = event.touches[0];
+        const touch2 = event.touches[1];
+        const distance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+
+        if (lastTouchDistance > 0) {
+          const delta = distance - lastTouchDistance;
+          const camera = this.levelScene.getCamera();
+          camera.position.z = Math.max(5, Math.min(50, camera.position.z - delta * 0.05));
+        }
+
+        lastTouchDistance = distance;
+      }
+    };
+
+    this.config.canvas.ontouchend = () => {
+      lastTouchDistance = 0;
     };
   }
 
