@@ -13,7 +13,9 @@ let game: Orthogonal | null = null;
 // Wait for DOM
 document.addEventListener('DOMContentLoaded', async () => {
   const canvas = document.getElementById('game-canvas') as HTMLCanvasElement;
-  const loading = document.getElementById('loading') as HTMLDivElement;
+
+  // Remove any HTML loading screens (Orthogonal.ts handles loading now)
+  document.getElementById('loading')?.remove();
 
   if (!canvas) {
     console.error('[Orthogonal] Canvas element not found');
@@ -38,14 +40,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       streamerMode: params.get('streamer') === 'true'
     };
 
-    // Create and initialize game
+    // Create and initialize game (loading screen handled by Orthogonal)
     game = await createGame(canvas, options);
-
-    // Hide loading screen
-    if (loading) {
-      loading.classList.add('hidden');
-      setTimeout(() => loading.remove(), 500);
-    }
 
     // Expose to window for debugging
     if (options.debug) {

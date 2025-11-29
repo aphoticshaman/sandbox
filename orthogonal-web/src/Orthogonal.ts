@@ -170,9 +170,11 @@ export class Orthogonal {
     try {
       // Show loading screen
       this.showLoadingScreen();
+      this.updateLoadingProgress(0, 'Initializing systems...');
 
       // Initialize save system
       await saveSystem.init();
+      this.updateLoadingProgress(1, 'Loading save data...');
 
       // Initialize achievements
       achievementSystem.init();
@@ -183,9 +185,11 @@ export class Orthogonal {
       // Initialize analytics
       const progress = saveSystem.getProgress();
       analytics.startSession(progress.playerId || this.playerId);
+      this.updateLoadingProgress(2, 'Preparing audio engine...');
 
       // Initialize audio (requires user interaction)
       await this.audioEngine.init();
+      this.updateLoadingProgress(3, 'Setting up graphics...');
 
       // Check for streamer mode
       if (this.config.streamerMode) {
@@ -197,6 +201,11 @@ export class Orthogonal {
       if (sdpmData.archetype !== 'unknown') {
         this.sdpmProfiler.loadProfile(sdpmData);
       }
+
+      this.updateLoadingProgress(4, 'Ready!');
+
+      // Brief pause to show 100%
+      await new Promise(resolve => setTimeout(resolve, 500));
 
       // Hide loading, show menu or start level
       this.hideLoadingScreen();
@@ -701,7 +710,21 @@ export class Orthogonal {
   // UI
   // ===========================================================================
 
+  private loadingElement: HTMLElement | null = null;
+  private loadingSteps = [
+    'Initializing systems...',
+    'Loading save data...',
+    'Preparing audio engine...',
+    'Setting up graphics...',
+    'Ready!'
+  ];
+  private currentLoadingStep = 0;
+
   private showLoadingScreen(): void {
+    // Remove any existing loading screens first
+    document.getElementById('loading-screen')?.remove();
+    document.getElementById('loading')?.remove();
+
     const loading = document.createElement('div');
     loading.id = 'loading-screen';
     loading.innerHTML = `
@@ -724,39 +747,76 @@ export class Orthogonal {
           letter-spacing: 0.5em;
           margin-bottom: 2rem;
         }
-        .loading-bar {
-          width: 200px;
-          height: 2px;
+        .loading-status {
+          font-size: 0.9rem;
+          opacity: 0.7;
+          margin-bottom: 1.5rem;
+          min-height: 1.5em;
+        }
+        .loading-bar-container {
+          width: 300px;
+          height: 4px;
           background: rgba(255,255,255,0.1);
-          border-radius: 1px;
+          border-radius: 2px;
           overflow: hidden;
         }
-        .loading-progress {
+        .loading-bar-fill {
           height: 100%;
-          width: 30%;
-          background: white;
-          animation: loading-slide 1.5s ease-in-out infinite;
+          width: 0%;
+          background: linear-gradient(90deg, #667eea, #764ba2);
+          border-radius: 2px;
+          transition: width 0.3s ease-out;
         }
-        @keyframes loading-slide {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(400%); }
+        .loading-percent {
+          font-size: 0.8rem;
+          opacity: 0.5;
+          margin-top: 0.8rem;
         }
       </style>
       <div class="loading-title">ORTHOGONAL</div>
-      <div class="loading-bar">
-        <div class="loading-progress"></div>
+      <div class="loading-status">Initializing...</div>
+      <div class="loading-bar-container">
+        <div class="loading-bar-fill"></div>
       </div>
+      <div class="loading-percent">0%</div>
     `;
     document.body.appendChild(loading);
+    this.loadingElement = loading;
+    this.currentLoadingStep = 0;
+  }
+
+  private updateLoadingProgress(step: number, message?: string): void {
+    if (!this.loadingElement) return;
+
+    const totalSteps = this.loadingSteps.length;
+    const percent = Math.min(100, Math.round((step / totalSteps) * 100));
+
+    const statusEl = this.loadingElement.querySelector('.loading-status');
+    const barEl = this.loadingElement.querySelector('.loading-bar-fill') as HTMLElement;
+    const percentEl = this.loadingElement.querySelector('.loading-percent');
+
+    if (statusEl) statusEl.textContent = message || this.loadingSteps[step] || 'Loading...';
+    if (barEl) barEl.style.width = `${percent}%`;
+    if (percentEl) percentEl.textContent = `${percent}%`;
+
+    this.currentLoadingStep = step;
   }
 
   private hideLoadingScreen(): void {
-    const loading = document.getElementById('loading-screen');
-    if (loading) {
-      loading.style.transition = 'opacity 0.5s';
-      loading.style.opacity = '0';
-      setTimeout(() => loading.remove(), 500);
-    }
+    // Final progress update
+    this.updateLoadingProgress(this.loadingSteps.length, 'Ready!');
+
+    setTimeout(() => {
+      const loading = document.getElementById('loading-screen');
+      if (loading) {
+        loading.style.transition = 'opacity 0.5s';
+        loading.style.opacity = '0';
+        setTimeout(() => {
+          loading.remove();
+          this.loadingElement = null;
+        }, 500);
+      }
+    }, 300);
   }
 
   private async playIntro(): Promise<void> {

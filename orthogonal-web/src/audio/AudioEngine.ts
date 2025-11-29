@@ -506,7 +506,7 @@ export class AudioEngine {
 }
 
 // ========================================
-// Ambience Generator
+// Bassline Generator (Zingara-inspired)
 // ========================================
 
 class AmbienceGenerator {
@@ -514,9 +514,16 @@ class AmbienceGenerator {
   private output: GainNode;
   private currentDimension: DimensionAudioProfile = 'LATTICE';
 
-  // Drone oscillators
-  private drones: OscillatorNode[] = [];
-  private droneGains: GainNode[] = [];
+  // Bass synth
+  private bassOsc: OscillatorNode | null = null;
+  private subOsc: OscillatorNode | null = null;
+  private bassGain: GainNode | null = null;
+  private bassFilter: BiquadFilterNode | null = null;
+
+  // Bassline sequencer
+  private nextBassTime: number = 0;
+  private bassPatternIndex: number = 0;
+  private isPlaying: boolean = false;
 
   // Texture layers
   private textureSource: AudioBufferSourceNode | null = null;
@@ -529,48 +536,97 @@ class AmbienceGenerator {
 
   start(dimension: DimensionAudioProfile): void {
     this.currentDimension = dimension;
-    this.createDrones();
+    this.isPlaying = true;
+    this.nextBassTime = this.ctx.currentTime;
     this.createTexture();
   }
 
-  private createDrones(): void {
-    // Stop existing drones
-    this.drones.forEach(d => d.stop());
-    this.drones = [];
-    this.droneGains = [];
+  private playBassNote(freq: number, duration: number, velocity: number = 0.8): void {
+    const now = this.ctx.currentTime;
 
-    const config = this.getDimensionConfig();
+    // Main bass oscillator with slight detune for warmth
+    const osc = this.ctx.createOscillator();
+    const osc2 = this.ctx.createOscillator();  // Sub layer
+    const gain = this.ctx.createGain();
+    const filter = this.ctx.createBiquadFilter();
 
-    // Create layered drones
-    config.droneFrequencies.forEach((freq, i) => {
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
+    // Zingara-style: saw + sub sine for rich bass
+    osc.type = 'sawtooth';
+    osc.frequency.value = freq;
+    osc.detune.value = Math.random() * 10 - 5;  // Slight analog drift
 
-      osc.type = config.waveform;
-      osc.frequency.value = freq;
+    osc2.type = 'sine';
+    osc2.frequency.value = freq / 2;  // Sub octave
 
-      // Slow LFO modulation
-      const lfo = this.ctx.createOscillator();
-      const lfoGain = this.ctx.createGain();
-      lfo.frequency.value = 0.1 + i * 0.05;
-      lfoGain.gain.value = freq * 0.02;
-      lfo.connect(lfoGain);
-      lfoGain.connect(osc.frequency);
-      lfo.start();
+    // Resonant lowpass for that bass growl
+    filter.type = 'lowpass';
+    filter.frequency.value = freq * 4;
+    filter.Q.value = 2;
 
-      gain.gain.value = config.droneVolumes[i] || 0.1;
+    // Filter envelope - opens up then closes
+    filter.frequency.setValueAtTime(freq * 2, now);
+    filter.frequency.exponentialRampToValueAtTime(freq * 6, now + 0.05);
+    filter.frequency.exponentialRampToValueAtTime(freq * 2, now + duration * 0.7);
 
-      osc.connect(gain);
-      gain.connect(this.output);
+    // Amp envelope - punchy attack, smooth release
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(velocity * 0.15, now + 0.01);
+    gain.gain.setValueAtTime(velocity * 0.12, now + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
 
-      osc.start();
-      this.drones.push(osc);
-      this.droneGains.push(gain);
-    });
+    // Routing
+    osc.connect(filter);
+    osc2.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.output);
+
+    osc.start(now);
+    osc2.start(now);
+    osc.stop(now + duration + 0.1);
+    osc2.stop(now + duration + 0.1);
+  }
+
+  private getPattern(): { note: number; duration: number; velocity: number }[] {
+    const configs: Record<DimensionAudioProfile, { note: number; duration: number; velocity: number }[]> = {
+      // LATTICE: Groovy, confident bassline - Am pentatonic
+      LATTICE: [
+        { note: 55, duration: 0.3, velocity: 1.0 },    // A1
+        { note: 0, duration: 0.2, velocity: 0 },       // rest
+        { note: 55, duration: 0.15, velocity: 0.7 },   // A1 ghost
+        { note: 73.42, duration: 0.35, velocity: 0.9 }, // D2
+        { note: 0, duration: 0.15, velocity: 0 },
+        { note: 82.41, duration: 0.25, velocity: 0.85 }, // E2
+        { note: 55, duration: 0.4, velocity: 0.95 },   // A1
+        { note: 0, duration: 0.2, velocity: 0 },
+      ],
+      // MARROW: Darker, more syncopated - Cm
+      MARROW: [
+        { note: 65.41, duration: 0.35, velocity: 1.0 },  // C2
+        { note: 0, duration: 0.15, velocity: 0 },
+        { note: 77.78, duration: 0.2, velocity: 0.8 },   // Eb2
+        { note: 65.41, duration: 0.15, velocity: 0.6 },  // ghost
+        { note: 0, duration: 0.15, velocity: 0 },
+        { note: 98, duration: 0.4, velocity: 0.9 },      // G2
+        { note: 0, duration: 0.1, velocity: 0 },
+        { note: 87.31, duration: 0.3, velocity: 0.85 },  // F2
+        { note: 0, duration: 0.2, velocity: 0 },
+      ],
+      // VOID: Sparse, ominous - diminished
+      VOID: [
+        { note: 55, duration: 0.5, velocity: 1.0 },     // A1
+        { note: 0, duration: 0.5, velocity: 0 },
+        { note: 0, duration: 0.3, velocity: 0 },
+        { note: 51.91, duration: 0.4, velocity: 0.7 },  // Ab1
+        { note: 0, duration: 0.8, velocity: 0 },
+        { note: 46.25, duration: 0.6, velocity: 0.9 },  // Gb1
+        { note: 0, duration: 0.4, velocity: 0 },
+      ],
+    };
+    return configs[this.currentDimension];
   }
 
   private createTexture(): void {
-    // Filtered noise texture
+    // Subtle filtered noise for atmosphere
     const bufferSize = this.ctx.sampleRate * 4;
     const buffer = this.ctx.createBuffer(2, bufferSize, this.ctx.sampleRate);
 
@@ -587,11 +643,11 @@ class AmbienceGenerator {
 
     this.textureFilter = this.ctx.createBiquadFilter();
     this.textureFilter.type = 'lowpass';
-    this.textureFilter.frequency.value = this.getDimensionConfig().textureFilterFreq;
-    this.textureFilter.Q.value = 1;
+    this.textureFilter.frequency.value = 300;
+    this.textureFilter.Q.value = 0.5;
 
     const textureGain = this.ctx.createGain();
-    textureGain.gain.value = 0.03;
+    textureGain.gain.value = 0.015;  // Very subtle
 
     this.textureSource.connect(this.textureFilter);
     this.textureFilter.connect(textureGain);
@@ -602,66 +658,29 @@ class AmbienceGenerator {
 
   transitionTo(dimension: DimensionAudioProfile): void {
     this.currentDimension = dimension;
-
-    // Crossfade to new drones
-    const config = this.getDimensionConfig();
-
-    // Fade out current drones
-    this.droneGains.forEach(gain => {
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 2);
-    });
-
-    // Create new drones after fade
-    setTimeout(() => {
-      this.createDrones();
-    }, 2000);
-
-    // Update texture filter
-    if (this.textureFilter) {
-      this.textureFilter.frequency.exponentialRampToValueAtTime(
-        config.textureFilterFreq,
-        this.ctx.currentTime + 2
-      );
-    }
+    this.bassPatternIndex = 0;  // Reset pattern
   }
 
   update(delta: number, state: AudioState): void {
-    // Modulate ambience based on witness level
-    const witnessBoost = 1 + state.witnessLevel * 0.5;
+    if (!this.isPlaying) return;
 
-    this.droneGains.forEach(gain => {
-      gain.gain.value *= witnessBoost;
-    });
-  }
+    // Schedule bass notes ahead
+    while (this.nextBassTime < this.ctx.currentTime + 0.2) {
+      const pattern = this.getPattern();
+      const step = pattern[this.bassPatternIndex % pattern.length];
 
-  private getDimensionConfig() {
-    const configs: Record<DimensionAudioProfile, {
-      droneFrequencies: number[];
-      droneVolumes: number[];
-      waveform: OscillatorType;
-      textureFilterFreq: number;
-    }> = {
-      LATTICE: {
-        droneFrequencies: [110, 165, 220, 330],  // A2, E3, A3, E4 - raised from sub-bass
-        droneVolumes: [0.06, 0.05, 0.04, 0.03],
-        waveform: 'sine',
-        textureFilterFreq: 800,
-      },
-      MARROW: {
-        droneFrequencies: [130.81, 196, 261.63],  // C3, G3, C4 - raised
-        droneVolumes: [0.08, 0.06, 0.04],
-        waveform: 'triangle',
-        textureFilterFreq: 400,
-      },
-      VOID: {
-        droneFrequencies: [65.41, 98, 130.81],  // C2, G2, C3 - raised from sub-bass
-        droneVolumes: [0.1, 0.07, 0.04],
-        waveform: 'sawtooth',
-        textureFilterFreq: 200,
-      },
-    };
+      if (step.note > 0) {
+        // Slight humanization
+        const swing = this.bassPatternIndex % 2 === 1 ? 0.02 : 0;
+        this.playBassNote(step.note, step.duration, step.velocity * (0.9 + state.intensity * 0.2));
+        this.nextBassTime += step.duration + swing;
+      } else {
+        // Rest
+        this.nextBassTime += step.duration;
+      }
 
-    return configs[this.currentDimension];
+      this.bassPatternIndex++;
+    }
   }
 }
 
