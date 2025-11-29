@@ -39,6 +39,7 @@ import { liveLeaderboard, viewerChallenge, liveRace } from './streaming/Streamer
 // Network
 import { NetworkCore } from './network/NetworkCore';
 import { PartySystem } from './network/PartySystem';
+import { initMatchmaking, getMatchmaking, MatchmakingSystem, MatchmakingUI, getMatchmakingUI } from './network/Matchmaking';
 
 // UI
 import { MainMenu } from './ui/MainMenu';
@@ -113,6 +114,11 @@ export class Orthogonal {
   private gameContainer: HTMLElement;
   private uiContainer: HTMLElement;
 
+  // Network & Matchmaking
+  private network: NetworkCore;
+  private party: PartySystem;
+  private matchmaking: MatchmakingSystem | null = null;
+
   // Animation
   private animationId: number = 0;
   private isRunning: boolean = false;
@@ -139,6 +145,12 @@ export class Orthogonal {
     this.levelScene = new LevelScene(config.canvas);
     this.awarenessController = new AwarenessController(this.camera, this.inputManager);
     this.sdpmProfiler = new SDPMProfiler();
+
+    // Initialize network and matchmaking
+    this.network = new NetworkCore();
+    this.party = new PartySystem(this.network);
+    this.matchmaking = initMatchmaking(this.network, this.party);
+    this.setupMatchmakingEvents();
 
     // Setup event listeners
     this.setupEventListeners();
@@ -724,6 +736,17 @@ export class Orthogonal {
             transition: all 0.3s;
             border-radius: 4px;
           ">PLAY</button>
+          <button class="menu-btn" data-action="multiplayer" style="
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            color: white;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+          ">MULTIPLAYER</button>
           <button class="menu-btn" data-action="levels" style="
             background: transparent;
             border: 1px solid rgba(255,255,255,0.1);
@@ -776,6 +799,9 @@ export class Orthogonal {
         case 'play':
           this.startNextLevel();
           break;
+        case 'multiplayer':
+          this.showMultiplayerMenu();
+          break;
         case 'levels':
           this.showLevelSelect();
           break;
@@ -783,6 +809,205 @@ export class Orthogonal {
           this.showSettings();
           break;
       }
+    });
+  }
+
+  private showMultiplayerMenu(): void {
+    const menuHtml = `
+      <div id="multiplayer-menu" style="
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: system-ui, sans-serif;
+        color: white;
+        pointer-events: auto;
+        background: rgba(10, 10, 15, 0.9);
+      ">
+        <div style="font-size: 2rem; font-weight: 100; letter-spacing: 0.2em; margin-bottom: 2rem;">
+          MULTIPLAYER
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+          <button class="mm-btn" data-mm-action="quick-duo" style="
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 8px;
+            min-width: 220px;
+          ">QUICK MATCH (2P)</button>
+          <button class="mm-btn" data-mm-action="quick-quad" style="
+            background: linear-gradient(135deg, rgba(234, 102, 126, 0.3), rgba(162, 75, 118, 0.3));
+            border: 1px solid rgba(234, 102, 126, 0.4);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 8px;
+            min-width: 220px;
+          ">QUICK MATCH (4P)</button>
+          <button class="mm-btn" data-mm-action="browse" style="
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8);
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 6px;
+            min-width: 220px;
+          ">BROWSE LEVELS</button>
+          <button class="mm-btn" data-mm-action="back" style="
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+            margin-top: 1rem;
+          ">← BACK</button>
+        </div>
+        <div style="position: absolute; bottom: 2rem; opacity: 0.3; font-size: 0.8rem;">
+          Cooperative puzzles require true coordination
+        </div>
+      </div>
+    `;
+
+    this.uiContainer.innerHTML = menuHtml;
+
+    // Handle clicks
+    this.uiContainer.addEventListener('click', async (e) => {
+      const target = e.target as HTMLElement;
+      const action = target.dataset.mmAction;
+
+      switch (action) {
+        case 'quick-duo':
+          this.startQuickMatchDuo();
+          break;
+        case 'quick-quad':
+          this.startQuickMatchQuad();
+          break;
+        case 'browse':
+          this.showMultiplayerLevelSelect();
+          break;
+        case 'back':
+          this.showMainMenu();
+          break;
+      }
+    });
+  }
+
+  private async startQuickMatchDuo(): Promise<void> {
+    if (!this.matchmaking) return;
+
+    try {
+      const mmUI = getMatchmakingUI();
+      if (mmUI) mmUI.show();
+      await this.matchmaking.quickMatchDuo();
+    } catch (error) {
+      this.showMessage('Failed to start matchmaking');
+    }
+  }
+
+  private async startQuickMatchQuad(): Promise<void> {
+    if (!this.matchmaking) return;
+
+    try {
+      const mmUI = getMatchmakingUI();
+      if (mmUI) mmUI.show();
+      await this.matchmaking.quickMatchQuad();
+    } catch (error) {
+      this.showMessage('Failed to start matchmaking');
+    }
+  }
+
+  private showMultiplayerLevelSelect(): void {
+    const mpLevels = STATIC_LEVELS.filter(l => l.minPlayers >= 2);
+
+    const levelButtons = mpLevels.map(level => `
+      <button class="level-btn" data-level="${level.id}" style="
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: white;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: 8px;
+        text-align: left;
+        width: 100%;
+        max-width: 400px;
+      ">
+        <div style="font-weight: 500; margin-bottom: 0.3rem;">${level.name}</div>
+        <div style="font-size: 0.8rem; opacity: 0.6;">${level.minPlayers}-${level.maxPlayers} players • ${level.subtitle}</div>
+      </button>
+    `).join('');
+
+    const menuHtml = `
+      <div id="mp-level-select" style="
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: system-ui, sans-serif;
+        color: white;
+        pointer-events: auto;
+        background: rgba(10, 10, 15, 0.95);
+        padding: 2rem;
+        overflow-y: auto;
+      ">
+        <div style="font-size: 1.5rem; font-weight: 100; letter-spacing: 0.2em; margin-bottom: 2rem;">
+          MULTIPLAYER LEVELS
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.8rem; align-items: center; max-height: 60vh; overflow-y: auto; padding: 1rem;">
+          ${levelButtons}
+        </div>
+        <button class="back-btn" data-action="back" style="
+          background: transparent;
+          border: 1px solid rgba(255,255,255,0.1);
+          color: rgba(255,255,255,0.5);
+          padding: 0.6rem 1.5rem;
+          font-size: 0.9rem;
+          cursor: pointer;
+          border-radius: 4px;
+          margin-top: 1.5rem;
+        ">← BACK</button>
+      </div>
+    `;
+
+    this.uiContainer.innerHTML = menuHtml;
+
+    // Handle level clicks
+    this.uiContainer.querySelectorAll('.level-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const levelId = (btn as HTMLElement).dataset.level;
+        if (levelId && this.matchmaking) {
+          const mmUI = getMatchmakingUI();
+          if (mmUI) mmUI.show();
+          await this.matchmaking.quickMatchLevel(levelId);
+        }
+      });
+    });
+
+    // Handle back
+    this.uiContainer.querySelector('.back-btn')?.addEventListener('click', () => {
+      this.showMultiplayerMenu();
     });
   }
 
@@ -1209,6 +1434,23 @@ export class Orthogonal {
     // Meta-awareness messages
     metaAwareness.onMessage((message) => {
       this.showMetaMessage(message);
+    });
+  }
+
+  private setupMatchmakingEvents(): void {
+    if (!this.matchmaking) return;
+
+    this.matchmaking.on('transitionComplete', (data: { levelId: string; isHost: boolean }) => {
+      // Start the multiplayer level
+      this.startLevel(data.levelId);
+    });
+
+    this.matchmaking.on('error', (data: { code: string; message: string }) => {
+      this.showMessage(`Matchmaking error: ${data.message}`);
+    });
+
+    this.matchmaking.on('timeout', () => {
+      this.showMessage('Matchmaking timed out. Try again later.');
     });
   }
 
