@@ -6,20 +6,40 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:prod": "tsc && vite build --mode production",
+    "build:electron": "npm run build:prod && electron-builder",
+    "build:all": "npx tsx scripts/build.ts all --prod",
     "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest",
     "electron": "electron .",
-    "electron:build": "npm run build && electron-builder"
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "analyze": "vite-bundle-visualizer",
+    "clean": "rm -rf dist dist-electron node_modules/.vite",
+    "assemble": "npx tsx scripts/assemble.ts",
+    "setup": "npx tsx scripts/deploy-setup.ts",
+    "deploy": "npx vercel",
+    "deploy:prod": "npx vercel --prod"
   },
   "dependencies": {
     "three": "^0.160.0",
-    "zustand": "^4.4.7"
+    "zustand": "^4.4.7",
+    "tesseract.js": "^5.0.4",
+    "@supabase/supabase-js": "^2.39.0"
   },
   "devDependencies": {
     "@types/three": "^0.160.0",
+    "@types/node": "^20.10.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
+    "vitest": "^1.1.0",
+    "tsx": "^4.7.0",
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0",
     "electron": "^28.1.0",
-    "electron-builder": "^24.9.1"
+    "electron-builder": "^24.9.1",
+    "vite-bundle-visualizer": "^1.0.0"
   },
   "main": "electron/main.js",
   "build": {
