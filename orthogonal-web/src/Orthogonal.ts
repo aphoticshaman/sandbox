@@ -1606,12 +1606,5 @@ export async function createGame(canvas: HTMLCanvasElement, options: Partial<Ort
   return game;
 }
 
-// Auto-start if canvas exists
-if (typeof window !== 'undefined') {
-  window.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('game-canvas') as HTMLCanvasElement;
-    if (canvas) {
-      createGame(canvas).catch(console.error);
-    }
-  });
-}
+// Note: Game initialization is handled by main.ts
+// Do not auto-start here to avoid duplicate initialization
