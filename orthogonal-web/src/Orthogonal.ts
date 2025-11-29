@@ -502,6 +502,8 @@ export class Orthogonal {
    * Start a level by ID
    */
   async startLevel(levelId: string): Promise<boolean> {
+    console.log('[Orthogonal] Starting level:', levelId);
+
     // Check if level is unlocked
     const completedLevels = new Set(saveSystem.getProgress().completedLevels);
     const levelDef = STATIC_LEVELS.find(l => l.id === levelId);
@@ -518,11 +520,37 @@ export class Orthogonal {
       return false;
     }
 
+    // Clear UI
+    this.uiContainer.innerHTML = '';
+
     this.currentLevelId = levelId;
     this.setState('playing');
 
+    // Place player at origin node
+    const runtime = this.levelScene.getRuntime();
+    const level = this.levelScene.getLevel();
+    if (runtime && level && level.originNodes.length > 0) {
+      const origin = level.originNodes[0];
+      runtime.movePlayer(this.playerId, origin.id);
+      console.log('[Orthogonal] Player placed at origin:', origin.id, origin.position);
+
+      // Position camera to see the level
+      this.levelScene.setCameraPosition(
+        origin.position.x,
+        origin.position.y + 5,
+        origin.position.z + 15
+      );
+      this.levelScene.lookAt(origin.position.x, origin.position.y, origin.position.z);
+    }
+
     // Setup level-specific event handlers
     this.setupLevelEvents();
+
+    // Setup click handling for gameplay
+    this.setupGameplayInput();
+
+    // Show level HUD
+    this.showLevelHUD(levelDef?.name || levelId);
 
     // Track analytics
     analytics.trackLevelStart(levelId, 0);
@@ -534,6 +562,84 @@ export class Orthogonal {
     );
 
     return true;
+  }
+
+  private setupGameplayInput(): void {
+    // Remove old handlers
+    this.config.canvas.onclick = null;
+
+    // Add click handler for node selection
+    this.config.canvas.onclick = (event: MouseEvent) => {
+      if (this.state !== 'playing') return;
+
+      const runtime = this.levelScene.getRuntime();
+      const level = this.levelScene.getLevel();
+      if (!runtime || !level) return;
+
+      // Get current player position
+      const currentNodeId = level.currentPlayerPositions.get(this.playerId);
+      if (!currentNodeId) return;
+
+      const currentNode = level.nodes.get(currentNodeId);
+      if (!currentNode) return;
+
+      // Find connected nodes (adjacent to current)
+      const adjacentNodes: string[] = [];
+      for (const edgeId of currentNode.edges) {
+        const edge = level.edges.get(edgeId);
+        if (!edge || !edge.visible) continue;
+
+        if (edge.from === currentNodeId) {
+          adjacentNodes.push(edge.to);
+        } else if (edge.to === currentNodeId && edge.type !== 'one-way') {
+          adjacentNodes.push(edge.from);
+        }
+      }
+
+      // Raycast to find clicked node
+      const rect = this.config.canvas.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+      const raycaster = new THREE.Raycaster();
+      raycaster.setFromCamera(new THREE.Vector2(x, y), this.levelScene.getCamera());
+
+      const scene = this.levelScene.getScene();
+      const intersects = raycaster.intersectObjects(scene.children, true);
+
+      for (const intersect of intersects) {
+        const nodeId = intersect.object.userData?.nodeId;
+        if (nodeId && adjacentNodes.includes(nodeId)) {
+          // Move to this node
+          const moved = runtime.movePlayer(this.playerId, nodeId);
+          if (moved) {
+            console.log('[Orthogonal] Moved to node:', nodeId);
+            this.audioEngine.playNodeActivate();
+          }
+          break;
+        }
+      }
+    };
+  }
+
+  private showLevelHUD(levelName: string): void {
+    const hud = document.createElement('div');
+    hud.id = 'level-hud';
+    hud.style.cssText = `
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-family: system-ui;
+      pointer-events: none;
+      z-index: 100;
+    `;
+    hud.innerHTML = `
+      <div style="font-size: 1.2rem; font-weight: 300; opacity: 0.8;">${levelName}</div>
+      <div style="font-size: 0.8rem; opacity: 0.5; margin-top: 0.5rem;">Click adjacent nodes to move</div>
+      <div style="font-size: 0.8rem; opacity: 0.5;">ESC to pause</div>
+    `;
+    this.uiContainer.appendChild(hud);
   }
 
   /**

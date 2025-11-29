@@ -642,20 +642,20 @@ class AmbienceGenerator {
       textureFilterFreq: number;
     }> = {
       LATTICE: {
-        droneFrequencies: [55, 82.5, 110, 165],  // A1, E2, A2, E3
-        droneVolumes: [0.1, 0.08, 0.06, 0.04],
+        droneFrequencies: [110, 165, 220, 330],  // A2, E3, A3, E4 - raised from sub-bass
+        droneVolumes: [0.06, 0.05, 0.04, 0.03],
         waveform: 'sine',
         textureFilterFreq: 800,
       },
       MARROW: {
-        droneFrequencies: [65.41, 98, 130.81],  // C2, G2, C3
-        droneVolumes: [0.12, 0.08, 0.05],
+        droneFrequencies: [130.81, 196, 261.63],  // C3, G3, C4 - raised
+        droneVolumes: [0.08, 0.06, 0.04],
         waveform: 'triangle',
         textureFilterFreq: 400,
       },
       VOID: {
-        droneFrequencies: [32.7, 49, 65.41],  // C1, G1, C2
-        droneVolumes: [0.15, 0.1, 0.05],
+        droneFrequencies: [65.41, 98, 130.81],  // C2, G2, C3 - raised from sub-bass
+        droneVolumes: [0.1, 0.07, 0.04],
         waveform: 'sawtooth',
         textureFilterFreq: 200,
       },
