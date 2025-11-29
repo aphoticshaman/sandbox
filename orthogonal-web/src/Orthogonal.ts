@@ -15,9 +15,9 @@ import { PuzzleEngine } from './puzzle/PuzzleMechanics';
 import { DimensionManager } from './core/DimensionManager';
 
 // Player systems
-import { InputManager } from './input/InputManager';
-import { AwarenessController } from './player/AwarenessController';
-import { SDPMProfiler } from './player/SDPMProfile';
+import { InputManager } from './core/InputManager';
+import { AwarenessController } from './core/AwarenessController';
+import { SDPMProfile as SDPMProfiler } from './player/SDPMProfile';
 
 // Audio/Visual
 import { AudioEngine } from './audio/AudioEngine';
