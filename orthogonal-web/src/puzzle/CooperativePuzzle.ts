@@ -26,6 +26,25 @@ export type CoopMechanicType =
   | 'complementary-roles' // Each player has unique abilities
   | 'chain-reaction';     // One's action enables another's
 
+// General puzzle type alias for external use
+export type PuzzleType =
+  | 'focus'               // Requires sustained attention
+  | 'witness'             // Requires entering witness mode
+  | 'navigation'          // Find path through space
+  | 'sequence'            // Activate in correct order
+  | 'timing'              // Time-based puzzle
+  | 'cooperative'         // Multi-player required
+  // Cooperative mechanics (for multiplayer levels)
+  | 'split-perception'    // Each player sees different layers
+  | 'synchronized-focus'  // Must focus on same target together
+  | 'relay-witness'       // One witnesses, reveals for another to act
+  | 'perspective-union'   // Combined viewpoints reveal truth
+  | 'attention-bridge'    // Attention creates path for others
+  | 'temporal-sync'       // Actions must happen at exact same time
+  | 'complementary-roles' // Each player has unique abilities
+  | 'chain-reaction'      // One's action enables another's
+  | 'sequential-focus';   // Focus in sequence
+
 export interface CoopPuzzleConfig {
   id: string;
   name: string;

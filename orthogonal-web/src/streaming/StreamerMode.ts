@@ -1152,6 +1152,9 @@ export const streamOverlay = new StreamOverlaySystem();
 export const specialEffects = new SpecialEffectsSystem();
 export const quickCommands = new QuickCommands();
 
+// Alias for backward compatibility
+export { StreamerSetup as StreamerMode };
+
 // =============================================================================
 // AUTO-INIT
 // =============================================================================

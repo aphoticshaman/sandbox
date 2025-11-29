@@ -19,7 +19,8 @@ export type EventCategory =
   | 'social'           // Multiplayer/spectator
   | 'ui'               // UI interactions
   | 'performance'      // Technical metrics
-  | 'error';           // Errors
+  | 'error'            // Errors
+  | 'meta';            // Meta-awareness events
 
 export interface AnalyticsEvent {
   id: string;

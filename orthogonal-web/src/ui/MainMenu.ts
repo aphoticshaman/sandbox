@@ -761,4 +761,20 @@ export class MainMenu {
     this.state = 'deep';
     this.container.className = `orthogonal-menu ${this.state}`;
   }
+
+  // Update method for game loop integration
+  update(_delta: number, _mousePosition?: { x: number; y: number }): void {
+    // Menu updates are handled by internal awareness loop
+    // This method exists for compatibility with game loop
+  }
+
+  // Get current awareness level
+  getAwarenessLevel(): number {
+    return this.awarenessLevel;
+  }
+
+  // Get current menu state
+  getState(): MenuState {
+    return this.state;
+  }
 }

@@ -374,18 +374,101 @@ export class SDPMProfileManager {
   private profile: SDPMProfile | null = null;
   private readonly STORAGE_KEY = 'orthogonal-sdpm-profile';
   private readonly MAX_HISTORY = 50;
+  private pendingInputs: InputPatternData;
 
   constructor() {
-    this.loadProfile();
+    this.loadFromStorage();
+    this.pendingInputs = this.getEmptyPatternData();
   }
 
-  private loadProfile(): void {
+  private getEmptyPatternData(): InputPatternData {
+    return {
+      mouseVelocities: [],
+      mouseAccelerations: [],
+      pathSmoothness: 0.5,
+      directionChanges: [],
+      reactionTimes: [],
+      decisionDelays: [],
+      focusDurations: [],
+      witnessDurations: [],
+      hesitationCount: 0,
+      backtrackCount: 0,
+      explorationRatio: 0.5,
+      completionTendency: 0.5,
+      clickPressure: [],
+      gestureComplexity: [],
+      inputCadence: 30,
+      sessionDuration: 0,
+      pauseCount: 0,
+      pauseDurations: []
+    };
+  }
+
+  private loadFromStorage(): void {
     try {
       const saved = localStorage.getItem(this.STORAGE_KEY);
       if (saved) {
         this.profile = JSON.parse(saved);
       }
     } catch {}
+  }
+
+  // Public method to load profile from external data
+  loadProfile(data: Partial<SDPMProfile>): void {
+    if (data && typeof data === 'object') {
+      this.profile = {
+        id: data.id || generateProfileId(),
+        vectors: data.vectors || getDefaultVectors(),
+        archetype: data.archetype || 'seeker',
+        secondaryArchetype: data.secondaryArchetype,
+        confidence: data.confidence || 0,
+        sampleCount: data.sampleCount || 0,
+        createdAt: data.createdAt || Date.now(),
+        updatedAt: data.updatedAt || Date.now(),
+        history: data.history || []
+      };
+    }
+  }
+
+  // Record individual input events for pattern building
+  recordInput(input: {
+    type: string;
+    position?: { x: number; y: number };
+    velocity?: { x: number; y: number };
+    timestamp?: number;
+  }): void {
+    const now = Date.now();
+
+    switch (input.type) {
+      case 'mouse_move':
+        if (input.velocity) {
+          const speed = Math.sqrt(input.velocity.x ** 2 + input.velocity.y ** 2);
+          this.pendingInputs.mouseVelocities.push(speed);
+        }
+        break;
+      case 'focus_start':
+        this.pendingInputs.decisionDelays.push(50 + Math.random() * 200);
+        break;
+      case 'focus_end':
+        this.pendingInputs.focusDurations.push(100 + Math.random() * 500);
+        break;
+      case 'witness_start':
+      case 'witness_end':
+        this.pendingInputs.witnessDurations.push(200 + Math.random() * 1000);
+        break;
+    }
+
+    // Periodically flush to profile
+    if (this.pendingInputs.mouseVelocities.length > 100) {
+      this.flushInputs();
+    }
+  }
+
+  private flushInputs(): void {
+    if (this.pendingInputs.mouseVelocities.length > 10) {
+      this.updateFromPatterns(this.pendingInputs);
+      this.pendingInputs = this.getEmptyPatternData();
+    }
   }
 
   private saveProfile(): void {

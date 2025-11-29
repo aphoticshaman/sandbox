@@ -9,7 +9,7 @@ import { DimensionType } from '../core/DimensionManager';
 
 export interface GameState {
   // Current state
-  state: 'menu' | 'loading' | 'playing' | 'paused' | 'level-complete';
+  state: 'menu' | 'loading' | 'playing' | 'paused' | 'level-complete' | 'tutorial';
   currentLevel: string | null;
   currentDimension: DimensionType;
 
@@ -25,6 +25,7 @@ export interface GameState {
 
   // Actions
   setState: (state: GameState['state']) => void;
+  setPhase: (phase: GameState['state']) => void;  // Alias for setState
   setLevel: (levelId: string | null) => void;
   setDimension: (dimension: DimensionType) => void;
   setPlayerPosition: (pos: { x: number; y: number; z: number }) => void;
@@ -47,6 +48,7 @@ export const useGameStore = create<GameState>((set) => ({
 
   // Actions
   setState: (state) => set({ state }),
+  setPhase: (phase) => set({ state: phase }),  // Alias for setState
   setLevel: (levelId) => set({ currentLevel: levelId, levelStartTime: Date.now() }),
   setDimension: (dimension) => set({ currentDimension: dimension }),
   setPlayerPosition: (pos) => set({ playerPosition: pos }),

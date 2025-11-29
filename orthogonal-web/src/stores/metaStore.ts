@@ -39,6 +39,11 @@ export interface MetaState {
   updateFocusDuration: (duration: number) => void;
   updateWitnessDuration: (duration: number) => void;
   reset: () => void;
+  // Additional methods for compatibility
+  onWitness: (callback: () => void) => void;
+  engageWitness: () => void;
+  update: (delta: number) => void;
+  startSession: () => void;
 }
 
 export const useMetaStore = create<MetaState>((set, get) => ({
@@ -106,6 +111,33 @@ export const useMetaStore = create<MetaState>((set, get) => ({
   },
 
   reset: () => set({
+    awarenessLevel: 0,
+    witnessTime: 0,
+    focusTime: 0,
+    dimensionShifts: 0,
+    backtrackCount: 0,
+    pauseCount: 0,
+    hesitationEvents: 0
+  }),
+
+  // Additional methods for compatibility
+  onWitness: (_callback: () => void) => {
+    // Register witness callback (no-op for now, events handled elsewhere)
+  },
+
+  engageWitness: () => set((state) => ({
+    awarenessLevel: Math.min(1, state.awarenessLevel + 0.1)
+  })),
+
+  update: (_delta: number) => {
+    // Per-frame update (awareness decay handled here if needed)
+    const state = get();
+    if (state.awarenessLevel > 0) {
+      set({ awarenessLevel: Math.max(0, state.awarenessLevel - 0.001) });
+    }
+  },
+
+  startSession: () => set({
     awarenessLevel: 0,
     witnessTime: 0,
     focusTime: 0,

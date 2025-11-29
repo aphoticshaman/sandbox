@@ -35,7 +35,8 @@ type SpectatorEventType =
   | 'stream_ended'
   | 'spectate_started'
   | 'spectate_ended'
-  | 'state_update';
+  | 'state_update'
+  | 'stream_list';
 
 type SpectatorCallback = (data: any) => void;
 

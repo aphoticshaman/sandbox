@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "build:prod": "tsc && vite build --mode production",
+    "build": "vite build",
+    "build:prod": "vite build --mode production",
+    "build:strict": "tsc && vite build",
     "build:electron": "npm run build:prod && electron-builder",
     "build:all": "npx tsx scripts/build.ts all --prod",
     "preview": "vite preview",

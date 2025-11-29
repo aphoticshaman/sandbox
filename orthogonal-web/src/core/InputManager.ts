@@ -28,6 +28,14 @@ export class InputManager {
   private inputHistory: InputEvent[] = [];
   private readonly HISTORY_LIMIT = 1000;
 
+  // Key and mouse state tracking
+  private keysDown: Set<string> = new Set();
+  private mouseButtonsDown: Set<number> = new Set();
+  private mousePosition: { x: number; y: number } = { x: 0, y: 0 };
+  private lastMousePosition: { x: number; y: number } = { x: 0, y: 0 };
+  private mouseVelocity: { x: number; y: number } = { x: 0, y: 0 };
+  private lastMouseTime: number = 0;
+
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.state = {
@@ -71,10 +79,23 @@ export class InputManager {
   // Mouse handlers
   private onMouseMove(e: MouseEvent): void {
     this.updatePointerFromEvent(e.clientX, e.clientY);
+
+    // Track velocity
+    const now = performance.now();
+    const dt = now - this.lastMouseTime;
+    if (dt > 0) {
+      this.mouseVelocity.x = (e.clientX - this.lastMousePosition.x) / dt;
+      this.mouseVelocity.y = (e.clientY - this.lastMousePosition.y) / dt;
+    }
+    this.lastMousePosition = { x: e.clientX, y: e.clientY };
+    this.mousePosition = { x: e.clientX, y: e.clientY };
+    this.lastMouseTime = now;
+
     this.recordInput('mouse_move', { x: e.clientX, y: e.clientY });
   }
 
   private onMouseDown(e: MouseEvent): void {
+    this.mouseButtonsDown.add(e.button);
     if (e.button === 0) {
       this.state.focusing = true;
       this.recordInput('focus_start', {});
@@ -85,6 +106,7 @@ export class InputManager {
   }
 
   private onMouseUp(e: MouseEvent): void {
+    this.mouseButtonsDown.delete(e.button);
     if (e.button === 0) {
       this.state.focusing = false;
       this.recordInput('focus_end', {});
@@ -130,6 +152,7 @@ export class InputManager {
 
   // Keyboard handlers
   private onKeyDown(e: KeyboardEvent): void {
+    this.keysDown.add(e.code);
     switch (e.code) {
       case 'Tab':
         e.preventDefault();
@@ -149,6 +172,7 @@ export class InputManager {
   }
 
   private onKeyUp(e: KeyboardEvent): void {
+    this.keysDown.delete(e.code);
     switch (e.code) {
       case 'Tab':
         this.state.witnessing = false;
@@ -269,7 +293,28 @@ export class InputManager {
   getInputPatterns(): InputPatterns {
     return analyzeInputPatterns(this.inputHistory);
   }
+
+  // Additional public API methods
+  getMousePosition(): { x: number; y: number } {
+    return { ...this.mousePosition };
+  }
+
+  getMouseVelocity(): { x: number; y: number } {
+    return { ...this.mouseVelocity };
+  }
+
+  isKeyDown(code: string): boolean {
+    return this.keysDown.has(code);
+  }
+
+  isMouseButtonDown(button: number): boolean {
+    return this.mouseButtonsDown.has(button);
+  }
+
+  // Export InputPatterns for external use
 }
+
+export type { InputPatterns };
 
 // Types for behavior analysis
 interface InputEvent {

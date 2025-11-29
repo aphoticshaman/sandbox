@@ -84,6 +84,11 @@ export class AudioEngine {
   private reverb: ConvolverNode | null = null;
   private reverbGain: GainNode | null = null;
 
+  // Alias for initialize
+  async init(): Promise<void> {
+    return this.initialize();
+  }
+
   async initialize(): Promise<void> {
     // Create context on user interaction
     this.ctx = new AudioContext();
@@ -465,6 +470,38 @@ export class AudioEngine {
 
   pause(): void {
     this.ctx?.suspend();
+  }
+
+  // Generic sound player
+  playSound(soundName: string): void {
+    switch (soundName) {
+      case 'focus_start': this.playFocusStart(); break;
+      case 'focus_complete': this.playFocusComplete(); break;
+      case 'witness_enter': this.playWitnessEnter(); break;
+      case 'witness_exit': this.playWitnessExit(); break;
+      case 'node_activate': this.playNodeActivate(); break;
+      case 'portal_enter': this.playPortalEnter(); break;
+      case 'ui_click': this.playUIClick(); break;
+      case 'ui_hover': this.playUIHover(); break;
+      case 'error': this.playError(); break;
+      case 'success': this.playSuccess(); break;
+      default: this.playUIClick(); break;
+    }
+  }
+
+  // Generic volume setter
+  setVolume(volume: number): void {
+    this.setMasterVolume(volume);
+  }
+
+  // Cleanup
+  dispose(): void {
+    this.ambience = null;
+    this.music = null;
+    if (this.ctx) {
+      this.ctx.close();
+      this.ctx = null;
+    }
   }
 }
 

@@ -17,7 +17,7 @@ import { DimensionManager } from './core/DimensionManager';
 // Player systems
 import { InputManager } from './core/InputManager';
 import { AwarenessController } from './core/AwarenessController';
-import { SDPMProfile as SDPMProfiler } from './player/SDPMProfile';
+import { SDPMProfileManager as SDPMProfiler } from './player/SDPMProfile';
 
 // Audio/Visual
 import { AudioEngine } from './audio/AudioEngine';

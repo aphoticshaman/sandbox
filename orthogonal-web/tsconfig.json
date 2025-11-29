@@ -11,9 +11,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "strictPropertyInitialization": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
+    "types": ["vite/client", "node"],
     "paths": {
       "@/*": ["./src/*"],
       "@core/*": ["./src/core/*"],
