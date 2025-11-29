@@ -778,37 +778,40 @@ export class Orthogonal {
 
     this.uiContainer.innerHTML = menuHtml;
 
-    // Add hover effects
+    // Add hover effects and click handlers directly to each button
     this.uiContainer.querySelectorAll('.menu-btn').forEach(btn => {
+      const button = btn as HTMLElement;
+
       btn.addEventListener('mouseenter', () => {
-        (btn as HTMLElement).style.background = 'rgba(255,255,255,0.2)';
-        (btn as HTMLElement).style.borderColor = 'rgba(255,255,255,0.4)';
+        button.style.background = 'rgba(255,255,255,0.2)';
+        button.style.borderColor = 'rgba(255,255,255,0.4)';
       });
       btn.addEventListener('mouseleave', () => {
-        (btn as HTMLElement).style.background = 'rgba(255,255,255,0.1)';
-        (btn as HTMLElement).style.borderColor = 'rgba(255,255,255,0.2)';
+        button.style.background = 'rgba(255,255,255,0.1)';
+        button.style.borderColor = 'rgba(255,255,255,0.2)';
       });
-    });
 
-    // Handle clicks
-    this.uiContainer.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      const action = target.dataset.action;
+      // Direct click handler on each button
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const action = button.dataset.action;
+        console.log('[Menu] Button clicked:', action);
 
-      switch (action) {
-        case 'play':
-          this.startNextLevel();
-          break;
-        case 'multiplayer':
-          this.showMultiplayerMenu();
-          break;
-        case 'levels':
-          this.showLevelSelect();
-          break;
-        case 'settings':
-          this.showSettings();
-          break;
-      }
+        switch (action) {
+          case 'play':
+            this.startNextLevel();
+            break;
+          case 'multiplayer':
+            this.showMultiplayerMenu();
+            break;
+          case 'levels':
+            this.showLevelSelect();
+            break;
+          case 'settings':
+            this.showSettings();
+            break;
+        }
+      });
     });
   }
 
