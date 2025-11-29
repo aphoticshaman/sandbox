@@ -53,10 +53,5 @@
     "api/**/*.ts": {
       "runtime": "@vercel/node@3.0.0"
     }
-  },
-  "env": {
-    "VITE_SUPABASE_URL": "@supabase-url",
-    "VITE_SUPABASE_ANON_KEY": "@supabase-anon-key",
-    "RESEND_API_KEY": "@resend-api-key"
   }
 }
