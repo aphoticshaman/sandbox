@@ -1,0 +1,57 @@
+# ===========================================
+# ORTHOGONAL GAME - BUILD-ONLY .gitignore
+# ===========================================
+# This repo contains ONLY production game code
+# Dev tools, docs, and local junk are ignored
+# ===========================================
+
+# -----------------------------
+# DEV-ONLY (not in game builds)
+# -----------------------------
+dev/
+
+# -----------------------------
+# Dependencies & Build Output
+# -----------------------------
+node_modules/
+dist/
+.vite/
+*.local
+
+# -----------------------------
+# Environment & Secrets
+# -----------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------
+# IDE & OS Junk
+# -----------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Logs & Debug
+# -----------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# -----------------------------
+# Testing & Coverage
+# -----------------------------
+coverage/
+.nyc_output/
+
+# -----------------------------
+# Misc Build Artifacts
+# -----------------------------
+*.tsbuildinfo
+.cache/
